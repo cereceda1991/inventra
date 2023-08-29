@@ -1,0 +1,12 @@
+.container__inventory {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 230px);
+    margin-left: 230px;
+    gap: 43px;
+}
+
+.header__navbar{
+    box-shadow: 1px 0px 4px 0px rgba(48, 48, 48, 0.15);
+
+}

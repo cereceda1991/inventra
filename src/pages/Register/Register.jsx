@@ -35,8 +35,7 @@ const Register = () => {
           </div>
           <h1 className='register__title'>Te damos la bienvenida</h1>
           <p className='register__paragraph'>
-            Regístrate para conocer todas las ventajas que Inventra tiene para
-            ti.
+            Regístrate para conocer todas las ventajas que Inventra tiene para ti.
           </p>
           <input
             type='text'

@@ -1,0 +1,51 @@
+.product-options {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 44px;
+    gap: 23px;
+
+}
+
+.product-options__actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-options__dropdown select {
+    width: 143px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #E3E3E3;
+}
+
+.product__options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product__options p {
+    color: #2969E3;
+    font-weight: 500;
+}
+
+.product__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 182px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: inherit;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    gap: 12px;
+    background: #2969E3;
+    letter-spacing: 1.25px;
+}

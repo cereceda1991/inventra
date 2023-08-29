@@ -33,8 +33,7 @@ const Login = () => {
           </div>
           <h1 className='login__title'>¡Hola de nuevo!</h1>
           <p className='login__paragraph'>
-            Inicia sesión para continuar gestionando tu inventario y hacer
-            crecer tu negocio.
+            Inicia sesión para continuar gestionando tu inventario y hacer crecer tu negocio.
           </p>
           <input
             type='email'
@@ -65,9 +64,7 @@ const Login = () => {
             className={`login__button ${isButtonDisabled && 'disabled'}`}
             onClick={handleLogin}
           >
-            <Link to="/dashboard">
-              Ingresar
-            </Link>
+            <Link to='/dashboard'>Ingresar</Link>
           </button>
           <div className='login__register-link'>
             ¿No tienes una cuenta? <Link to='/register'>Regístrate ahora</Link>

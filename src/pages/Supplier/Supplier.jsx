@@ -1,22 +1,21 @@
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar/Sidebar'
+import './Supplier.css'
 
-import './Dashboard.css'
-
-const Dashboard = () => {
+const Supplier = () => {
   const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
   const userName = 'Rocio del Solar'
   const userRole = 'Administrador'
 
   return (
-    <section className='container__dashboard'>
+    <section className='container__supplier'>
       <Sidebar />
       <section className='header__navbar'>
         <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       </section>
-      <h1>Dashboard</h1>
+      <h1>Supplier</h1>
     </section>
   )
 }
 
-export default Dashboard
+export default Supplier

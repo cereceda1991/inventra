@@ -1,9 +1,9 @@
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar/Sidebar'
 
-import './Dashboard.css'
+import './Help.css'
 
-const Dashboard = () => {
+const Help = () => {
   const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
   const userName = 'Rocio del Solar'
   const userRole = 'Administrador'
@@ -14,9 +14,9 @@ const Dashboard = () => {
       <section className='header__navbar'>
         <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       </section>
-      <h1>Dashboard</h1>
+      <h1>Help</h1>
     </section>
   )
 }
 
-export default Dashboard
+export default Help

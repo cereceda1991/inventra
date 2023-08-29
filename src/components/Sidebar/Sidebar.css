@@ -1,18 +1,22 @@
 .sidebar {
-    background-color: #2969E3;
+    background-color: #2969e3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #ffffff;
-    width: 250px;
+    width: 230px;
     height: 100vh;
-    padding-top: 20px;
+    padding: 36px 20px;
     position: fixed;
     top: 0;
-    left: -250px; 
+    gap: 10px;
+    left: -250px;
     transition: left 0.3s;
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 .sidebar.open {
-    left: 0; 
+    left: 0;
 }
 
 .sidebar__toggle {
@@ -22,10 +26,10 @@
     left: 20px;
     background-color: transparent;
     border: none;
-    cursor: pointer; 
+    cursor: pointer;
     z-index: 1001;
     color: #ffffff;
-    background-color: #003EBB;
+    background-color: #003ebb;
 }
 
 .sidebar__toggle .bar {
@@ -36,29 +40,36 @@
 }
 
 .sidebar__toggle.open .bar {
-    background-color: #003EBB;
+    background-color: #003ebb;
 }
 
 .sidebar__logo {
-    text-align: center;
     margin-bottom: 20px;
 }
 
 .sidebar__logo img {
-    max-width: 80%;
+    max-width: 100%;
 }
 
 .sidebar__link {
     display: flex;
     align-items: center;
+    gap: 23px;
     padding: 10px 20px;
+    width: 190px;
+    height: 51px;
     color: #ffffff;
     text-decoration: none;
     transition: background-color 0.3s;
 }
 
 .sidebar__link:hover {
-    background-color: #003EBB;
+    border-radius: 8px;
+    background: #003ebb;
+}
+
+.sidebar__link:last-child {
+    margin-top: auto;
 }
 
 .sidebar__icon {
@@ -67,10 +78,10 @@
 
 @media (min-width: 769px) {
     .sidebar {
-        left: 0; 
+        left: 0;
     }
 
     .sidebar__toggle {
-        display: none; 
+        display: none;
     }
 }

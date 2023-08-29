@@ -1,0 +1,22 @@
+<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon-park-solid:config" clip-path="url(#clip0_1187_2860)">
+<g id="Mask group">
+<mask id="mask0_1187_2860" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+<g id="Group">
+<g id="Group_2">
+<path id="Vector" d="M12.8534 2L9.86911 5H5.89006V9L2.90576 12L5.89006 15V19H9.86911L12.8534 22L15.8377 19H19.8168V15L22.8011 12L19.8168 9V5H15.8377L12.8534 2Z" fill="white" stroke="white" stroke-width="4" stroke-linejoin="round"/>
+<path id="Vector_2" d="M12.8534 15C13.6449 15 14.404 14.6839 14.9636 14.1213C15.5233 13.5587 15.8377 12.7956 15.8377 12C15.8377 11.2044 15.5233 10.4413 14.9636 9.87868C14.404 9.31607 13.6449 9 12.8534 9C12.0619 9 11.3029 9.31607 10.7432 9.87868C10.1836 10.4413 9.86914 11.2044 9.86914 12C9.86914 12.7956 10.1836 13.5587 10.7432 14.1213C11.3029 14.6839 12.0619 15 12.8534 15Z" fill="black" stroke="black" stroke-width="4" stroke-linejoin="round"/>
+</g>
+</g>
+</mask>
+<g mask="url(#mask0_1187_2860)">
+<path id="Vector_3" d="M0.91626 0H24.7906V24H0.91626V0Z" fill="white"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_1187_2860">
+<rect width="23.8743" height="24" fill="white" transform="translate(0.91626)"/>
+</clipPath>
+</defs>
+</svg>
