@@ -71,7 +71,7 @@ const Register = () => {
             Registrarse
           </button>
           <div className='register__login-link'>
-            ¿Ya tienes una cuenta? <a href='/login'>Ingresa ahora</a>
+            ¿Ya tienes una cuenta? <Link to='/login'>Ingresa ahora</Link>
           </div>
         </section>
       </div>
