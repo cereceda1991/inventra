@@ -65,7 +65,9 @@ const Login = () => {
             className={`login__button ${isButtonDisabled && 'disabled'}`}
             onClick={handleLogin}
           >
-            Ingresar
+            <Link to="/dashboard">
+              Ingresar
+            </Link>
           </button>
           <div className='login__register-link'>
             ¿No tienes una cuenta? <Link to='/register'>Regístrate ahora</Link>
