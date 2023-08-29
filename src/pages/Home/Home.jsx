@@ -1,4 +1,4 @@
-import "./home.css";
+import "./Home.css";
 import portada from "../../assets/landing-inventra-1.png";
 import logo from '../../assets/logo-azul-inventra-042.png';
 import PropTypes from 'prop-types'
