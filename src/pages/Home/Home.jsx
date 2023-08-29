@@ -1,6 +1,6 @@
 import "./Home.css";
-import portada from "../../assets/landing-inventra-1.png";
-import logo from '../../assets/logo-azul-inventra-042.png';
+import portada from "../../assets/landing-inventra-1.webp";
+import logo from '../../assets/logo-azul-inventra-042.webp';
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 

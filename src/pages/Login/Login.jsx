@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import personal from "../../assets/personal_inventra.png";
-import logo from '../../assets/logo-azul-inventra-042.png'
+import personal from "../../assets/personal_inventra.webp";
+import logo from '../../assets/logo-azul-inventra-042.webp'
 import { BiLowVision, BiShow } from "react-icons/bi"
 
 
