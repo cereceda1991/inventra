@@ -1,6 +1,7 @@
 import "./home.css";
 import portada from "../../assets/landing-inventra-1.png";
 import logo from '../../assets/logo-azul-inventra-042.png';
+import PropTypes from 'prop-types'
 
 const SelectOptionsGroup = ({ options }) => {
   return (
@@ -14,6 +15,10 @@ const SelectOptionsGroup = ({ options }) => {
       </select>
     </div>
   );
+};
+
+SelectOptionsGroup.propTypes = {
+  options: PropTypes.array.isRequired,
 };
 
 const Home = () => {
