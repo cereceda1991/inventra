@@ -4,11 +4,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --light-theme-background-color: #F4F7FF;
+    --light-theme-text-color: #303030;
+    --dark-theme-background-color: #1c1c1c;
+    --dark-theme-text-color: #ffffff;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: #303030;
+    background-color: var(--light-theme-background-color);
+    color: var(--light-theme-text-color);
+}
+
+body.darkmode {
+    background-color: var(--dark-theme-background-color);
+    color: var(--dark-theme-text-color);
 }
 
 h4 {

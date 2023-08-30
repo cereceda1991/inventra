@@ -12,7 +12,6 @@
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.10);
     width: 100%;
     height: 67px;
-    background-color: #fff;
 }
 
 .home__header-options {
@@ -20,9 +19,11 @@
 }
 
 .home__header-select {
-    background-color: transparent;
     border: none;
     font-size: 20px;
+    font-family: inherit;
+    color: inherit;
+    background-color: inherit;
 }
 
 .home_main {
@@ -31,7 +32,6 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
-    background-color: #F4F7FF;
 }
 
 .home_image {
@@ -57,7 +57,6 @@
     cursor: pointer;
     border: none;
     order: 3;
-    color: #F4F7FF;
     font-weight: 600;
     font-family: inherit;
     letter-spacing: 0.25px;
@@ -78,7 +77,7 @@
         max-width: 2160px;
         margin: auto;
         justify-content: space-around;
-        min-height: calc( 100vh - 67px );
+        min-height: calc(100vh - 67px);
     }
 
     .home_image {

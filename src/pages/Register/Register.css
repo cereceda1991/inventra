@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f4f7ff;
     max-width: 2160px;
     margin: auto;
     position: relative;
@@ -56,6 +55,7 @@
     border: 1px solid #CFCFCF;
     border-radius: 4px;
     outline: none;
+    font-family: inherit;
 }
 
 .register__password {

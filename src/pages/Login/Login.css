@@ -1,9 +1,7 @@
-/* Login.css */
 .login {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f4f7ff;
     max-width: 2160px;
     margin: auto;
     position: relative;
@@ -42,6 +40,7 @@
     border: 1px solid #cfcfcf;
     border-radius: 4px;
     outline: none;
+    font-family: inherit;
 }
 
 .login__forgot-password a {

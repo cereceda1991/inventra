@@ -1,4 +1,5 @@
 import Navbar from '../../components/Navbar/Navbar'
+import Profile from '../../components/Profile/Profile'
 import Sidebar from '../../components/Sidebar/Sidebar'
 
 import './Setting.css'
@@ -14,7 +15,7 @@ const Setting = () => {
       <section className='header__navbar'>
         <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       </section>
-      <h1>Setting</h1>
+      <Profile />
     </section>
   )
 }

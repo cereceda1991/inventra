@@ -2,7 +2,7 @@ import categoryIcon from '../assets/icons/category.svg'
 import exportIcon from '../assets/icons/export.svg'
 import filterIcon from '../assets/icons/filter.svg'
 import plusIcon from '../assets/icons/plus.svg'
-import arrowIcon from '../assets/icons/arrow-right.svg'
+import arrowIcon from '../assets/icons/arrow-right-green.svg'
 import editIcon from '../assets/icons/edit.svg'
 import trashIcon from '../assets/icons/delete.svg'
 import configIcon from '../assets/icons/config.svg'
@@ -12,6 +12,7 @@ import inventoryIcon from '../assets/icons/inventory.svg'
 import logoutIcon from '../assets/icons/logout.svg'
 import suppliersIcon from '../assets/icons/suppliers.svg'
 import usersIcon from '../assets/icons/users.svg'
+import arrowrigthIcon from '../assets/icons/arrow-rigth.svg'
 
 const exportIconComponent = (iconPath) => {
   const Icon = () => (
@@ -19,7 +20,6 @@ const exportIconComponent = (iconPath) => {
       <img src={iconPath} alt='Icon' style={{ width: '24px', height: '24px' }} />
     </div>
   )
-
   return Icon
 }
 
@@ -37,3 +37,4 @@ export const Iconinventory = exportIconComponent(inventoryIcon)
 export const Iconlogout = exportIconComponent(logoutIcon)
 export const Iconsuppliers = exportIconComponent(suppliersIcon)
 export const Iconusers = exportIconComponent(usersIcon)
+export const IconArrowRigth = exportIconComponent(arrowrigthIcon)
