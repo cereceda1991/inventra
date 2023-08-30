@@ -56,12 +56,12 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button
+            <p
               className='register__password-toggle'
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <BiLowVision /> : <BiShow />}
-            </button>
+            </p>
           </div>
           <button
             className={`register__button ${isButtonDisabled && 'disabled'}`}

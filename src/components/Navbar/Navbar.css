@@ -14,19 +14,16 @@
 }
 
 .navbar__search-input {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 5px 10px 5px 30px;
-    outline: none;
-    width: 659px;
-    font-family: inherit;
+    width: 100%;
 }
 
 .navbar__search-icon {
     position: absolute;
     right: 10px;
-    font-size: 22px;
+    top: 10px;
+    font-size: 25px;
     color: #ccc;
+    cursor: pointer;
 }
 
 .navbar__notification {
@@ -34,6 +31,7 @@
     align-items: center;
     font-size: 20px;
     position: relative;
+    cursor: pointer;
 }
 
 .navbar__notification-icon {
@@ -61,4 +59,11 @@
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+@media(min-width:1200px) {
+    .navbar__search-input {
+        width: 659px;
+    }
+
 }

@@ -4,6 +4,7 @@
     width: calc(100% - 230px);
     margin-left: 230px;
     gap: 43px;
+    max-width: 2160px;
 }
 
 .header__navbar{

@@ -51,15 +51,7 @@
 
 .home__button {
     width: 100%;
-    height: 36px;
-    border-radius: 8px;
-    background: #2969E3;
-    cursor: pointer;
-    border: none;
     order: 3;
-    font-weight: 600;
-    font-family: inherit;
-    letter-spacing: 0.25px;
 }
 
 

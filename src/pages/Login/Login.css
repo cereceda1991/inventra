@@ -35,12 +35,6 @@
 
 .login input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #cfcfcf;
-    border-radius: 4px;
-    outline: none;
-    font-family: inherit;
 }
 
 .login__forgot-password a {
@@ -53,15 +47,6 @@
 
 .login__button {
     width: 100%;
-    padding: 10px;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 4px;
-    background-color: #2969e3;
-    color: #fff;
-    cursor: pointer;
-    font-family: inherit;
-    letter-spacing: 1.25px;
 }
 
 .login__button.disabled {
@@ -80,7 +65,3 @@
     text-decoration: none;
 }
 
-/* Media Query para dispositivos móviles */
-@media (min-width: 1200px) {
-    /* ...otros estilos... */
-}

@@ -50,12 +50,12 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button
+            <p
               className='register__password-toggle'
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <BiLowVision /> : <BiShow />}
-            </button>
+            </p>
           </div>
           <div className='login__forgot-password'>
             <Link to='/forgot-password'>Recuperar contraseña</Link>

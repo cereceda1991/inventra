@@ -33,19 +33,6 @@
 }
 
 .product__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 182px;
-    color: #fff;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-family: inherit;
-    height: 40px;
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
     gap: 12px;
-    background: #2969E3;
-    letter-spacing: 1.25px;
 }

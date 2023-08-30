@@ -7,7 +7,8 @@
     --light-theme-background-color: #F4F7FF;
     --light-theme-text-color: #303030;
     --dark-theme-background-color: #1c1c1c;
-    --dark-theme-text-color: #ffffff;
+    --dark-theme-text-color: #F4F7FF;
+    --border-color:#ccc
 }
 
 body {
@@ -39,8 +40,37 @@ img {
 }
 
 a {
-    color: #fff;
+    color: #F4F7FF;
     text-decoration: none;
+}
+
+input {
+    outline: none;
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    border: 1px solid #cfcfcf;
+    font-family: inherit;
+    background-color: #F4F7FF;
+    margin-bottom: 10px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2969E3;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #F4F7FF;
+    padding: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: inherit;
+    letter-spacing: 1.25px;
+    width: 100%;
 }
 
 @media (min-width: 768px) {

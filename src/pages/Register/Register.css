@@ -50,12 +50,6 @@
 
 .register input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #CFCFCF;
-    border-radius: 4px;
-    outline: none;
-    font-family: inherit;
 }
 
 .register__password {
@@ -66,10 +60,7 @@
 
 .register__password input {
     flex: 1;
-    padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #CFCFCF;
-    border-radius: 4px;
 }
 
 .register__password-toggle {
@@ -84,15 +75,6 @@
 
 .register__button {
     width: 100%;
-    padding: 10px;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 4px;
-    background-color: #2969e3;
-    color: #fff;
-    cursor: pointer;
-    font-family: inherit;
-    letter-spacing: 1.25px;
 }
 
 .register__button.disabled {
