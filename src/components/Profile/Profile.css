@@ -52,18 +52,6 @@
     transition: 0.3s;
 }
 
-.profile-select {
-    width: 302px;
-    height: 48px;
-    top: 377px;
-    left: 328px;
-    text-transform: uppercase;
-    font-family: inherit;
-    padding: 14px 19px;
-    border-radius: 8px;
-    border: 1px solid rgba(48, 48, 48, 1)
-}
-
 .toggle input:checked+.slider {
     transform: translateX(26px);
 }

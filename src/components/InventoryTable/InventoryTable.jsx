@@ -5,7 +5,7 @@ import './InventoryTable.css'
 const InventoryTable = ({ data, handleEdit, handleDelete, handleIn }) => {
   const renderActions = (item) => (
     <section className='section_into-td'>
-      <p className='action__icon'> 
+      <p className='action__icon'>
         <IconArrow onClick={() => handleIn(item)} />
       </p>
       <p className='action__icon'>

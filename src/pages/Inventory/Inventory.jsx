@@ -11,7 +11,7 @@ const Inventory = () => {
   const userName = 'Rocio del Solar'
   const userRole = 'Administrador'
 
-  const productCount = 10
+  const productCount = `10 Productos`
   const data = [
     {
       foto: 'https://i.ibb.co/hZmw98D/aceite.png',

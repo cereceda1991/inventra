@@ -5,7 +5,7 @@ import { ProductOptionsPropTypes } from '../../utils/propTypes'
 const ProductOptions = ({ productCount }) => {
   return (
     <div className='product-options'>
-      <div className='product-options__counter'>{productCount} productos</div>
+      <div className='product-options__counter'>{productCount}</div>
       <div className='product-options__actions'>
         <div className='product-options__dropdown'>
           <select>

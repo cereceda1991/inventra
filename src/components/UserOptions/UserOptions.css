@@ -1,33 +1,26 @@
-.product-options {
+.user-options {
     display: flex;
     flex-direction: column;
     padding: 0px 44px;
     gap: 23px;
 }
 
-.product-options__actions {
+.user-options__actions {
     display: flex;
     justify-content: space-between;
 }
 
-.product-options__dropdown select {
-    font-weight: 500;
-    height: 40px;
-    border-radius: 8px;
-}
-
-.product__options {
+.user__options {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.product__options p {
+.user__options p {
     color: #2969E3;
     font-weight: 500;
 }
 
-.product__button {
-    width: 182px;
+.user__button {
     gap: 12px;
 }

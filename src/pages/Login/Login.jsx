@@ -50,10 +50,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <p
-              className='register__password-toggle'
-              onClick={() => setShowPassword(!showPassword)}
-            >
+            <p className='register__password-toggle' onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <BiLowVision /> : <BiShow />}
             </p>
           </div>

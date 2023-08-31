@@ -1,0 +1,23 @@
+.add-user-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 44px;
+    gap: 23px;
+}
+
+.button-group{
+    display: flex;
+    gap: 20px;
+}
+.form-group input{
+width: 302px;
+
+}
+.button-group button{
+    max-width: 200px;
+}
+.note {
+    color: #2969E3;
+    margin: 20px;
+    
+}
