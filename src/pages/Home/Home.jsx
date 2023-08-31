@@ -1,8 +1,9 @@
 import './Home.css'
 import portada from '../../assets/landing-inventra-1.webp'
 import logo from '../../assets/logo-azul-inventra-042.webp'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric'
+import { SelectOptionsGroupPropTypes } from '../../utils/propTypes'
 
 const SelectOptionsGroup = ({ options }) => {
   return (
@@ -18,13 +19,11 @@ const SelectOptionsGroup = ({ options }) => {
   )
 }
 
-SelectOptionsGroup.propTypes = {
-  options: PropTypes.array.isRequired
-}
+SelectOptionsGroup.propTypes=SelectOptionsGroupPropTypes
 
 const Home = () => {
-  const solucionesOptions = ['Solución', 'Solución 2']
-  const ayudaOptions = ['Ayuda', 'Ayuda 2']
+  const solucionesOptions = ['Solución']
+  const ayudaOptions = ['Ayuda']
   const title = 'Gestiona tu inventario de una manera más sencilla.'
   const description1 =
     'Ten el control de tu inventario a través de las diferentes funcionalidades que Inventra tiene para ti y haz crecer tu negocio.'
@@ -52,9 +51,9 @@ const Home = () => {
           <h4 className='home__title'>{title}</h4>
           <p className='home__description'>{description1}</p>
           <p className='home__description'>{description2}</p>
-          <button className='home__button'>
-            <Link to='./register'>COMENZAR AHORA</Link>
-          </button>
+          <Link to='/register'>
+            <ButtonGeneric className='button__home' buttonContent='Comenzar Ahora' />
+          </Link>
         </section>
       </section>
     </div>

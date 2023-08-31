@@ -1,0 +1,43 @@
+.remove__bg {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    padding: 0px 44px;
+}
+
+.camera-icon,
+.preview-image,
+.result-image {
+    width: 141px;
+    height: auto;
+    aspect-ratio: 1;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.camera-icon {
+    cursor: pointer;
+}
+
+.preview-image,
+.result-image {
+    border: solid 1px var(--border-color);
+    background: #fff;
+    cursor: pointer;
+}
+
+.upload-image-text {
+    display: flex;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    background-color: transparent;
+    color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+.inactive-button {
+    cursor: not-allowed;
+}

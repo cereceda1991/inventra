@@ -1,4 +1,5 @@
 import { UserOptionsPropTypes } from '../../utils/propTypes'
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
 import './UserOptions.css'
 
 const UserOptions = ({ userCount, options }) => {
@@ -26,10 +27,7 @@ const UserOptions = ({ userCount, options }) => {
 
         {options.buttons.map((button, index) => (
           <div className='user__options' key={index}>
-            <button className='user__button' onClick={button.onClick}>
-              {button.icon}
-              {button.label}
-            </button>
+            <ButtonGeneric buttonContent={button.label} onClick={button.onClick} />
           </div>
         ))}
       </div>

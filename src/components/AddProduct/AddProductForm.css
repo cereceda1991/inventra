@@ -18,14 +18,6 @@
     flex: 1;
 }
 
-.upload-image-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin: 10px 0px;
-}
-
 .center-inputs label {
     margin: 10px 0px;
 }
@@ -98,23 +90,6 @@
     cursor: not-allowed;
 }
 
-.item_image,
-.upload-image-icon {
-    width: 141px;
-    height: 141px;
-    margin: auto;
-    border-radius: 8px;
-}
-
-.upload-image-icon {
-    cursor: pointer;
-}
-
-.item_image {
-    border: solid 1px var(--border-color);
-    background: #fff;
-}
-
 .input_file {
-    display: none;
+    display: block;
 }

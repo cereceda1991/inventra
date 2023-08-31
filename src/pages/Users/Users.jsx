@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import UserOptions from '../../components/UserOptions/UserOptions'
 import UsersTable from '../../components/UsersTable/UsersTable'
-import { IconFilter, IconExport, IconPlus } from '../../utils/CustomIcons'
+import { IconFilter, IconExport } from '../../utils/CustomIcons'
 import './Users.css'
 
 const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
@@ -26,11 +26,11 @@ const Users = () => {
   const [showAddUserForm, setShowAddUserForm] = useState(false)
 
   const handleAddUser = () => {
-    setShowAddUserForm(true) // Display the form when the button is clicked
+    setShowAddUserForm(true) 
   }
 
   const handleCancelAddUser = () => {
-    setShowAddUserForm(false) // Hide the form when cancel is clicked
+    setShowAddUserForm(false) 
   }
 
   const options = {
@@ -41,8 +41,7 @@ const Users = () => {
     ],
     buttons: [
       {
-        icon: <IconPlus className='user__options-button' />,
-        label: 'Agregar Usuario',
+        label: `+ Agregar Usuario`,
         onClick: handleAddUser
       }
     ]

@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Pagination from '../../components/Pagination/Pagination'
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import { IconCategory, IconExport, IconFilter, IconPlus } from '../../utils/CustomIcons'
+import { IconCategory, IconExport, IconFilter } from '../../utils/CustomIcons'
 
 import './Inventory.css'
 import AddProductForm from '../../components/AddProduct/AddProductForm'
@@ -45,8 +45,7 @@ const Inventory = () => {
     ],
     buttons: [
       {
-        icon: <IconPlus className='product__options-button' />,
-        label: 'Agregar Producto',
+        label: '+ Agregar Producto',
         onClick: handleAddProduct
       }
     ]

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import personal from '../../assets/personal_inventra.webp'
 import logo from '../../assets/logo-azul-inventra-042.webp'
 import { BiLowVision, BiShow } from 'react-icons/bi'
+import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -64,12 +65,13 @@ const Login = () => {
           <div className='login__forgot-password'>
             <Link to='/forgot-password'>Recuperar contraseña</Link>
           </div>
-          <button
-            className={`login__button ${isButtonDisabled && 'disabled'}`}
-            onClick={handleLogin}
-          >
-            <Link to='/dashboard'>Ingresar</Link>
-          </button>
+          <Link to='/dashboard'>
+            <ButtonGeneric
+              buttonContent='Ingresar'
+              onClick={handleLogin}
+              isDisabled={isButtonDisabled}
+            />
+          </Link>
           <div className='login__register-link'>
             ¿No tienes una cuenta? <Link to='/register'>Regístrate ahora</Link>
           </div>

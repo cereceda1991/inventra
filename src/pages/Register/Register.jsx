@@ -4,6 +4,7 @@ import personal from '../../assets/personal_inventra.webp'
 import logo from '../../assets/logo-azul-inventra-042.webp'
 import { Link } from 'react-router-dom'
 import { BiLowVision, BiShow } from 'react-icons/bi'
+import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric'
 
 const Register = () => {
   const [name, setName] = useState('')
@@ -71,12 +72,11 @@ const Register = () => {
               </p>
             </div>
           </form>
-          <button
-            className={`register__button ${isButtonDisabled && 'disabled'}`}
-            onClick={handleRegister}
-          >
-            Registrarse
-          </button>
+            <ButtonGeneric
+              buttonContent='Registrarse'
+              onClick={handleRegister}
+              isDisabled={isButtonDisabled}
+            />          
           <div className='register__login-link'>
             ¿Ya tienes una cuenta? <Link to='/login'>Ingresa ahora</Link>
           </div>

@@ -45,15 +45,6 @@
     text-decoration: none;
 }
 
-.login__button {
-    width: 100%;
-}
-
-.login__button.disabled {
-    background-color: #CFCFCF;
-    cursor: not-allowed;
-}
-
 .login__register-link {
     margin-top: 10px;
     text-align: center;

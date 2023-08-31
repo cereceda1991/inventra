@@ -1,5 +1,6 @@
 import './ProductsOptions.css'
 import { ProductOptionsPropTypes } from '../../utils/propTypes'
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
 
 const ProductOptions = ({ productCount, options }) => {
   return (
@@ -25,10 +26,11 @@ const ProductOptions = ({ productCount, options }) => {
 
         {options.buttons.map((button, index) => (
           <div className='user__options' key={index}>
-            <button className='user__button' onClick={button.onClick}>
-              {button.icon}
-              {button.label}
-            </button>
+            <ButtonGeneric
+              buttonContent={button.label}
+              onClick={button.onClick}
+              className='add-button'
+            />
           </div>
         ))}
       </div>

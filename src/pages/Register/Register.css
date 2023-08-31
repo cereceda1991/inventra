@@ -73,15 +73,6 @@
     font-size: 24px;
 }
 
-.register__button {
-    width: 100%;
-}
-
-.register__button.disabled {
-    background-color: #CFCFCF;
-    cursor: not-allowed;
-}
-
 .register__login-link {
     margin-top: 10px;
     text-align: center;

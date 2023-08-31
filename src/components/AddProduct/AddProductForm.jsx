@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 import './AddProductForm.css'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { categoryOptions } from '../../utils/categoryOptions'
-import camera from '../../assets/products/camera.svg'
-
-import { IconfileUpload } from '../../utils/CustomIcons'
+import RemoveBg from '../RemoveBg/RemoveBg'
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
 
 const AddProductForm = ({ handleCancel, handleSave }) => {
-  const [itemImage, setItemImage] = useState(null)
   const [itemCode, setItemCode] = useState('')
   const [itemName, setItemName] = useState('')
   const [itemPrice, setItemPrice] = useState('')
@@ -18,7 +16,6 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
   const [itemStockMin, setItemStockMin] = useState('')
   const [itemStockMax, setItemStockMax] = useState('')
   const [stockControlled, setStockControlled] = useState(false)
-  const [isSaveButtonEnabled, setIsSaveButtonEnabled] = useState(false)
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
@@ -34,51 +31,14 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
     })
   }
 
-  useEffect(() => {
-    if (itemCode && itemName && itemPrice && itemStock && itemCategory) {
-      setIsSaveButtonEnabled(true)
-    } else {
-      setIsSaveButtonEnabled(false)
-    }
-  }, [itemCode, itemName, itemPrice, itemStock, itemCategory])
-
-  const handleImageChange = (event) => {
-    const selectedImage = event.target.files[0]
-    if (selectedImage) {
-      const reader = new FileReader()
-      reader.onload = () => {
-        setItemImage(reader.result)
-      }
-      reader.readAsDataURL(selectedImage)
-    }
-  }
+  const isDisabled = !itemCode || !itemName || !itemPrice || !itemStock || !itemCategory
 
   return (
     <div className='add-product-form'>
       <form onSubmit={handleFormSubmit}>
         <div className='input-group'>
           <div className='left-inputs'>
-            <label className='image-label'>
-              {itemImage ? (
-                <>
-                  <img className='item_image' src={itemImage} alt='Item' />
-                </>
-              ) : (
-                <>
-                  <img className='upload-image-icon' src={camera} alt='Upload' />
-                  <div className='upload-image-text'>
-                    <IconfileUpload />
-                    <b>Cargar Imagen</b>
-                  </div>
-                </>
-              )}
-              <input
-                type='file'
-                accept='image/*'
-                onChange={handleImageChange}
-                className='input_file'
-              />
-            </label>
+            <RemoveBg />
           </div>
           <div className='center-inputs'>
             <input
@@ -158,12 +118,8 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
               />
             </div>
             <div className='button-group-products'>
-              <button type='button' onClick={handleCancel}>
-                Cancelar
-              </button>
-              <button type='submit' disabled={!isSaveButtonEnabled}>
-                Guardar
-              </button>
+              <ButtonGeneric buttonContent='Cancelar' onClick={handleCancel} />
+              <ButtonGeneric buttonContent='Guardar' isDisabled={isDisabled} />
             </div>
           </div>
         </div>

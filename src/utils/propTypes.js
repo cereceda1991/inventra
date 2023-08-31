@@ -46,3 +46,19 @@ export const UsersTablePropTypes = {
   handleEdit: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired
 }
+
+export const ButtonGenericPropTypes = {
+  buttonContent: PropTypes.string.isRequired,
+  isDisabled: PropTypes.bool,
+  onClick: PropTypes.func,
+};
+
+export const SelectOptionsGroupPropTypes = {
+  options: PropTypes.array.isRequired
+}
+
+export const AddUserFormPropTypes = {
+  roles: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleCancel: PropTypes.func.isRequired,
+  handleSave: PropTypes.func.isRequired
+}

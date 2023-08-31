@@ -1,91 +1,85 @@
 .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.10);
-    width: 100%;
-    height: 67px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 67px;
 }
 
 .home__header-options {
-    display: flex;
+  display: flex;
 }
 
 .home__header-select {
-    border: none;
-    font-size: 20px;
-    background-color: inherit;
+  border: none;
+  font-size: 16px;
+  background-color: inherit;
 }
 
 .home_main {
-    display: flex;
-    padding: 20px;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home_image {
-    width: 100%;
-    height: auto;
-    order: 2;
+  width: 100%;
+  height: auto;
+  order: 2;
 }
 
 .home_content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    text-align: left;
-    order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  order: 1;
 }
 
-.home__button {
-    width: 100%;
-    order: 3;
+.button__home {
+  width: 100%;
+  order: 3;
 }
-
 
 /* Estilos para pantallas más grandes */
 @media (min-width: 768px) {
-    .home__header {
-        justify-content: space-between;
-        padding: 0rem 27px;
-        max-width: 2160px;
-        margin: auto;
-    }
+  .home__header {
+    justify-content: space-between;
+    padding: 0rem 27px;
+    max-width: 2160px;
+    margin: auto;
+  }
 
-    .home_main {
-        flex-direction: row;
-        max-width: 2160px;
-        margin: auto;
-        justify-content: space-around;
-        min-height: calc(100vh - 67px);
-    }
+  .home_main {
+    flex-direction: row;
+    max-width: 2160px;
+    margin: auto;
+    justify-content: space-around;
+    min-height: calc(100vh - 67px);
+  }
 
-    .home_image {
-        max-width: 768px;
-        order: 1;
-    }
+  .home_image {
+    max-width: 768px;
+    order: 1;
+  }
 
-    .home__button {
-        max-width: 228px;
-    }
+  .home_content {
+    order: 2;
+    max-width: 431px;
+  }
 
-    .home_content {
-        order: 2;
-        max-width: 431px;
-    }
-
-    .home__header-options {
-        gap: 20px;
-    }
-
+  .home__header-options {
+    gap: 20px;
+  }
 }

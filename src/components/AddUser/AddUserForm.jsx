@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import PropTypes from 'prop-types'
 import './AddUserForm.css'
 import { BiLowVision, BiShow } from 'react-icons/bi'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
+import { AddUserFormPropTypes } from '../../utils/propTypes'
 const AddUserForm = ({ roles, handleCancel, handleSave }) => {
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
@@ -12,6 +13,8 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
   const [selectedRole, setSelectedRole] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
+  const isDisabled = !userName || !email || !password || !confirmPassword || !selectedRole
 
   const handleUserNameChange = (event) => {
     setUserName(event.target.value)
@@ -123,21 +126,14 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
           modificación en el sistema.
         </p>
         <div className='button-group'>
-          <button type='button' onClick={handleCancel}>
-            Cancelar
-          </button>
-          <button type='submit'>Guardar</button>
+          <ButtonGeneric buttonContent='Cancelar' onClick={handleCancel} />
+          <ButtonGeneric buttonContent='Guardar' onClick={handleCancel} isDisabled={isDisabled} />
         </div>
       </form>
       <ToastContainer />
     </div>
   )
 }
-
-AddUserForm.propTypes = {
-  roles: PropTypes.arrayOf(PropTypes.string).isRequired,
-  handleCancel: PropTypes.func.isRequired,
-  handleSave: PropTypes.func.isRequired
-}
+AddUserForm.propTypes = AddUserFormPropTypes
 
 export default AddUserForm
