@@ -5,19 +5,35 @@
     gap: 23px;
 }
 
-.button-group{
+.button-group {
     display: flex;
     gap: 20px;
 }
-.form-group input{
-width: 302px;
 
+.form-group {
+    max-width: max-content;
+    position: relative;
 }
-.button-group button{
+
+.form-group input {
+    width: 302px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.button-group button {
     max-width: 200px;
 }
+
 .note {
     color: #2969E3;
     margin: 20px;
-    
 }

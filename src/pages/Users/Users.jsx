@@ -20,7 +20,7 @@ const handleIn = () => {}
 
 const userCount = '10 Usuarios'
 
-const roles = ['Administrador', 'Inventariador', 'Supervisora', 'Operador']
+const roles = ['Administrador', 'Inventariador', 'Supervisor', 'Operador']
 
 const Users = () => {
   const [showAddUserForm, setShowAddUserForm] = useState(false)

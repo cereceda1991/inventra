@@ -13,6 +13,7 @@ import logoutIcon from '../assets/icons/logout.svg'
 import suppliersIcon from '../assets/icons/suppliers.svg'
 import usersIcon from '../assets/icons/users.svg'
 import arrowrigthIcon from '../assets/icons/arrow-rigth.svg'
+import fileUploadIcon from '../assets/icons/file-upload.svg'
 
 const exportIconComponent = (iconPath) => {
   const Icon = () => (
@@ -38,3 +39,4 @@ export const Iconlogout = exportIconComponent(logoutIcon)
 export const Iconsuppliers = exportIconComponent(suppliersIcon)
 export const Iconusers = exportIconComponent(usersIcon)
 export const IconArrowRigth = exportIconComponent(arrowrigthIcon)
+export const IconfileUpload = exportIconComponent(fileUploadIcon)

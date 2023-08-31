@@ -9,7 +9,6 @@ import {
   Iconhelp,
   Iconinventory,
   Iconlogout,
-  Iconsuppliers,
   Iconusers
 } from '../../utils/CustomIcons'
 
@@ -38,10 +37,6 @@ const Sidebar = () => {
         <Link to='/inventory' className='sidebar__link'>
           <Iconinventory className='sidebar__icon' />
           Inventario
-        </Link>
-        <Link to='/supplier' className='sidebar__link'>
-          <Iconsuppliers className='sidebar__icon' />
-          Proveedores
         </Link>
         <Link to='/users' className='sidebar__link'>
           <Iconusers className='sidebar__icon' />

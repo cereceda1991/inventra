@@ -14,8 +14,8 @@ export const InventoryTablePropTypes = {
 }
 
 export const PaginationPropTypes = {
-  currentPage: PropTypes.string.isRequired,
-  totalPages: PropTypes.string.isRequired
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired
 }
 export const ProductOptionsPropTypes = {
   productCount: PropTypes.string.isRequired
@@ -32,4 +32,17 @@ export const UserOptionsPropTypes = {
       })
     ).isRequired
   }).isRequired
+}
+
+export const UsersTablePropTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      user: PropTypes.string.isRequired,
+      role: PropTypes.string.isRequired,
+      mail: PropTypes.string.isRequired,
+      actions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+    })
+  ).isRequired,
+  handleEdit: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired
 }

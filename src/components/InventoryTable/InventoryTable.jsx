@@ -33,8 +33,8 @@ const InventoryTable = ({ data, handleEdit, handleDelete, handleIn }) => {
           <tr>
             <th colSpan={2}>Producto</th>
             <th>Código</th>
-            <th>Unidad</th>
             <th>Categoría</th>
+            <th>Unidad</th>
             <th>Precio</th>
             <th colSpan={3}>Acciones</th>
           </tr>
@@ -45,8 +45,8 @@ const InventoryTable = ({ data, handleEdit, handleDelete, handleIn }) => {
               <td>{products(item)}</td>
               <td></td>
               <td>{item.codigo}</td>
-              <td>{item.unidad}</td>
               <td>{item.categoria}</td>
+              <td>{item.unidad}</td>
               <td>{item.precio}</td>
               <td> {renderActions(item)}</td>
             </tr>

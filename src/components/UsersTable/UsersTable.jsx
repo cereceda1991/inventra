@@ -1,5 +1,5 @@
 import { IconEdit, IconTrash } from '../../utils/CustomIcons'
-import { PropTypes } from 'prop-types'
+import { UsersTablePropTypes } from '../../utils/propTypes'
 import './UsersTable.css'
 
 const UsersTable = ({ data, handleEdit, handleDelete }) => {
@@ -44,17 +44,6 @@ const UsersTable = ({ data, handleEdit, handleDelete }) => {
   )
 }
 
-UsersTable.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      user: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
-      mail: PropTypes.string.isRequired,
-      actions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-    })
-  ).isRequired,
-  handleEdit: PropTypes.func.isRequired,
-  handleDelete: PropTypes.func.isRequired
-}
+UsersTable.propTypes = UsersTablePropTypes
 
 export default UsersTable

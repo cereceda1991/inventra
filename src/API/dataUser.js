@@ -19,7 +19,7 @@ export const dataUser = [
   },
   {
     user: 'María Rodríguez',
-    role: 'Supervisora',
+    role: 'Supervisor',
     mail: 'mariarodriguez@example.com',
     actions: ['edit', 'delete'],
   },
@@ -43,7 +43,7 @@ export const dataUser = [
   },
   {
     user: 'Isabel Ramos',
-    role: 'Supervisora',
+    role: 'Supervisor',
     mail: 'isabelramos@example.com',
     actions: ['edit', 'delete'],
   },

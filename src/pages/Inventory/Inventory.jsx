@@ -1,10 +1,14 @@
+import { useState } from 'react'
+import { dataProducts } from '../../API/dataProducts'
 import InventoryTable from '../../components/InventoryTable/InventoryTable'
 import Navbar from '../../components/Navbar/Navbar'
 import Pagination from '../../components/Pagination/Pagination'
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions'
 import Sidebar from '../../components/Sidebar/Sidebar'
+import { IconCategory, IconExport, IconFilter, IconPlus } from '../../utils/CustomIcons'
 
 import './Inventory.css'
+import AddProductForm from '../../components/AddProduct/AddProductForm'
 
 const Inventory = () => {
   const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
@@ -12,56 +16,6 @@ const Inventory = () => {
   const userRole = 'Administrador'
 
   const productCount = `10 Productos`
-  const data = [
-    {
-      foto: 'https://i.ibb.co/hZmw98D/aceite.png',
-      descripcion: 'Papel H doble hoja Elite',
-      codigo: '001',
-      unidad: 1,
-      categoria: 'Limpieza',
-      precio: '$10.00'
-    },
-    {
-      foto: 'https://i.ibb.co/drXfcRn/gillete.png',
-      descripcion: 'Prestobarba Gillete',
-      codigo: '002',
-      unidad: 2,
-      categoria: 'Categoría 2',
-      precio: '$15.00'
-    },
-    {
-      foto: 'https://i.ibb.co/G0JpPfP/arroz.png',
-      descripcion: 'Descripción del producto 3',
-      codigo: '003',
-      unidad: 3,
-      categoria: 'Categoría 3',
-      precio: '$20.00'
-    },
-    {
-      foto: 'https://i.ibb.co/jHXLQYk/jabon.png',
-      descripcion: 'Descripción del producto 4',
-      codigo: '004',
-      unidad: 4,
-      categoria: 'Categoría 4',
-      precio: '$25.00'
-    },
-    {
-      foto: 'https://i.ibb.co/J7NKx6Y/papel.png',
-      descripcion: 'Descripción del producto 5',
-      codigo: '005',
-      unidad: 5,
-      categoria: 'Categoría 5',
-      precio: '$30.00'
-    },
-    {
-      foto: 'https://i.ibb.co/Nm6tgLr/papel2.png',
-      descripcion: 'Descripción del producto 6',
-      codigo: '006',
-      unidad: 6,
-      categoria: 'Categoría 6',
-      precio: '$35.00'
-    }
-  ]
 
   const currentPage = 3
   const totalPages = 10
@@ -72,20 +26,53 @@ const Inventory = () => {
 
   const handleIn = () => {}
 
+  const [showAddProductForm, setShowAddProductForm] = useState(false)
+
+  const handleAddProduct = () => {
+    setShowAddProductForm(true) // Display the form when the button is clicked
+  }
+
+  const handleCancelAddProduct = () => {
+    setShowAddProductForm(false) // Hide the form when cancel is clicked
+  }
+
+  const options = {
+    sortBy: ['producto', 'codigo', 'categoria', 'unidad', 'precio'],
+    actions: [
+      { icon: <IconFilter className='product__options-icon' />, label: 'Filtrar' },
+      { icon: <IconExport className='product__options-icon' />, label: 'Exportar' },
+      { icon: <IconCategory className='product__options-icon' />, label: 'Category' }
+    ],
+    buttons: [
+      {
+        icon: <IconPlus className='product__options-button' />,
+        label: 'Agregar Producto',
+        onClick: handleAddProduct
+      }
+    ]
+  }
+
   return (
     <section className='container__inventory'>
       <Sidebar />
       <section className='header__navbar'>
         <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       </section>
-      <ProductOptions productCount={productCount} />
-      <InventoryTable
-        data={data}
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
-        handleIn={handleIn}
-      />
-      <Pagination currentPage={currentPage} totalPages={totalPages} />
+
+      {showAddProductForm ? (
+        <AddProductForm handleSave={handleAddProduct} handleCancel={handleCancelAddProduct} />
+      ) : (
+        <>
+          <ProductOptions productCount={productCount} options={options} />
+          <InventoryTable
+            data={dataProducts}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+            handleIn={handleIn}
+          />
+          <Pagination currentPage={currentPage} totalPages={totalPages} />
+        </>
+      )}
     </section>
   )
 }

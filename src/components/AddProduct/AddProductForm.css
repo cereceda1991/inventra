@@ -1,0 +1,120 @@
+.add-product-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 44px;
+}
+
+.input-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.left-inputs,
+.center-inputs,
+.right-inputs {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.upload-image-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0px;
+}
+
+.center-inputs label {
+    margin: 10px 0px;
+}
+
+.right-inputs {
+    gap: 20px;
+}
+
+.center-inputs select {
+    width: 100%;
+    padding: 8px;
+}
+
+.subtitle {
+    font-weight: bold;
+}
+
+.toggle-stock-controller {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    background-color: #ccc;
+    border-radius: 12px;
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.toggle-label input {
+    display: none;
+}
+
+.toggle-switch {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle-label input:checked+.toggle-switch {
+    transform: translateX(30px);
+}
+
+.stock-inputs {
+    display: grid;
+    gap: 10px;
+}
+
+.stock-inputs input:disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+}
+
+.button-group-products {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 16px;
+}
+
+.button-group-products button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.item_image,
+.upload-image-icon {
+    width: 141px;
+    height: 141px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.upload-image-icon {
+    cursor: pointer;
+}
+
+.item_image {
+    border: solid 1px var(--border-color);
+    background: #fff;
+}
+
+.input_file {
+    display: none;
+}

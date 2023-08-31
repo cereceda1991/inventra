@@ -1,3 +1,4 @@
+import HelpSection from '../../components/HelpSetion/HelpSection'
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar/Sidebar'
 
@@ -14,7 +15,7 @@ const Help = () => {
       <section className='header__navbar'>
         <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       </section>
-      <h1>Help</h1>
+      <HelpSection />
     </section>
   )
 }
