@@ -37,29 +37,40 @@ const Register = () => {
           <p className='register__paragraph'>
             Regístrate para conocer todas las ventajas que Inventra tiene para ti.
           </p>
-          <input
-            type='text'
-            placeholder='Nombre'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type='email'
-            placeholder='Correo electrónico'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <div className='register__password'>
+          <form>
             <input
-              type={showPassword ? 'text' : 'password'}
-              placeholder='Contraseña'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type='text'
+              placeholder='Nombre'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoComplete='name'
+              required
             />
-            <p className='register__password-toggle' onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? <BiLowVision /> : <BiShow />}
-            </p>
-          </div>
+            <input
+              type='email'
+              placeholder='Correo electrónico'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete='email'
+              required
+            />
+            <div className='register__password'>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder='Contraseña'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete='password'
+                required
+              />
+              <p
+                className='register__password-toggle'
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <BiLowVision /> : <BiShow />}
+              </p>
+            </div>
+          </form>
           <button
             className={`register__button ${isButtonDisabled && 'disabled'}`}
             onClick={handleRegister}

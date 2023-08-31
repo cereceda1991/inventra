@@ -6,14 +6,14 @@ const UsersTable = ({ data, handleEdit, handleDelete }) => {
   const renderActions = (item) => (
     <section className='section_into-td'>
       {item.actions.includes('edit') && (
-        <p className='action__icon'>
+        <div className='action__icon'>
           <IconEdit onClick={() => handleEdit(item)} />
-        </p>
+        </div>
       )}
       {item.actions.includes('delete') && (
-        <p className='action__icon'>
+        <div className='action__icon'>
           <IconTrash onClick={() => handleDelete(item)} />
-        </p>
+        </div>
       )}
     </section>
   )
