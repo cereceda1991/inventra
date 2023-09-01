@@ -12,33 +12,75 @@
 
 .chart_board {
     padding: 10px 44px;
-    width: 800px;
     margin: auto;
+    width: 100%;
 }
 
 .chat_board-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    max-width: 600px;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.container_buttons-dashboard{
+    display: flex;
+    gap: 19px;
 }
 
 .container_chart-board {
     display: flex;
     align-items: center;
     padding: 0px 44px;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    flex-shrink: 0;
 }
 
-.chart_board-cards{
+.chart_board-cards {
     display: flex;
     gap: 1rem;
     justify-content: space-around;
 }
+
 .chart_board-week {
     display: flex;
-    padding: 1rem;
+    flex-direction: column;
+    width: 449px;
+    height: 113px;
     justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    background: #FFF;
+    position: relative;
 }
 
+.chart_board-week h1 {
+    position: absolute;
+    top: -30px;
+}
+
+.button_dashboard-month,
+.button_dashboard-year {
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: inherit;
+    letter-spacing: 1.25px;
+    height: 40px;
+}
+
+.button_dashboard-month {
+    background-color: var(--main-color);
+    color: #FFF;
+}
+
+.button_dashboard-year {
+    background-color: transparent;
+    border: solid 1px var(--border-color);
+}

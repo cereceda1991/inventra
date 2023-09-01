@@ -2,8 +2,6 @@ import { useState } from 'react'
 
 import { BiSolidBellRing, BiSolidCalendarCheck, BiSolidUser } from 'react-icons/bi'
 
-import { typeofgraphics } from '../../API/typeofgraphics'
-
 import DashboardChart from '../../components/DashboardChart/DashboardChart'
 import CardDashboard from '../../components/CardDashboard/CardDashboard'
 import WeekChart from '../../components/DashboardChart/WeekChart'
@@ -11,6 +9,7 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
 
 import './Dashboard.css'
+import { typeofgraphics } from '../../API/typeofgraphics'
 const Dashboard = () => {
   const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
   const userName = 'Rocio del Solar'
@@ -35,22 +34,13 @@ const Dashboard = () => {
           <CardDashboard icon={<BiSolidBellRing />} title='Notificaciones' value={10} />
         </div>
         <div className='chart_board-week'>
+          <h1>Semana anterior</h1>
           <WeekChart />
         </div>
       </section>
-
-
-
-
-
-
-
-
-
-
       <section className='chart_board'>
         <div className='chat_board-header'>
-          <h1>Análisis de movimientos</h1>
+          <h1>Análisis de salidas</h1>
           <p>Tipo de Gráfico</p>
           <select value={selectedChartType} onChange={handleChartTypeChange}>
             {typeofgraphics.map((type) => (
@@ -59,6 +49,10 @@ const Dashboard = () => {
               </option>
             ))}
           </select>
+          <div className='container_buttons-dashboard'>
+            <button className='button_dashboard-month'>Mes actual</button>
+            <button className='button_dashboard-year'>2023</button>
+          </div>
         </div>
         <DashboardChart chartType={selectedChartType} />
       </section>

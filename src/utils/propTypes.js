@@ -62,3 +62,13 @@ export const AddUserFormPropTypes = {
   handleCancel: PropTypes.func.isRequired,
   handleSave: PropTypes.func.isRequired
 }
+
+export const CardDashboardPropTypes = {
+  icon: PropTypes.element.isRequired,
+  title: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+}
+
+export const DashboardChartPropTypes = {
+  chartType: PropTypes.string.isRequired
+}

@@ -14,10 +14,25 @@ const WeekChart = () => {
       },
       options: {
         scales: {
+          x: {
+            beginAtZero: false,
+            grid: {
+              display: false
+            }
+          },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            grid: {
+              display: false
+            }
           }
-        }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        barThickness: 6
       }
     }
 

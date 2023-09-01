@@ -1,13 +1,7 @@
 import { useRef, useEffect } from 'react'
 import Chart from 'chart.js/auto'
-import PropTypes from 'prop-types'
-import {
-  dataMovements2020,
-  dataMovements2021,
-  dataMovements2022,
-  dataMovements2023,
-  labels
-} from '../../utils/Movements'
+import { dataMovementsMonth, labels } from '../../API/dataMovements'
+import { DashboardChartPropTypes } from '../../utils/propTypes'
 
 const DashboardChart = ({ chartType }) => {
   const chartRef = useRef(null)
@@ -15,14 +9,24 @@ const DashboardChart = ({ chartType }) => {
   useEffect(() => {
     const chartConfig = {
       type: chartType,
+      responsive: true,
       data: {
         labels: labels,
-        datasets: [dataMovements2020, dataMovements2021, dataMovements2022, dataMovements2023]
+        datasets: [{ ...dataMovementsMonth }]
       },
       options: {
         scales: {
+          x: {
+            beginAtZero: false,
+            grid: {
+              display: false
+            }
+          },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            grid: {
+              display: true
+            }
           }
         }
       }
@@ -38,8 +42,6 @@ const DashboardChart = ({ chartType }) => {
   return <canvas ref={chartRef}></canvas>
 }
 
-DashboardChart.propTypes = {
-  chartType: PropTypes.string.isRequired
-}
+DashboardChart.propTypes = DashboardChartPropTypes
 
 export default DashboardChart

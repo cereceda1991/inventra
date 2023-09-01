@@ -1,0 +1,40 @@
+export const generateLabels = (month) => {
+    const labels = [];
+    const startingDay = 1;
+    const daysIncrement = 3;
+
+    for (let i = startingDay; i <= 31; i += daysIncrement) {
+        const day = i.toString().padStart(2, '0');
+        const label = `${month} ${day}`;
+        labels.push(label);
+    }
+
+    return labels;
+};
+
+// Exportamos los datos
+export const labels = generateLabels("Agosto");
+
+export const dataMovementsMonth = {
+    label: "Mes Actual",
+    data: [132, 124, 123, 125, 136, 133, 121, 130, 122, 129, 140],
+    borderColor: 'rgba(41, 105, 227, 1)',
+    backgroundColor: createGradient('rgba(41, 105, 227, 1)', 'rgba(41, 105, 227, 0)', 'rgba(41, 105, 227, 0)'),
+    borderWidth: 3,
+    pointRadius: 1,
+    tension: 0.4,
+    fill: true,
+    borderRadius: 10,
+};
+
+// Función para crear un gradiente con tres colores
+function createGradient(color1, color2, color3) {
+    const ctx = document.createElement('canvas').getContext('2d');
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, color1);
+    gradient.addColorStop(0.6, color2);
+    gradient.addColorStop(1, color3);
+    return gradient;
+}
+
+

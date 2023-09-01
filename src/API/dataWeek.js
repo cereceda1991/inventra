@@ -1,5 +1,5 @@
 export const labels = [
-  "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"
+  "Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"
 ];
 
 export const dataProductsAddedDaily = {
@@ -8,4 +8,6 @@ export const dataProductsAddedDaily = {
   backgroundColor: '#2969e3',
   borderColor: '#2969e3',
   borderWidth: 1,
+  borderRadius: 5,
+  borderSkipped: false,
 };

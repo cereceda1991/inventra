@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import './CardDashboard.css'
+import { CardDashboardPropTypes } from '../../utils/propTypes'
 
 const CardDashboard = ({ icon, title, value }) => {
   return (
@@ -11,10 +11,6 @@ const CardDashboard = ({ icon, title, value }) => {
   )
 }
 
-CardDashboard.propTypes = {
-  icon: PropTypes.element.isRequired,
-  title: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
-}
+CardDashboard.propTypes = CardDashboardPropTypes
 
 export default CardDashboard
