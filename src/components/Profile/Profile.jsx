@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import ChangePassword from './ChangePassword'
 import EditProfile from './EditProfile'
-import './Profile.css'
+import { currencyOptions } from '../../API/currencyOptions'
 import { IconArrowRigth } from '../../utils/CustomIcons'
-import { currencyOptions } from '../../utils/currencyOptions'
-
+import './Profile.css'
 function Profile() {
   const [editProfile, setEditProfile] = useState(true)
   const [changePassword, setChangePassword] = useState(false)

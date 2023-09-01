@@ -3,7 +3,6 @@ export const productStockDown = [
   { name: 'Aceite de oliva virgen extra', stock: 10 },
   { name: 'Crema hidratante Nivea', stock: 3 },
 ];
-
   
 export const productStockStable = [
   { name: 'Cepillo de dientes Colgate', stock: 5 },

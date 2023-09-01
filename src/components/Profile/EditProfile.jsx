@@ -1,27 +1,45 @@
-import { useState } from 'react'
-import { TbCameraUp } from 'react-icons/tb'
-import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
+import { useState } from 'react';
+
+import { TiCameraOutline } from 'react-icons/ti';
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './EditProfile.css';
 
 function EditProfile() {
-  const [profileImage, setProfileImage] = useState('https://i.ibb.co/Fmhvh7q/user.png')
-  const [selectedImage, setSelectedImage] = useState(null)
+  const [profileImage, setProfileImage] = useState('https://i.ibb.co/Fmhvh7q/user.png');
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleImageChange = (event) => {
-    const imageFile = event.target.files[0]
+    const imageFile = event.target.files[0];
     if (imageFile) {
-      const imageUrl = URL.createObjectURL(imageFile)
-      setSelectedImage(imageUrl)
+      const imageUrl = URL.createObjectURL(imageFile);
+      setSelectedImage(imageUrl);
     }
-  }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const profileEditedSuccessfully = true;
+
+    if (profileEditedSuccessfully) {
+      toast.success('Perfil actualizado');
+    } else {
+      toast.error('Error al guardar los cambios');
+    }
+  };
 
   return (
     <main className='container__edit-profile'>
       <h2>Editar Perfil</h2>
-      <div className='edit-profile'>
-        <div className='profile-header'>
-          <img src={selectedImage || profileImage} alt='user' />
-          <label htmlFor='image-upload' className='edit-icon'>
-            <TbCameraUp />
+      <section className='edit-profile'>
+        <header className='profile-image-container'>
+          <label htmlFor='image-upload'>
+            <img src={selectedImage || profileImage} alt='user' />
+            <div className='camera-icon'>
+              <TiCameraOutline />
+            </div>
           </label>
           <input
             type='file'
@@ -30,13 +48,15 @@ function EditProfile() {
             style={{ display: 'none' }}
             onChange={handleImageChange}
           />
-        </div>
-        <input type='text' placeholder='Nombre' />
-        <input type='email' placeholder='Correo' />
-        <ButtonGeneric buttonContent='Guardar' />
-      </div>
+        </header>
+        <form>
+          <input type='text' placeholder='Nombre' />
+          <input type='email' placeholder='Correo' />
+          <ButtonGeneric buttonContent='Guardar' onClick={handleSubmit} />
+        </form>
+      </section>
     </main>
-  )
+  );
 }
 
-export default EditProfile
+export default EditProfile;

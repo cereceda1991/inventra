@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import './AddUserForm.css'
-import { BiLowVision, BiShow } from 'react-icons/bi'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
+// Componentes y Utils
 import { AddUserFormPropTypes } from '../../utils/propTypes'
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
+// Iconos, Estilos y notificaciones
+import { BiLowVision, BiShow } from 'react-icons/bi'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import './AddUserForm.css'
+
 const AddUserForm = ({ roles, handleCancel, handleSave }) => {
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
@@ -46,18 +49,18 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
-    // Perform validation and handle form submission
     if (password !== confirmPassword) {
-      toast.error(`Passwords don't match`)
+      toast.error(`Las contraseñas no coinciden`)
       return
     }
-    // Call the save handler with the form data
     handleSave({
       userName,
       email,
       password,
       role: selectedRole
     })
+
+    toast.success(`Usuario creado con éxito`)
   }
 
   return (
@@ -110,7 +113,6 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
             {showConfirmPassword ? <BiLowVision /> : <BiShow />}
           </p>
         </div>
-
         <div className='form-group'>
           <select value={selectedRole} onChange={handleRoleChange}>
             <option value=''>Seleccione un rol</option>
@@ -127,13 +129,17 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
         </p>
         <div className='button-group'>
           <ButtonGeneric buttonContent='Cancelar' onClick={handleCancel} />
-          <ButtonGeneric buttonContent='Guardar' onClick={handleCancel} isDisabled={isDisabled} />
+          <ButtonGeneric
+            buttonContent='Guardar'
+            onClick={handleFormSubmit}
+            isDisabled={isDisabled}
+          />
         </div>
       </form>
-      <ToastContainer />
     </div>
   )
 }
+
 AddUserForm.propTypes = AddUserFormPropTypes
 
 export default AddUserForm

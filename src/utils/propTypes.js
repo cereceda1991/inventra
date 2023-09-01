@@ -70,7 +70,8 @@ export const CardDashboardPropTypes = {
 }
 
 export const DashboardChartPropTypes = {
-  chartType: PropTypes.string.isRequired
+  chartType: PropTypes.string.isRequired,
+  tension: PropTypes.number
 }
 
 export const CardDashboardBottomPropTypes = {
@@ -79,7 +80,12 @@ export const CardDashboardBottomPropTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      stock: PropTypes.string.isRequired,
+      stock: PropTypes.number.isRequired,
     })
   ).isRequired,
 };
+
+export const AddProductFormPropTypes = {
+  handleCancel: PropTypes.func.isRequired,
+  handleSave: PropTypes.func.isRequired
+}

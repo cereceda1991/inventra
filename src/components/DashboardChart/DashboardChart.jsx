@@ -3,7 +3,7 @@ import Chart from 'chart.js/auto'
 import { dataMovementsMonth, labels } from '../../API/dataMovements'
 import { DashboardChartPropTypes } from '../../utils/propTypes'
 
-const DashboardChart = ({ chartType }) => {
+const DashboardChart = ({ chartType, tension,pointRadius }) => {
   const chartRef = useRef(null)
 
   useEffect(() => {
@@ -12,7 +12,13 @@ const DashboardChart = ({ chartType }) => {
       responsive: true,
       data: {
         labels: labels,
-        datasets: [{ ...dataMovementsMonth }]
+        datasets: [
+          {
+            ...dataMovementsMonth,
+            lineTension: tension,
+            pointRadius: pointRadius,
+          }
+        ]
       },
       options: {
         scales: {
@@ -37,7 +43,7 @@ const DashboardChart = ({ chartType }) => {
     return () => {
       myChart.destroy()
     }
-  }, [chartType])
+  }, [chartType, tension,pointRadius])
 
   return <canvas ref={chartRef}></canvas>
 }

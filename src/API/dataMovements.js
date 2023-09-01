@@ -21,8 +21,6 @@ export const dataMovementsMonth = {
     borderColor: 'rgba(41, 105, 227, 1)',
     backgroundColor: createGradient('rgba(41, 105, 227, 1)', 'rgba(41, 105, 227, 0)', 'rgba(41, 105, 227, 0)'),
     borderWidth: 3,
-    pointRadius: 1,
-    tension: 0.4,
     fill: true,
     borderRadius: 10,
 };

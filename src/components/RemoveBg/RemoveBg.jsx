@@ -57,7 +57,7 @@ const RemoveBg = () => {
 
   return (
     <div className='remove__bg'>
-      <form>
+      <section>
         <input
           type='file'
           accept='image/*'
@@ -71,19 +71,19 @@ const RemoveBg = () => {
           ) : imagePreview ? (
             <img className='preview-image' src={imagePreview} alt='Preview' />
           ) : (
-            <img className='camera-icon' src={camera} alt='Camera' />
+            <img className='upload-icon' src={camera} alt='Camera' />
           )}
         </label>
         <button
           className={`upload-image-text ${!imagePreview && !imageResult ? 'inactive-button' : ''}`}
           type='button'
           onClick={handleSubmit}
-          disabled={!imagePreview && !imageResult} // Disable the button based on conditions
+          disabled={!imagePreview && !imageResult} 
         >
           <IconfileUpload />
           Cargar Imagen
         </button>
-      </form>
+      </section>
     </div>
   )
 }

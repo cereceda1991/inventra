@@ -5,7 +5,7 @@
     padding: 0px 44px;
 }
 
-.camera-icon,
+.upload-icon,
 .preview-image,
 .result-image {
     width: 141px;
@@ -15,7 +15,7 @@
     border-radius: 10px;
 }
 
-.camera-icon {
+.upload-icon {
     cursor: pointer;
 }
 

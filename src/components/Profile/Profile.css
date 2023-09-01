@@ -23,10 +23,6 @@
     padding: 20px 15px;
 }
 
-.profile-section h2 {
-    font-weight: bold;
-}
-
 .toggle {
     position: relative;
     display: inline-block;
@@ -54,81 +50,4 @@
 
 .toggle input:checked+.slider {
     transform: translateX(26px);
-}
-
-.container__edit-profile,
-.container__change-password {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 50%;
-    padding: 0 112px;
-}
-
-.edit-profile,
-.change-password {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    margin-top: 20px;
-    max-height: calc(100vh - 75px);
-    justify-content: space-around;
-}
-
-.edit-profile h2,
-.change-password h2 {
-    text-align: left;
-}
-
-.edit-profile input,
-.change-password input {
-    width: 100%;
-}
-
-
-
-.password-input{
-    position: relative;
-    width: 100%;
-}
-
-.password-toggle{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.change-password form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.edit-profile button,
-.change-password button {
-    display: block;
-}
-
-.profile-header{
-    display: grid;
-    place-items : center;
-    width: 100%;
-    position: relative;
-}
-
-.profile-header img {
-    width: 200px;
-        height: 200px;
-        border-radius: 50%;
-}
-
-.edit-icon{
-    position: absolute;
-    bottom:0;
-    cursor: pointer;
-    right: 0;
-    color: #2969E3;
-    font-size: 32px;
 }

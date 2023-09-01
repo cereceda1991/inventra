@@ -3,6 +3,7 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { BiShow, BiHide } from 'react-icons/bi'
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
+import './ChangePassword.css'
 
 function ChangePassword() {
   const [newPassword, setNewPassword] = useState('')

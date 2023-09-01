@@ -1,12 +1,6 @@
 .add-product-form {
     display: flex;
-    flex-direction: column;
     padding: 0 44px;
-}
-
-.input-group {
-    display: flex;
-    align-items: flex-start;
     gap: 30px;
 }
 
@@ -16,10 +10,6 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-}
-
-.center-inputs label {
-    margin: 10px 0px;
 }
 
 .right-inputs {
