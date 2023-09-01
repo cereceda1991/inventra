@@ -1,34 +1,34 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-import { TiCameraOutline } from 'react-icons/ti';
-import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
+import { TiCameraOutline } from 'react-icons/ti'
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './EditProfile.css';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import './EditProfile.css'
 
 function EditProfile() {
-  const [profileImage, setProfileImage] = useState('https://i.ibb.co/Fmhvh7q/user.png');
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [profileImage, setProfileImage] = useState('https://i.ibb.co/Fmhvh7q/user.png')
+  const [selectedImage, setSelectedImage] = useState(null)
 
   const handleImageChange = (event) => {
-    const imageFile = event.target.files[0];
+    const imageFile = event.target.files[0]
     if (imageFile) {
-      const imageUrl = URL.createObjectURL(imageFile);
-      setSelectedImage(imageUrl);
+      const imageUrl = URL.createObjectURL(imageFile)
+      setSelectedImage(imageUrl)
     }
-  };
+  }
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const profileEditedSuccessfully = true;
+    event.preventDefault()
+    const profileEditedSuccessfully = true
 
     if (profileEditedSuccessfully) {
-      toast.success('Perfil actualizado');
+      toast.success('Perfil actualizado')
     } else {
-      toast.error('Error al guardar los cambios');
+      toast.error('Error al guardar los cambios')
     }
-  };
+  }
 
   return (
     <main className='container__edit-profile'>
@@ -56,7 +56,7 @@ function EditProfile() {
         </form>
       </section>
     </main>
-  );
+  )
 }
 
-export default EditProfile;
+export default EditProfile

@@ -1,5 +1,5 @@
-import { CardDashboardBottomPropTypes } from '../../utils/propTypes';
-import './CardDashboardBottom.css';
+import { CardDashboardBottomPropTypes } from '../../utils/propTypes'
+import './CardDashboardBottom.css'
 
 const CardDashboardBottom = ({ icon, title, products }) => {
   return (
@@ -19,9 +19,9 @@ const CardDashboardBottom = ({ icon, title, products }) => {
         </ul>
       </section>
     </section>
-  );
-};
+  )
+}
 
 CardDashboardBottom.propTypes = CardDashboardBottomPropTypes
 
-export default CardDashboardBottom;
+export default CardDashboardBottom

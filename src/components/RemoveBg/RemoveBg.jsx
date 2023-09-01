@@ -78,7 +78,7 @@ const RemoveBg = () => {
           className={`upload-image-text ${!imagePreview && !imageResult ? 'inactive-button' : ''}`}
           type='button'
           onClick={handleSubmit}
-          disabled={!imagePreview && !imageResult} 
+          disabled={!imagePreview && !imageResult}
         >
           <IconfileUpload />
           Cargar Imagen

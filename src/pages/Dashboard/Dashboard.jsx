@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   const [selectedChartType, setSelectedChartType] = useState('line')
   const [selectedTensionType, setSelectedTensionType] = useState(0.4)
-  const [selectedPointRadius, setSelectedPointRadius] = useState(2);
+  const [selectedPointRadius, setSelectedPointRadius] = useState(2)
 
   const handleChartTypeChange = (event) => {
     setSelectedChartType(event.target.value)
@@ -34,9 +34,8 @@ const Dashboard = () => {
   }
 
   const handlePointRadiusChange = (event) => {
-    setSelectedPointRadius(event.target.value);
-  };
-
+    setSelectedPointRadius(event.target.value)
+  }
 
   return (
     <section className='container__dashboard'>
@@ -87,7 +86,11 @@ const Dashboard = () => {
             <button className='button_dashboard-year'>2023</button>
           </div>
         </div>
-        <DashboardChart chartType={selectedChartType} tension={selectedTensionType} pointRadius={selectedPointRadius} />
+        <DashboardChart
+          chartType={selectedChartType}
+          tension={selectedTensionType}
+          pointRadius={selectedPointRadius}
+        />
       </section>
       <div className='chart_board-bottoms'>
         <CardDashboardBottom

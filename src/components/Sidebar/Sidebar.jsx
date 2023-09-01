@@ -1,8 +1,7 @@
 import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+// Iconos, Utilidades,Imagenes y Estilos
 import { FaBars } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import './Sidebar.css'
-import logo from '../../assets/logo-blanco-inventra.webp'
 import {
   Iconconfig,
   Icondashboard,
@@ -11,12 +10,33 @@ import {
   Iconlogout,
   Iconusers
 } from '../../utils/CustomIcons'
+import showDialog from '../../utils/showDialog'
+import logo from '../../assets/logo-blanco-inventra.webp'
+import './Sidebar.css'
 
 const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+  const navigate = useNavigate()
+
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen)
+  }
+
+  const handleLogout = async () => {
+    const confirmed = await showDialog(
+      'Cerrar Sesión',
+      '¿Estás seguro de que deseas cerrar sesión?',
+      'question'
+    )
+
+    if (confirmed) {
+      // Elimina el token del localStorage
+      localStorage.removeItem('token')
+
+      // Redirige al usuario a la página de inicio
+      navigate('/')
+    }
   }
 
   return (
@@ -50,10 +70,10 @@ const Sidebar = () => {
           <Iconhelp className='sidebar__icon' />
           Ayuda
         </Link>
-        <Link to='/' className='sidebar__link'>
+        <div className='sidebar__link' onClick={handleLogout}>
           <Iconlogout className='sidebar__icon' />
           Salir
-        </Link>
+        </div>
       </div>
     </>
   )
