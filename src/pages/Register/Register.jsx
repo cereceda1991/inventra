@@ -72,11 +72,11 @@ const Register = () => {
               </p>
             </div>
           </form>
-            <ButtonGeneric
-              buttonContent='Registrarse'
-              onClick={handleRegister}
-              isDisabled={isButtonDisabled}
-            />          
+          <ButtonGeneric
+            buttonContent='Registrarse'
+            onClick={handleRegister}
+            isDisabled={isButtonDisabled}
+          />
           <div className='register__login-link'>
             ¿Ya tienes una cuenta? <Link to='/login'>Ingresa ahora</Link>
           </div>

@@ -13,6 +13,6 @@ function ButtonGeneric({ buttonContent, isDisabled, onClick }) {
   )
 }
 
-ButtonGeneric.propTypes=ButtonGenericPropTypes
+ButtonGeneric.propTypes = ButtonGenericPropTypes
 
 export default ButtonGeneric

@@ -33,7 +33,7 @@ function EditProfile() {
         </div>
         <input type='text' placeholder='Nombre' />
         <input type='email' placeholder='Correo' />
-        <ButtonGeneric buttonContent='Guardar'/>
+        <ButtonGeneric buttonContent='Guardar' />
       </div>
     </main>
   )

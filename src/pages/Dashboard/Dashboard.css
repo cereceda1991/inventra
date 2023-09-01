@@ -6,6 +6,39 @@
     gap: 43px;
 }
 
-.header__navbar{
+.header__navbar {
     box-shadow: 1px 0px 4px 0px rgba(48, 48, 48, 0.15);
 }
+
+.chart_board {
+    padding: 10px 44px;
+    width: 800px;
+    margin: auto;
+}
+
+.chat_board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+}
+
+.container_chart-board {
+    display: flex;
+    align-items: center;
+    padding: 0px 44px;
+    justify-content: center;
+    gap: 30px;
+}
+
+.chart_board-cards{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+}
+.chart_board-week {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+}
+

@@ -26,11 +26,11 @@ const Users = () => {
   const [showAddUserForm, setShowAddUserForm] = useState(false)
 
   const handleAddUser = () => {
-    setShowAddUserForm(true) 
+    setShowAddUserForm(true)
   }
 
   const handleCancelAddUser = () => {
-    setShowAddUserForm(false) 
+    setShowAddUserForm(false)
   }
 
   const options = {

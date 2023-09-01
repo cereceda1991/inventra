@@ -22,7 +22,7 @@ const RemoveBg = () => {
     event.preventDefault()
 
     if (!file) {
-      return; // Don't submit if no image is selected
+      return // Don't submit if no image is selected
     }
 
     try {
@@ -75,12 +75,12 @@ const RemoveBg = () => {
           )}
         </label>
         <button
-           className={`upload-image-text ${!imagePreview && !imageResult ? 'inactive-button' : ''}`}
-           type='button'
-           onClick={handleSubmit}
-           disabled={!imagePreview && !imageResult} // Disable the button based on conditions
+          className={`upload-image-text ${!imagePreview && !imageResult ? 'inactive-button' : ''}`}
+          type='button'
+          onClick={handleSubmit}
+          disabled={!imagePreview && !imageResult} // Disable the button based on conditions
         >
-           <IconfileUpload />
+          <IconfileUpload />
           Cargar Imagen
         </button>
       </form>

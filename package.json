@@ -13,6 +13,7 @@
   "dependencies": {
     "@remove-background-ai/rembg.js": "^1.1.0",
     "axios": "^1.5.0",
+    "chart.js": "^4.4.0",
     "prettier": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

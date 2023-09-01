@@ -41,9 +41,7 @@
 .home_content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 15px;
-  text-align: left;
   order: 1;
 }
 
@@ -64,17 +62,19 @@
   .home_main {
     flex-direction: row;
     max-width: 2160px;
-    margin: auto;
     justify-content: space-around;
     min-height: calc(100vh - 67px);
+    margin: auto;
   }
 
   .home_image {
-    max-width: 768px;
+    max-width: 50%;
+    max-height:calc(100vh - 100px);
     order: 1;
   }
 
   .home_content {
+    max-width: 50%;
     order: 2;
     max-width: 431px;
   }

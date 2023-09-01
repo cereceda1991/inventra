@@ -1,0 +1,27 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: #FFF;
+    width: 118px;
+    height: 108px;
+    cursor: pointer;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 12px;
+}
+
+.card-value {
+    text-align: center;
+    font-size: 16px;
+}
+
+.card-dashboard-icon {
+    font-size: 35px;
+    color: var(--main-color);
+}

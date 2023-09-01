@@ -19,11 +19,11 @@ const SelectOptionsGroup = ({ options }) => {
   )
 }
 
-SelectOptionsGroup.propTypes=SelectOptionsGroupPropTypes
+SelectOptionsGroup.propTypes = SelectOptionsGroupPropTypes
 
 const Home = () => {
-  const solucionesOptions = ['Solución']
-  const ayudaOptions = ['Ayuda']
+  const solutionsOptions = ['Solución']
+  const helpOptions = ['Ayuda']
   const title = 'Gestiona tu inventario de una manera más sencilla.'
   const description1 =
     'Ten el control de tu inventario a través de las diferentes funcionalidades que Inventra tiene para ti y haz crecer tu negocio.'
@@ -39,8 +39,8 @@ const Home = () => {
           </Link>
         </div>
         <div className='home__header-options'>
-          <SelectOptionsGroup options={solucionesOptions} />
-          <SelectOptionsGroup options={ayudaOptions} />
+          <SelectOptionsGroup options={solutionsOptions} />
+          <SelectOptionsGroup options={helpOptions} />
         </div>
       </section>
       <section className='home_main'>

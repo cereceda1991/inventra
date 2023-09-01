@@ -1,38 +1,38 @@
-import  { useState } from 'react';
-import { toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { BiShow, BiHide } from 'react-icons/bi';
-import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
+import { useState } from 'react'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { BiShow, BiHide } from 'react-icons/bi'
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
 
 function ChangePassword() {
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
-  const isDisabled=!newPassword || !confirmPassword
+  const isDisabled = !newPassword || !confirmPassword
 
   const handleNewPasswordChange = (event) => {
-    setNewPassword(event.target.value);
-  };
+    setNewPassword(event.target.value)
+  }
 
   const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
+    setConfirmPassword(event.target.value)
+  }
 
   const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     if (newPassword === confirmPassword) {
       // Aquí puedes implementar la lógica para cambiar la contraseña.
-      toast.success('Contraseña cambiada exitosamente');
+      toast.success('Contraseña cambiada exitosamente')
     } else {
-      toast.error('Las contraseñas no coinciden');
+      toast.error('Las contraseñas no coinciden')
     }
-  };
+  }
 
   return (
     <main className='container__change-password'>
@@ -73,7 +73,7 @@ function ChangePassword() {
         </form>
       </div>
     </main>
-  );
+  )
 }
 
-export default ChangePassword;
+export default ChangePassword
