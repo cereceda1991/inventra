@@ -72,3 +72,14 @@ export const CardDashboardPropTypes = {
 export const DashboardChartPropTypes = {
   chartType: PropTypes.string.isRequired
 }
+
+export const CardDashboardBottomPropTypes = {
+  icon: CardDashboardPropTypes.icon,
+  title: CardDashboardPropTypes.title,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      stock: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};

@@ -17,7 +17,7 @@ export const labels = generateLabels("Agosto");
 
 export const dataMovementsMonth = {
     label: "Mes Actual",
-    data: [132, 124, 123, 125, 136, 133, 121, 130, 122, 129, 140],
+    data: [ 48, 45, 42, 40, 43, 39, 41, 47, 53, 55, 51],
     borderColor: 'rgba(41, 105, 227, 1)',
     backgroundColor: createGradient('rgba(41, 105, 227, 1)', 'rgba(41, 105, 227, 0)', 'rgba(41, 105, 227, 0)'),
     borderWidth: 3,
@@ -32,7 +32,7 @@ function createGradient(color1, color2, color3) {
     const ctx = document.createElement('canvas').getContext('2d');
     const gradient = ctx.createLinearGradient(0, 0, 0, 400);
     gradient.addColorStop(0, color1);
-    gradient.addColorStop(0.6, color2);
+    gradient.addColorStop(0.8, color2);
     gradient.addColorStop(1, color3);
     return gradient;
 }

@@ -10,6 +10,9 @@ import Navbar from '../../components/Navbar/Navbar'
 
 import './Dashboard.css'
 import { typeofgraphics } from '../../API/typeofgraphics'
+import CardDashboardBottom from '../../components/CardDashboard/CardDashboardBottom'
+import { IcontrendingDown, IcontrendingUpGreen, IcontrendingUpRed } from '../../utils/CustomIcons'
+import { productStockDown, productStockStable, productStockUp } from '../../API/dataStock'
 const Dashboard = () => {
   const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
   const userName = 'Rocio del Solar'
@@ -56,6 +59,11 @@ const Dashboard = () => {
         </div>
         <DashboardChart chartType={selectedChartType} />
       </section>
+      <div className='chart_board-bottoms'>
+          <CardDashboardBottom icon={<IcontrendingDown/>} title='Stock bajo'   products={productStockDown}/>
+          <CardDashboardBottom icon={<IcontrendingUpGreen/>} title='Stock estable'  products={productStockStable} />
+          <CardDashboardBottom icon={<IcontrendingUpRed/>} title='Sobre stock'  products={productStockUp} />
+        </div>
     </section>
   )
 }

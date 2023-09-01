@@ -14,6 +14,9 @@ import suppliersIcon from '../assets/icons/suppliers.svg'
 import usersIcon from '../assets/icons/users.svg'
 import arrowrigthIcon from '../assets/icons/arrow-rigth.svg'
 import fileUploadIcon from '../assets/icons/file-upload.svg'
+import trendingDownIcon from '../assets/icons/images/trending-down.svg'
+import trendingUpGreenIcon from '../assets/icons/images/trending-up-green.svg'
+import trendingUpRedIcon from '../assets/icons/images/trending-up-red.svg'
 
 const exportIconComponent = (iconPath) => {
   const Icon = () => (
@@ -40,3 +43,7 @@ export const Iconsuppliers = exportIconComponent(suppliersIcon)
 export const Iconusers = exportIconComponent(usersIcon)
 export const IconArrowRigth = exportIconComponent(arrowrigthIcon)
 export const IconfileUpload = exportIconComponent(fileUploadIcon)
+
+export const IcontrendingDown = exportIconComponent(trendingDownIcon)
+export const IcontrendingUpGreen = exportIconComponent(trendingUpGreenIcon)
+export const IcontrendingUpRed = exportIconComponent(trendingUpRedIcon)
