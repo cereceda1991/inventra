@@ -4,8 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    --light-theme-background-color: #f4f7ff;
-    --light-theme-text-color: #303030;
+    --background-color: #f4f7ff;
+    --text-color: #303030;
     /* --dark-theme-background-color: #393E46; */
     /* --dark-theme-background-color: #434242; */
     --main-color: #2969e3;
@@ -16,8 +16,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--light-theme-background-color);
-    color: var(--light-theme-text-color);
+    background-color: var(--background-color);
+    color: var(text-color);
 }
 
 body.darkmode {
@@ -55,7 +55,6 @@ input {
     border: 1px solid #cfcfcf;
     font-family: inherit;
     background-color: #fff;
-    margin-bottom: 10px;
     height: 40px;
     position: relative;
 }

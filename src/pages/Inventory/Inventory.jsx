@@ -52,12 +52,9 @@ const Inventory = () => {
   }
 
   return (
-    <section className='container__inventory'>
+    <section className='container__dashboard'>
       <Sidebar />
-      <section className='header__navbar'>
         <Navbar userImage={userImage} userName={userName} userRole={userRole} />
-      </section>
-
       {showAddProductForm ? (
         <AddProductForm handleSave={handleAddProduct} handleCancel={handleCancelAddProduct} />
       ) : (

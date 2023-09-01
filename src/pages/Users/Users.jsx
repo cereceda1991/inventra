@@ -50,10 +50,7 @@ const Users = () => {
   return (
     <section className='container__dashboard'>
       <Sidebar />
-      <section className='header__navbar'>
         <Navbar userImage={userImage} userName={userName} userRole={userRole} />
-      </section>
-
       {showAddUserForm ? (
         <AddUserForm roles={roles} handleSave={handleAddUser} handleCancel={handleCancelAddUser} />
       ) : (

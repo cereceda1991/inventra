@@ -6,8 +6,8 @@ const Navbar = ({ userImage, userName, userRole }) => {
   return (
     <nav className='container__navbar'>
       <section className='navbar__search'>
-        <AiOutlineSearch className='navbar__search-icon' />
         <input className='navbar__search-input' type='text' placeholder='Buscar' />
+        <AiOutlineSearch className='navbar__search-icon' />
       </section>
       <section className='navbar__notification'>
         <AiOutlineBell className='navbar__notification-icon' />
