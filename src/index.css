@@ -4,26 +4,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    --background-color: #f4f7ff;
-    --text-color: #303030;
-    /* --dark-theme-background-color: #393E46; */
-    /* --dark-theme-background-color: #434242; */
-    --main-color: #2969e3;
+    --light-theme-background-color: #F4F7FF;
+    --light-theme-text-color: #303030;
     --dark-theme-background-color: #2C3333;
     --dark-theme-text-color: #f4f7ff;
+    --main-color: #2969e3;
     --border-color: #ccc;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
-    color: var(text-color);
+    background-color: var(--light-theme-background-color);
+    color: var(--light-theme-text-color);
 }
 
 body.darkmode {
     background-color: var(--dark-theme-background-color);
     color: var(--dark-theme-text-color);
 }
+
 
 h4 {
     font-size: 22px;

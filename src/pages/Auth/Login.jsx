@@ -54,10 +54,7 @@ const Login = () => {
                 autoComplete='password'
                 required
               />
-              <p
-                className='auth__password-toggle'
-                onClick={() => setShowPassword(!showPassword)}
-              >
+              <p className='auth__password-toggle' onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <BiLowVision /> : <BiShow />}
               </p>
             </div>

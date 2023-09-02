@@ -4,53 +4,65 @@
     width: 100%;
 }
 
-.chart_board {
-    padding: 10px 44px;
-    margin: auto;
-    width: 100%;
-}
-
-.chat_board-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px 0px;
-}
-
-.container_buttons-dashboard{
-    display: flex;
-    gap: 19px;
-}
+/* Estilos para card superiores */
 
 .container_chart-board {
     display: flex;
-    align-items: center;
-    padding: 0px 44px;
-    justify-content: space-between;
-    flex-shrink: 0;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 2rem;
 }
 
 .chart_board-cards {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     gap: 1rem;
-    justify-content: space-around;
 }
 
 .chart_board-week {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    width: 449px;
-    height: 113px;
     justify-content: center;
     align-items: center;
+    height: 113px;
     border: 1px solid var(--border-color);
-    background: #FFF;
-    position: relative;
+    background: inherit;
+    color: inherit;
 }
 
 .chart_board-week h1 {
-    position: absolute;
-    top: -30px;
+    display: flex;
+    justify-content: center;
+    background: inherit;
+    z-index: 2;
+}
+
+/* Estilos del Chart */
+
+.chart_board {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.chart_board-tittle{
+text-align: center;
+}
+
+.chat_board-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.container_buttons-dashboard {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 19px;
 }
 
 .button_dashboard-month,
@@ -71,7 +83,7 @@
 
 .button_dashboard-month {
     background-color: var(--main-color);
-    color: #FFF;
+    color: #fff;
 }
 
 .button_dashboard-year {
@@ -79,11 +91,28 @@
     border: solid 1px var(--border-color);
 }
 
-.chart_board-bottoms{
+/* Estilos para las card inferiores */
+
+.chart_board-bottoms {
     display: flex;
-    padding: 0px 44px;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
 }
+
+@media (min-width:768px) {
+    .chart_board-cards {
+        max-width: 50%;
+    }
+
+    .chart_board-bottoms {
+        width: 100%;
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
 
 @media(min-width:1200px) {
     .container__dashboard {
@@ -91,5 +120,39 @@
         margin-left: 230px;
         gap: 43px;
         max-width: 2160px;
+    }
+
+    /* Estilos card superiores */
+    .chart_board ,
+    .container_chart-board {
+        padding: 0px 44px;
+    }
+
+     .chart_board-cards {
+        justify-content: flex-start;
+    }
+
+    .container_buttons-dashboard {
+        display: flex;
+        width: auto;
+        gap: 19px;
+    }
+
+    /* Estilos del Chart */
+
+    .chat_board-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chart_board-tittle{
+        text-align: left;
+        }
+
+    /* Estilos para las cards inferiores */
+    .chart_board-bottoms {
+        padding: 0px 44px;
+        justify-content: space-between;
     }
 }

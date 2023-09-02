@@ -54,7 +54,7 @@ const Inventory = () => {
   return (
     <section className='container__dashboard'>
       <Sidebar />
-        <Navbar userImage={userImage} userName={userName} userRole={userRole} />
+      <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       {showAddProductForm ? (
         <AddProductForm handleSave={handleAddProduct} handleCancel={handleCancelAddProduct} />
       ) : (

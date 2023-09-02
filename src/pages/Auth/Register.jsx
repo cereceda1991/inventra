@@ -65,18 +65,15 @@ const Register = () => {
                 autoComplete='password'
                 required
               />
-              <p
-                className='auth__password-toggle'
-                onClick={() => setShowPassword(!showPassword)}
-              >
+              <p className='auth__password-toggle' onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <BiLowVision /> : <BiShow />}
               </p>
             </div>
-          <ButtonGeneric
-            buttonContent='Registrarse'
-            onClick={handleRegister}
-            isDisabled={isButtonDisabled}
-          />
+            <ButtonGeneric
+              buttonContent='Registrarse'
+              onClick={handleRegister}
+              isDisabled={isButtonDisabled}
+            />
           </form>
           <div className='auth__login-link'>
             ¿Ya tienes una cuenta? <Link to='/login'>Ingresa ahora</Link>

@@ -43,7 +43,12 @@ const WeekChart = () => {
     }
   }, [])
 
-  return <canvas ref={chartRef}></canvas>
+  return (
+    <>
+      <h1>Semana anterior</h1>
+      <canvas ref={chartRef}></canvas>
+    </>
+  )
 }
 
 export default WeekChart

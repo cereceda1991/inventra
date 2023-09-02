@@ -50,7 +50,7 @@ const Users = () => {
   return (
     <section className='container__dashboard'>
       <Sidebar />
-        <Navbar userImage={userImage} userName={userName} userRole={userRole} />
+      <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       {showAddUserForm ? (
         <AddUserForm roles={roles} handleSave={handleAddUser} handleCancel={handleCancelAddUser} />
       ) : (

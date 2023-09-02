@@ -40,7 +40,7 @@ const Dashboard = () => {
   return (
     <section className='container__dashboard'>
       <Sidebar />
-        <Navbar userImage={userImage} userName={userName} userRole={userRole} />
+      <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       <section className='container_chart-board'>
         <div className='chart_board-cards'>
           <CardDashboard icon={<BiSolidUser />} title='Usuarios' value={10} />
@@ -48,37 +48,42 @@ const Dashboard = () => {
           <CardDashboard icon={<BiSolidBellRing />} title='Notificaciones' value={10} />
         </div>
         <div className='chart_board-week'>
-          <h1>Semana anterior</h1>
           <WeekChart />
         </div>
       </section>
       <section className='chart_board'>
+        <h1 className='chart_board-tittle'>Análisis de salidas</h1>
         <div className='chat_board-header'>
-          <h1>Análisis de salidas</h1>
-          <p>Gráfico</p>
-          <select value={selectedChartType} onChange={handleChartTypeChange}>
-            {typeofgraphics.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
-          <p>Tensión</p>
-          <select value={selectedTensionType} onChange={handleTensionTypeChange}>
-            {dataTension.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
-          <p>Radio</p>
-          <select value={selectedPointRadius} onChange={handlePointRadiusChange}>
-            {dataPointRadius.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
+          <section>
+            <value>Gráfico</value>
+            <select value={selectedChartType} onChange={handleChartTypeChange}>
+              {typeofgraphics.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+          </section>
+          <section>
+            <value>Tensión</value>
+            <select value={selectedTensionType} onChange={handleTensionTypeChange}>
+              {dataTension.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+          </section>
+          <section>
+            <value>Radio</value>
+            <select value={selectedPointRadius} onChange={handlePointRadiusChange}>
+              {dataPointRadius.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+          </section>
           <div className='container_buttons-dashboard'>
             <button className='button_dashboard-month'>Mes actual</button>
             <button className='button_dashboard-year'>2023</button>
@@ -90,7 +95,7 @@ const Dashboard = () => {
           pointRadius={selectedPointRadius}
         />
       </section>
-      <div className='chart_board-bottoms'>
+      <section className='chart_board-bottoms'>
         <CardDashboardBottom
           icon={<IcontrendingDown />}
           title='Stock bajo'
@@ -106,7 +111,7 @@ const Dashboard = () => {
           title='Sobre stock'
           products={productStockUp}
         />
-      </div>
+      </section>
     </section>
   )
 }
