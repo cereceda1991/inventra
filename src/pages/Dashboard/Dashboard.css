@@ -47,8 +47,8 @@
     padding: 1rem;
 }
 
-.chart_board-tittle{
-text-align: center;
+.chart_board-tittle {
+    text-align: center;
 }
 
 .chat_board-header {
@@ -113,22 +113,21 @@ text-align: center;
     }
 }
 
-
 @media(min-width:1200px) {
     .container__dashboard {
         width: calc(100% - 230px);
         margin-left: 230px;
-        gap: 43px;
         max-width: 2160px;
+        gap: 20px;
     }
 
     /* Estilos card superiores */
-    .chart_board ,
+    .chart_board,
     .container_chart-board {
         padding: 0px 44px;
     }
 
-     .chart_board-cards {
+    .chart_board-cards {
         justify-content: flex-start;
     }
 
@@ -146,9 +145,9 @@ text-align: center;
         align-items: center;
     }
 
-    .chart_board-tittle{
+    .chart_board-tittle {
         text-align: left;
-        }
+    }
 
     /* Estilos para las cards inferiores */
     .chart_board-bottoms {

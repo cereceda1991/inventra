@@ -38,7 +38,7 @@ function ChangePassword() {
   return (
     <main className='container__change-password'>
       <h2>Cambiar Contraseña</h2>
-      <div className='change-password'>
+      <section className='change-password'>
         <form onSubmit={handleSubmit}>
           <div className='password-input'>
             <input
@@ -72,7 +72,7 @@ function ChangePassword() {
           </div>
           <ButtonGeneric buttonContent='Guardar' isDisabled={isDisabled} />
         </form>
-      </div>
+      </section>
     </main>
   )
 }

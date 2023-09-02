@@ -49,7 +49,7 @@ function EditProfile() {
             onChange={handleImageChange}
           />
         </header>
-        <form>
+        <form className='edit-profile-form'>
           <input type='text' placeholder='Nombre' />
           <input type='email' placeholder='Correo' />
           <ButtonGeneric buttonContent='Guardar' onClick={handleSubmit} />
