@@ -1,4 +1,4 @@
-.register {
+.auth {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,94 +7,105 @@
     position: relative;
 }
 
-.register__image {
+.auth__left {
     display: none;
 }
 
-.register__content-container {
-    padding: 40px;
-    flex: 2;
+.auth__right {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
-.register__content {
+.auth__content {
     display: grid;
     padding: 20px;
     border-radius: 8px;
     max-width: 512px;
-    text-align: center;
     gap: 10px;
     margin: auto;
 }
 
-.register__logo {
+.auth__content form {
+    display: grid;
+    gap: 20px;
+}
+
+.auth__logo {
     display: flex;
     justify-content: center;
 }
 
-.register__logo img {
+.auth__logo img {
     width: 184px;
     height: 68px;
 }
 
-.register__title {
+.auth__title {
     font-size: 22px;
-    margin-bottom: 10px;
-
-}
-
-.register__paragraph {
-    font-size: 15px;
     margin: auto;
-    margin-bottom: 20px;
 }
 
-.register input {
+.auth__paragraph {
+    font-size: 15px;
+}
+
+.auth input {
     width: 100%;
 }
 
-.register__password {
+.auth__password {
     display: flex;
     align-items: center;
     position: relative;
 }
 
-.register__password input {
+.auth__password input {
     flex: 1;
-    margin-bottom: 15px;
 }
 
-.register__password-toggle {
+.auth__password-toggle {
     position: absolute;
-    right: 10px;
-    top: 6px;
-    background: none;
-    border: none;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 5px;
     cursor: pointer;
+    height: 100%;
     font-size: 24px;
 }
 
-.register__login-link {
+.auth__login-link,
+.auth__forgot-password {
     margin-top: 10px;
-    text-align: center;
     font-size: 14px;
 }
 
-.register__login-link a {
+.auth__login-link {
+    text-align: center;
+}
+
+.auth__forgot-password {
+    text-align: right;
+}
+
+.auth__forgot-password a,
+.auth__login-link a {
     color: #2969e3;
     text-decoration: none;
 }
 
 /* Media Query para dispositivos móviles */
-@media  (min-width: 1200px) {
-    .register__image {
+@media (min-width: 1200px) {
+    .auth__left {
         display: flex;
         position: relative;
-        width: 100%;
-        max-width: 768px;
+        width: 50%;
         height: 100vh;
     }
-    
-    .register__image-bg {
+
+    .auth__image-bg {
         width: 100%;
         height: auto;
         object-fit: cover;
@@ -105,8 +116,8 @@
         height: 100%;
         max-height: 100vh;
     }
-    
-    .register__overlay {
+
+    .auth__overlay {
         position: absolute;
         top: 0;
         left: 0;
@@ -115,5 +126,11 @@
         max-height: 100vh;
         background-color: rgba(41, 105, 227, 0.6);
         z-index: 1;
+    }
+
+    .auth__right {
+        display: flex;
+        width: 50%;
+        max-height: 100vh;
     }
 }

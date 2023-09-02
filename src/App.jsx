@@ -1,13 +1,13 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
-import Login from './pages/Login/Login'
-import Register from './pages/Register/Register'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Inventory from './pages/Inventory/Inventory'
 import Users from './pages/Users/Users'
 import Help from './pages/Help/Help'
 import Setting from './pages/Setting/Setting'
+import Register from './pages/Auth/Register'
+import Login from './pages/Auth/Login'
 
 function App() {
   return (

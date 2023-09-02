@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import './Register.css'
+import { Link } from 'react-router-dom'
+// Componentes
+import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric'
+// Recursos
 import personal from '../../assets/personal_inventra.webp'
 import logo from '../../assets/logo-azul-inventra-042.webp'
-import { Link } from 'react-router-dom'
 import { BiLowVision, BiShow } from 'react-icons/bi'
-import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric'
+import './Auth.css'
 
 const Register = () => {
   const [name, setName] = useState('')
@@ -21,21 +23,20 @@ const Register = () => {
   }
 
   return (
-    <div className='register'>
-      <div className='register__image'>
-        <img className='register__image-bg' src={personal} alt='personal' />
-        <div className='register__overlay'></div>
-      </div>
-
-      <div className='register__content-container'>
-        <section className='register__content'>
-          <div className='register__logo'>
+    <main className='auth'>
+      <section className='auth__left'>
+        <img className='auth__image-bg' src={personal} alt='personal' />
+        <div className='auth__overlay'></div>
+      </section>
+      <section className='auth__right'>
+        <section className='auth__content'>
+          <div className='auth__logo'>
             <Link to='/'>
               <img src={logo} alt='Logo' />
             </Link>
           </div>
-          <h1 className='register__title'>Te damos la bienvenida</h1>
-          <p className='register__paragraph'>
+          <h1 className='auth__title'>Te damos la bienvenida</h1>
+          <p className='auth__paragraph'>
             Regístrate para conocer todas las ventajas que Inventra tiene para ti.
           </p>
           <form>
@@ -55,7 +56,7 @@ const Register = () => {
               autoComplete='email'
               required
             />
-            <div className='register__password'>
+            <div className='auth__password'>
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder='Contraseña'
@@ -65,24 +66,24 @@ const Register = () => {
                 required
               />
               <p
-                className='register__password-toggle'
+                className='auth__password-toggle'
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <BiLowVision /> : <BiShow />}
               </p>
             </div>
-          </form>
           <ButtonGeneric
             buttonContent='Registrarse'
             onClick={handleRegister}
             isDisabled={isButtonDisabled}
           />
-          <div className='register__login-link'>
+          </form>
+          <div className='auth__login-link'>
             ¿Ya tienes una cuenta? <Link to='/login'>Ingresa ahora</Link>
           </div>
         </section>
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }
 

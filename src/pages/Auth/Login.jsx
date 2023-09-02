@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Login.css'
+import './Auth.css'
 import { Link } from 'react-router-dom'
 import personal from '../../assets/personal_inventra.webp'
 import logo from '../../assets/logo-azul-inventra-042.webp'
@@ -20,20 +20,20 @@ const Login = () => {
   }
 
   return (
-    <div className='login'>
-      <div className='register__image'>
-        <img className='register__image-bg' src={personal} alt='personal' />
-        <div className='register__overlay'></div>
-      </div>
-      <div className='login__content-container'>
-        <section className='login__content'>
-          <div className='register__logo'>
+    <main className='auth'>
+      <section className='auth__left'>
+        <img className='auth__left-bg' src={personal} alt='personal' />
+        <div className='auth__overlay'></div>
+      </section>
+      <section className='auth__right'>
+        <div className='auth__content'>
+          <div className='auth__logo'>
             <Link to='/'>
               <img src={logo} alt='Logo' />
             </Link>
           </div>
-          <h1 className='login__title'>¡Hola de nuevo!</h1>
-          <p className='login__paragraph'>
+          <h1 className='auth__title'>¡Hola de nuevo!</h1>
+          <p className='auth__paragraph'>
             Inicia sesión para continuar gestionando tu inventario y hacer crecer tu negocio.
           </p>
           <form>
@@ -45,7 +45,7 @@ const Login = () => {
               autoComplete='email'
               required
             />
-            <div className='register__password'>
+            <div className='auth__password'>
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder='Contraseña'
@@ -55,29 +55,29 @@ const Login = () => {
                 required
               />
               <p
-                className='register__password-toggle'
+                className='auth__password-toggle'
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <BiLowVision /> : <BiShow />}
               </p>
             </div>
+            <div className='auth__forgot-password'>
+              <Link to='/forgot-password'>Recuperar contraseña</Link>
+            </div>
+            <Link to='/dashboard'>
+              <ButtonGeneric
+                buttonContent='Ingresar'
+                onClick={handleLogin}
+                isDisabled={isButtonDisabled}
+              />
+            </Link>
           </form>
-          <div className='login__forgot-password'>
-            <Link to='/forgot-password'>Recuperar contraseña</Link>
-          </div>
-          <Link to='/dashboard'>
-            <ButtonGeneric
-              buttonContent='Ingresar'
-              onClick={handleLogin}
-              isDisabled={isButtonDisabled}
-            />
-          </Link>
-          <div className='login__register-link'>
+          <div className='auth__login-link'>
             ¿No tienes una cuenta? <Link to='/register'>Regístrate ahora</Link>
           </div>
-        </section>
-      </div>
-    </div>
+        </div>
+      </section>
+    </main>
   )
 }
 
