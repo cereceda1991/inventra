@@ -1,0 +1,19 @@
+export const dataColor = [
+  'pink',
+  'white',
+  'black',
+  'gray',
+  'orange',
+  'magenta',
+  'red',
+  'yellow',
+  'green',
+  'orange',
+  'gold',
+  'cyan',
+  'silver',
+  'purple',
+  'brown',
+  'navy',
+  'turquoise'
+];

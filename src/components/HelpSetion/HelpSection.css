@@ -25,14 +25,16 @@
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 1px 0px 4px 0px rgba(48, 48, 48, 0.15);
+    color: inherit;
+    box-shadow: 1px 0px 4px 0px var(--border-color);
     user-select: none;
     transition: background-color 0.3s, border-radius 0.3s, font-weight 0.3s;
 }
 
 .faq__question--expanded {
     border-radius: 10px 10px 0px 0px;
-    background-color: #ccc;
+    background-color: var(--border-color);
+    color:#000;
     font-weight: 600;
 }
 

@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import ChangePassword from './ChangePassword'
 import EditProfile from './EditProfile'
 import { currencyOptions } from '../../API/currencyOptions'
-import { IconArrowRigth } from '../../utils/CustomIcons'
+import { IoIosArrowForward } from 'react-icons/io'
+
 import './Profile.css'
 function Profile() {
   const [editProfile, setEditProfile] = useState(true)
@@ -36,11 +37,11 @@ function Profile() {
         <h2>Usuario</h2>
         <section className='profile-section' onClick={handleEditProfileClick}>
           <p>Editar Perfil</p>
-          <IconArrowRigth />
+          <IoIosArrowForward />
         </section>
         <section className='profile-section' onClick={handleChangePasswordClick}>
           <p>Cambiar Contraseña</p>
-          <IconArrowRigth />
+          <IoIosArrowForward />
         </section>
         <section className='profile-settings'>
           <setion>

@@ -89,6 +89,7 @@
 .button_dashboard-year {
     background-color: transparent;
     border: solid 1px var(--border-color);
+    color: inherit;
 }
 
 /* Estilos para las card inferiores */

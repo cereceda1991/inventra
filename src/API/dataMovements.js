@@ -13,7 +13,7 @@ export const generateLabels = (month) => {
 };
 
 // Exportamos los datos
-export const labels = generateLabels("Agosto");
+export const labels = generateLabels("Julio");
 
 export const dataMovementsMonth = {
     label: "Mes Actual",
@@ -23,6 +23,7 @@ export const dataMovementsMonth = {
     borderWidth: 3,
     fill: true,
     borderRadius: 10,
+    fontColor: 'red'
 };
 
 // Función para crear un gradiente con tres colores

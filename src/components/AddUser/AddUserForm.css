@@ -35,7 +35,7 @@
 }
 
 .note {
-    color: #2969E3;
+    color: var(--main-color);
     border-radius: 8px;
     padding: 1rem;
     background: rgba(41, 105, 227, 0.10);

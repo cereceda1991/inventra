@@ -16,6 +16,7 @@ import { typeofgraphics } from '../../API/typeofgraphics'
 import { dataTension } from '../../API/dataTension'
 
 import './Dashboard.css'
+import { dataColor } from '../../API/dataColor'
 const Dashboard = () => {
   const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
   const userName = 'Rocio del Solar'
@@ -24,6 +25,7 @@ const Dashboard = () => {
   const [selectedChartType, setSelectedChartType] = useState('line')
   const [selectedTensionType, setSelectedTensionType] = useState(0.4)
   const [selectedPointRadius, setSelectedPointRadius] = useState(2)
+  const [selectedColor, setSelectedColor] = useState('')
 
   const handleChartTypeChange = (event) => {
     setSelectedChartType(event.target.value)
@@ -35,6 +37,10 @@ const Dashboard = () => {
 
   const handlePointRadiusChange = (event) => {
     setSelectedPointRadius(event.target.value)
+  }
+
+  const handleColorChange = (event) => {
+    setSelectedColor(event.target.value)
   }
 
   return (
@@ -55,30 +61,40 @@ const Dashboard = () => {
         <h1 className='chart_board-tittle'>Análisis de salidas</h1>
         <div className='chat_board-header'>
           <section>
-            <value>Gráfico</value>
+            <label>Gráfico</label>
             <select value={selectedChartType} onChange={handleChartTypeChange}>
-              {typeofgraphics.map((type) => (
-                <option key={type} value={type}>
+              {typeofgraphics.map((type, index) => (
+                <option key={`chartType-${index}`} value={type}>
                   {type}
                 </option>
               ))}
             </select>
           </section>
           <section>
-            <value>Tensión</value>
+            <label>Tensión</label>
             <select value={selectedTensionType} onChange={handleTensionTypeChange}>
-              {dataTension.map((type) => (
-                <option key={type} value={type}>
+              {dataTension.map((type, index) => (
+                <option key={`TensionType-${index}`} value={type}>
                   {type}
                 </option>
               ))}
             </select>
           </section>
           <section>
-            <value>Radio</value>
+            <label>Color</label>
+            <select value={selectedTensionType} onChange={handleColorChange}>
+              {dataColor.map((type, index) => (
+                <option key={`ColorType-${index}`} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+          </section>
+          <section>
+            <label>Radio</label>
             <select value={selectedPointRadius} onChange={handlePointRadiusChange}>
-              {dataPointRadius.map((type) => (
-                <option key={type} value={type}>
+              {dataPointRadius.map((type, index) => (
+                <option key={`RadiusType-${index}`} value={type}>
                   {type}
                 </option>
               ))}
@@ -93,6 +109,7 @@ const Dashboard = () => {
           chartType={selectedChartType}
           tension={selectedTensionType}
           pointRadius={selectedPointRadius}
+          color={selectedColor}
         />
       </section>
       <section className='chart_board-bottoms'>

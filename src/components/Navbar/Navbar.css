@@ -30,7 +30,7 @@
     right: 10px;
     top: 10px;
     font-size: 25px;
-    color: #ccc;
+    color: inherit;
     cursor: pointer;
 }
 
@@ -76,8 +76,8 @@
     .container__navbar {
         height: 78px;
         padding: 0px 44px;
-        color: var(--light-theme-text-color);
-        background-color: var(--light-theme-background-color);        
+        color: var(--text-color);
+        background-color: var(--background-color);        
         box-shadow: 1px 0px 4px 0px rgba(48, 48, 48, 0.15);
         z-index: 20;
     }

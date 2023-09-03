@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { IconfileUpload } from '../../utils/CustomIcons'
+import { IconfileUploadB, IconfileUploadW } from '../../utils/CustomIcons'
 import camera from '../../assets/products/camera.svg'
 import './RemoveBg.css'
 
@@ -8,8 +8,20 @@ const RemoveBg = () => {
   const [file, setFile] = useState(null)
   const [imageResult, setImageResult] = useState(null)
   const [imagePreview, setImagePreview] = useState(null)
+  const [darkMode, setDarkMode] = useState(false);
 
   const apiKey = import.meta.env.VITE_API_KEY
+
+  // Función para obtener el estado del modo oscuro desde el localStorage
+  const getDarkModeFromLocalStorage = () => {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    setDarkMode(isDarkMode);
+  };
+
+  // Efecto secundario para cargar el estado del modo oscuro al montar el componente
+  useEffect(() => {
+    getDarkModeFromLocalStorage();
+  }, []);
 
   const handleChange = (event) => {
     const selectedFile = event.target.files[0]
@@ -80,7 +92,7 @@ const RemoveBg = () => {
           onClick={handleSubmit}
           disabled={!imagePreview && !imageResult}
         >
-          <IconfileUpload />
+          {darkMode ? <IconfileUploadW /> : <IconfileUploadB />}
           Cargar Imagen
         </button>
       </section>
