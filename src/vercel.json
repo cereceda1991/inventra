@@ -1,9 +1,5 @@
 {
-  "routes": [
-    {
-      "src": "/:page",
-      "dest": "/",
-      "status": 200
-    }
+  "redirects": [
+    { "source": "/:page", "destination": "/index.html", "status": 200, "permanent": true }
   ]
 }
