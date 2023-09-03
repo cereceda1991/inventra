@@ -8,6 +8,7 @@ import Help from './pages/Help/Help'
 import Setting from './pages/Setting/Setting'
 import Register from './pages/Auth/Register'
 import Login from './pages/Auth/Login'
+import ErrorPage from './pages/Error/ErrorPage'
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <Route path='/users' element={<Users />} />
         <Route path='/setting' element={<Setting />} />
         <Route path='/help' element={<Help />} />
-        Help
+        {/* Página de error */}
+        <Route render={() => <ErrorPage />} />
       </Routes>
     </main>
   )
