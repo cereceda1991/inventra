@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 
 import Login from './pages/Auth/Login'
@@ -22,6 +22,7 @@ function App() {
         <Route path='/users' element={<Users />} />
         <Route path='/setting' element={<Setting />} />
         <Route path='/help' element={<Help />} />
+        <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
     </main>
   )
