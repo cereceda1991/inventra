@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { dataProducts } from '../../API/dataProducts'
-import InventoryTable from '../../components/InventoryTable/InventoryTable'
 import Navbar from '../../components/Navbar/Navbar'
 import Pagination from '../../components/Pagination/Pagination'
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions'
@@ -9,6 +8,7 @@ import { IconCategory, IconExport, IconFilter } from '../../utils/CustomIcons'
 
 import './Inventory.css'
 import AddProductForm from '../../components/AddProduct/AddProductForm'
+import DynamicTable from '../../components/InventoryTable/DynamicTable'
 
 const Inventory = () => {
   const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
@@ -20,11 +20,35 @@ const Inventory = () => {
   const currentPage = 3
   const totalPages = 10
 
-  const handleEdit = () => {}
+  const [headers, setHeaders] = useState([]);
+  const [keys, setKeys] = useState([]);
 
-  const handleDelete = () => {}
+  useEffect(() => {
+    // Determinar qué conjunto de encabezados y claves utilizar según el tamaño de la pantalla
+    if (window.innerWidth < 600) {
+      setHeaders(['Producto', 'Unidad']);
+      setKeys(['description', 'unit']);
+    } else {
+      setHeaders(['Producto', 'Código', 'Categoría', 'Unidad', 'Precio']);
+      setKeys(['description', 'code', 'category', 'unit', 'price']);
+    }
+  }, []);
 
-  const handleIn = () => {}
+  // Define las funciones para las acciones de editar, eliminar e ingresar
+  const handleEdit = (item) => {
+    // Lógica para editar el producto
+    console.log('Editar producto:', item)
+  }
+
+  const handleDelete = (item) => {
+    // Lógica para eliminar el producto
+    console.log('Eliminar producto:', item)
+  }
+
+  const handleViewDetails = (item) => {
+    // Lógica para ingresar el producto
+    console.log('Ingresar producto:', item)
+  }
 
   const [showAddProductForm, setShowAddProductForm] = useState(false)
 
@@ -36,12 +60,12 @@ const Inventory = () => {
     setShowAddProductForm(false) // Hide the form when cancel is clicked
   }
 
-  const options = {
+  const optionsTableInventory = {
     sortBy: ['producto', 'codigo', 'categoria', 'unidad', 'precio'],
     actions: [
-      { icon: <IconFilter className='product__options-icon' />, label: 'Filtrar' },
-      { icon: <IconExport className='product__options-icon' />, label: 'Exportar' },
-      { icon: <IconCategory className='product__options-icon' />, label: 'Category' }
+      { icon: <IconFilter/>, label: 'Filtrar' },
+      { icon: <IconExport/>, label: 'Exportar' },
+      { icon: <IconCategory />, label: 'Category' }
     ],
     buttons: [
       {
@@ -55,20 +79,25 @@ const Inventory = () => {
     <section className='container__dashboard'>
       <Sidebar />
       <Navbar userImage={userImage} userName={userName} userRole={userRole} />
-      {showAddProductForm ? (
-        <AddProductForm handleSave={handleAddProduct} handleCancel={handleCancelAddProduct} />
-      ) : (
-        <>
-          <ProductOptions productCount={productCount} options={options} />
-          <InventoryTable
-            data={dataProducts}
-            handleEdit={handleEdit}
-            handleDelete={handleDelete}
-            handleIn={handleIn}
-          />
-          <Pagination currentPage={currentPage} totalPages={totalPages} />
-        </>
-      )}
+      <section className='container__inventory-main'>
+        {showAddProductForm ? (
+          <AddProductForm handleSave={handleAddProduct} handleCancel={handleCancelAddProduct} />
+        ) : (
+          <>
+            <ProductOptions productCount={productCount} options={optionsTableInventory} />
+            <DynamicTable
+              data={dataProducts}
+              headers={headers}
+              keys={keys}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+              onViewDetails={handleViewDetails}
+            />
+
+            <Pagination currentPage={currentPage} totalPages={totalPages} />
+          </>
+        )}
+      </section>
     </section>
   )
 }

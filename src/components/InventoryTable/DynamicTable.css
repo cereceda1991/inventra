@@ -1,0 +1,75 @@
+.dinamic__table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.dinamic__table th,
+td {
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.dinamic__table th {
+  font-weight: 400;
+  text-align: center;
+}
+
+.dinamic__table img {
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+}
+
+.table_icon-arrow,
+.table_icon-edit,
+.table_icon-trash {
+  border-radius: 50%;
+  margin-right: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.table_icon-arrow:hover {
+  background-color: rgb(76, 189, 47, 0.5);
+}
+
+.table_icon-edit:hover {
+  background-color: rgb(41, 105, 227, 0.5);
+}
+
+.table_icon-trash:hover {
+  background-color: rgb(223, 111, 121, 0.5);
+}
+
+.table_icon-trash {
+  display: none;
+}
+
+.td_actions{
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+
+  .dinamic__table th,
+  td {
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  .dinamic__table img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .table_icon-arrow,
+  .table_icon-edit,
+  .table_icon-trash {
+    margin-right: 10px;
+    display: inline-block;
+  }
+}

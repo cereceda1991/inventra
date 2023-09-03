@@ -1,0 +1,12 @@
+.container__inventory-main{
+    padding: 1rem;
+}
+
+.color_fill{
+    fill: aqua;
+}
+@media (min-width: 1200px) {
+    .container__inventory-main{
+        padding: 0px 44px;
+    }
+}

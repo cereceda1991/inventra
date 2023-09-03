@@ -21,7 +21,7 @@ import trendingUpRedIcon from '../assets/icons/images/trending-up-red.svg'
 const exportIconComponent = (iconPath) => {
   const Icon = () => (
     <div>
-      <img src={iconPath} alt='Icon' style={{ width: '24px', height: '24px' }} />
+      <img src={iconPath} alt='Icon' style={{ width: '30px', height: '30px'}} />
     </div>
   )
   return Icon
@@ -43,7 +43,6 @@ export const Iconsuppliers = exportIconComponent(suppliersIcon)
 export const Iconusers = exportIconComponent(usersIcon)
 export const IconArrowRigth = exportIconComponent(arrowrigthIcon)
 export const IconfileUpload = exportIconComponent(fileUploadIcon)
-
 export const IcontrendingDown = exportIconComponent(trendingDownIcon)
 export const IcontrendingUpGreen = exportIconComponent(trendingUpGreenIcon)
 export const IcontrendingUpRed = exportIconComponent(trendingUpRedIcon)

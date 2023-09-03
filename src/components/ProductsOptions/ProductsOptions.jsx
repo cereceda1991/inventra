@@ -4,9 +4,9 @@ import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
 
 const ProductOptions = ({ productCount, options }) => {
   return (
-    <div className='product-options'>
-      <div className='product-options__counter'>{productCount}</div>
-      <div className='product-options__actions'>
+    <main className='product-options'>
+      <section className='product-options__counter'>{productCount}</section>
+      <section className='product-options__actions'>
         <div className='product-options__dropdown'>
           <select>
             <option value=''>Ordenar por</option>
@@ -17,24 +17,26 @@ const ProductOptions = ({ productCount, options }) => {
             ))}
           </select>
         </div>
-        {options.actions.map((action, index) => (
-          <div className='user__options' key={index}>
-            {action.icon}
-            <p>{action.label}</p>
-          </div>
-        ))}
-
-        {options.buttons.map((button, index) => (
-          <div className='user__options' key={index}>
-            <ButtonGeneric
-              buttonContent={button.label}
-              onClick={button.onClick}
-              className='add-button'
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+        <div className='product-options__dropdown'>
+          {options.actions.map((action, index) => (
+            <div className='product_actions' key={index}>
+              {action.icon}
+              <p>{action.label}</p>
+            </div>
+          ))}
+        </div>
+        <div className='product-options-button'>
+          {options.buttons.map((button, index) => (
+            <div key={index}>
+              <ButtonGeneric
+                buttonContent={button.label}
+                onClick={button.onClick}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
   )
 }
 

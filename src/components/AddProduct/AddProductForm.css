@@ -1,6 +1,6 @@
 .add-product-form {
     display: flex;
-    padding: 0 44px;
+    flex-direction: column;
     gap: 30px;
 }
 
@@ -12,7 +12,8 @@
     flex: 1;
 }
 
-.right-inputs {
+.right-inputs,
+.center-inputs {
     gap: 20px;
 }
 
@@ -82,4 +83,11 @@
 
 .input_file {
     display: block;
+}
+
+@media (min-width: 768px) {
+    .add-product-form {
+        flex-direction: row;
+        margin-top: 63px;
+    }
 }

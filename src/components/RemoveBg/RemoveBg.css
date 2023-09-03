@@ -1,14 +1,12 @@
 .remove__bg {
     display: flex;
     flex-direction: column;
-    max-width: 300px;
-    padding: 0px 44px;
+    width: 100%;
 }
 
 .upload-icon,
 .preview-image,
 .result-image {
-    width: 141px;
     height: auto;
     aspect-ratio: 1;
     margin: auto;
@@ -29,15 +27,35 @@
 .upload-image-text {
     display: flex;
     margin: 10px auto;
+    width: 100%;
     justify-content: center;
     align-items: center;
     font-weight: 600;
     background-color: transparent;
     color: #000;
+    font-size: 24px;
     border: none;
     cursor: pointer;
 }
 
 .inactive-button {
     cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+    .remove__bg {
+        display: flex;
+        margin: 0;
+        justify-content: flex-start;
+    }
+
+    .upload-icon,
+    .preview-image,
+    .result-image {
+        width: 141px;
+    }
+
+    .upload-image-text {
+        font-size: 14px;
+    }
 }
