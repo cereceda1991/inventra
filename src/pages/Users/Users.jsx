@@ -18,19 +18,19 @@ const roles = ['Administrador', 'Inventariador', 'Supervisor', 'Operador']
 
 const Users = () => {
   const [showAddUserForm, setShowAddUserForm] = useState(false)
-  const [headers, setHeaders] = useState([]);
-  const [keys, setKeys] = useState([]);
+  const [headers, setHeaders] = useState([])
+  const [keys, setKeys] = useState([])
 
   useEffect(() => {
     // Determinar qué conjunto de encabezados y claves utilizar según el tamaño de la pantalla
     if (window.innerWidth < 600) {
-      setHeaders(['Usuario', 'Rol']);
-      setKeys(['entity', 'role']);
+      setHeaders(['Usuario', 'Rol'])
+      setKeys(['entity', 'role'])
     } else {
-      setHeaders(['Usuario', 'Rol', 'Correo electrónico']);
-      setKeys(['entity', 'role', 'mail']);
+      setHeaders(['Usuario', 'Rol', 'Correo electrónico'])
+      setKeys(['entity', 'role', 'mail'])
     }
-  }, []);
+  }, [])
 
   // Define las funciones para las acciones de editar, eliminar e ingresar
   const handleEdit = (item) => {
@@ -75,23 +75,27 @@ const Users = () => {
       <Sidebar />
       <Navbar userImage={userImage} userName={userName} userRole={userRole} />
       <section className='container_user-main'>
-      {showAddUserForm ? (
-        <AddUserForm roles={roles} handleSave={handleAddUser} handleCancel={handleCancelAddUser} />
-      ) : (
-        <>
-          <ProductOptions productCount={userCount} options={options} />
-          <DynamicTable
-                data={dataUser}
-                datatype='Usuario'
+        {showAddUserForm ? (
+          <AddUserForm
+            roles={roles}
+            handleSave={handleAddUser}
+            handleCancel={handleCancelAddUser}
+          />
+        ) : (
+          <>
+            <ProductOptions productCount={userCount} options={options} />
+            <DynamicTable
+              data={dataUser}
+              datatype='Usuario'
               headers={headers}
               keys={keys}
               onEdit={handleEdit}
               onDelete={handleDelete}
               onViewDetails={handleViewDetails}
             />
-        </>
+          </>
         )}
-        </section>
+      </section>
     </section>
   )
 }

@@ -20,19 +20,19 @@ const Inventory = () => {
   const currentPage = 3
   const totalPages = 10
 
-  const [headers, setHeaders] = useState([]);
-  const [keys, setKeys] = useState([]);
+  const [headers, setHeaders] = useState([])
+  const [keys, setKeys] = useState([])
 
   useEffect(() => {
     // Determinar qué conjunto de encabezados y claves utilizar según el tamaño de la pantalla
     if (window.innerWidth < 600) {
-      setHeaders(['Producto', 'Unidad']);
-      setKeys(['entity', 'unit']);
+      setHeaders(['Producto', 'Unidad'])
+      setKeys(['entity', 'unit'])
     } else {
-      setHeaders(['Producto', 'Código', 'Categoría', 'Unidad', 'Precio']);
-      setKeys(['entity', 'code', 'category', 'unit', 'price']);
+      setHeaders(['Producto', 'Código', 'Categoría', 'Unidad', 'Precio'])
+      setKeys(['entity', 'code', 'category', 'unit', 'price'])
     }
-  }, []);
+  }, [])
 
   // Define las funciones para las acciones de editar, eliminar e ingresar
   const handleEdit = (item) => {
@@ -63,8 +63,8 @@ const Inventory = () => {
   const optionsTableInventory = {
     sortBy: ['producto', 'codigo', 'categoria', 'unidad', 'precio'],
     actions: [
-      { icon: <IconFilter/>, label: 'Filtrar' },
-      { icon: <IconExport/>, label: 'Exportar' },
+      { icon: <IconFilter />, label: 'Filtrar' },
+      { icon: <IconExport />, label: 'Exportar' },
       { icon: <IconCategory />, label: 'Category' }
     ],
     buttons: [

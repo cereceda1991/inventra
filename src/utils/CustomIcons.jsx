@@ -21,7 +21,7 @@ import trendingUpRedIcon from '../assets/icons/images/trending-up-red.svg'
 const exportIconComponent = (iconPath) => {
   const Icon = () => (
     <div>
-      <img src={iconPath} alt='Icon' style={{ width: '30px', height: '30px'}} />
+      <img src={iconPath} alt='Icon' style={{ width: '30px', height: '30px' }} />
     </div>
   )
   return Icon

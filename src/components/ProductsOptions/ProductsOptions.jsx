@@ -28,10 +28,7 @@ const ProductOptions = ({ productCount, options }) => {
         <div className='product-options-button'>
           {options.buttons.map((button, index) => (
             <div key={index}>
-              <ButtonGeneric
-                buttonContent={button.label}
-                onClick={button.onClick}
-              />
+              <ButtonGeneric buttonContent={button.label} onClick={button.onClick} />
             </div>
           ))}
         </div>

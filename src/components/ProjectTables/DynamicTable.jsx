@@ -1,13 +1,13 @@
-import { IconArrow, IconEdit, IconTrash } from '../../utils/CustomIcons';
-import { DynamicTablePropTypes } from '../../utils/propTypes';
+import { IconArrow, IconEdit, IconTrash } from '../../utils/CustomIcons'
+import { DynamicTablePropTypes } from '../../utils/propTypes'
 import './DynamicTable.css'
 
-const DynamicTable = ({ data, headers, keys, onEdit, onDelete, onViewDetails,datatype }) => {
+const DynamicTable = ({ data, headers, keys, onEdit, onDelete, onViewDetails, datatype }) => {
   return (
     <table className='dinamic__table'>
       <thead>
         <tr>
-          <th colSpan="2">{datatype}</th>
+          <th colSpan='2'>{datatype}</th>
           {headers.slice(1).map((header, index) => (
             <th key={index}>{header}</th>
           ))}
@@ -26,17 +26,23 @@ const DynamicTable = ({ data, headers, keys, onEdit, onDelete, onViewDetails,dat
             ))}
 
             <td className='td_actions'>
-              <button className='table_icon-arrow' onClick={() => onViewDetails(item)}><IconArrow/></button>
-              <button className='table_icon-edit' onClick={() => onEdit(item)}><IconEdit/></button>
-              <button className='table_icon-trash' onClick={() => onDelete(item)}><IconTrash/></button>
+              <button className='table_icon-arrow' onClick={() => onViewDetails(item)}>
+                <IconArrow />
+              </button>
+              <button className='table_icon-edit' onClick={() => onEdit(item)}>
+                <IconEdit />
+              </button>
+              <button className='table_icon-trash' onClick={() => onDelete(item)}>
+                <IconTrash />
+              </button>
             </td>
           </tr>
         ))}
       </tbody>
     </table>
-  );
+  )
 }
 
-DynamicTable.propTypes=DynamicTablePropTypes
+DynamicTable.propTypes = DynamicTablePropTypes
 
-export default DynamicTable;
+export default DynamicTable

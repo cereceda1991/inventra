@@ -103,22 +103,22 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
         <div className='toggle-stock-controller'>
           <h1>Stock</h1>
           <div className='container__toggle-stock'>
-          <label>Controlar Stock del Item</label>
-          <label className='toggle-label'>
-            <input
-              type='checkbox'
-              checked={stockControlled}
-              onChange={() => {
-                setStockControlled(!stockControlled)
-                if (!stockControlled) {
-                  setItemStockMin('')
-                  setItemStockMax('')
-                }
-              }}
-            />
-            <span className='toggle-switch'></span>
+            <label>Controlar Stock del Item</label>
+            <label className='toggle-label'>
+              <input
+                type='checkbox'
+                checked={stockControlled}
+                onChange={() => {
+                  setStockControlled(!stockControlled)
+                  if (!stockControlled) {
+                    setItemStockMin('')
+                    setItemStockMax('')
+                  }
+                }}
+              />
+              <span className='toggle-switch'></span>
             </label>
-            </div>
+          </div>
         </div>
         <div className='stock-inputs'>
           <input

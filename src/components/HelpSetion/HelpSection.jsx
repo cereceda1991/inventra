@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import './HelpSection.css';
-import { dataFaqs } from '../../API/dataFaqs';
+import { useState } from 'react'
+import './HelpSection.css'
+import { dataFaqs } from '../../API/dataFaqs'
 
-import { IoIosArrowForward, IoIosArrowUp } from 'react-icons/io';
+import { IoIosArrowForward, IoIosArrowUp } from 'react-icons/io'
 
 const HelpSection = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState(null)
 
   const toggleExpand = (index) => {
     if (expandedIndex === index) {
-      setExpandedIndex(null);
+      setExpandedIndex(null)
     } else {
-      setExpandedIndex(index);
+      setExpandedIndex(index)
     }
-  };
+  }
 
   return (
     <div className='help-section'>
@@ -28,16 +28,12 @@ const HelpSection = () => {
               onClick={() => toggleExpand(index)}
             >
               <span className='faq__question-text'>{faq.question}</span>
-              <span className={`faq__icon ${
-                expandedIndex === index ? 'faq__icon--expanded' : ''
-              }`}>
+              <span className={`faq__icon ${expandedIndex === index ? 'faq__icon--expanded' : ''}`}>
                 {expandedIndex === index ? <IoIosArrowUp /> : <IoIosArrowForward />}
               </span>
             </div>
             <div
-              className={`faq__answer ${
-                expandedIndex === index ? 'faq__answer--expanded' : ''
-              }`}
+              className={`faq__answer ${expandedIndex === index ? 'faq__answer--expanded' : ''}`}
             >
               <p>{faq.answer}</p>
               <ul>
@@ -50,7 +46,7 @@ const HelpSection = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HelpSection;
+export default HelpSection
