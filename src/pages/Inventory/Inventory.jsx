@@ -8,7 +8,7 @@ import { IconCategory, IconExport, IconFilter } from '../../utils/CustomIcons'
 
 import './Inventory.css'
 import AddProductForm from '../../components/AddProduct/AddProductForm'
-import DynamicTable from '../../components/InventoryTable/DynamicTable'
+import DynamicTable from '../../components/ProjectTables/DynamicTable'
 
 const Inventory = () => {
   const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
@@ -27,10 +27,10 @@ const Inventory = () => {
     // Determinar qué conjunto de encabezados y claves utilizar según el tamaño de la pantalla
     if (window.innerWidth < 600) {
       setHeaders(['Producto', 'Unidad']);
-      setKeys(['description', 'unit']);
+      setKeys(['entity', 'unit']);
     } else {
       setHeaders(['Producto', 'Código', 'Categoría', 'Unidad', 'Precio']);
-      setKeys(['description', 'code', 'category', 'unit', 'price']);
+      setKeys(['entity', 'code', 'category', 'unit', 'price']);
     }
   }, []);
 
@@ -87,6 +87,7 @@ const Inventory = () => {
             <ProductOptions productCount={productCount} options={optionsTableInventory} />
             <DynamicTable
               data={dataProducts}
+              datatype='Producto'
               headers={headers}
               keys={keys}
               onEdit={handleEdit}

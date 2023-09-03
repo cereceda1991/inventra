@@ -6,7 +6,7 @@ import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
 import { BiLowVision, BiShow } from 'react-icons/bi'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import './AddUserForm.css'
+import './AddUserForm.css' 
 
 const AddUserForm = ({ roles, handleCancel, handleSave }) => {
   const [userName, setUserName] = useState('')
@@ -64,7 +64,7 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
   }
 
   return (
-    <div className='add-user-form'>
+    <main className='add-user-form'>
       <h2>Agregar Usuario</h2>
       <form onSubmit={handleFormSubmit}>
         <div className='form-group'>
@@ -136,7 +136,7 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
           />
         </div>
       </form>
-    </div>
+    </main>
   )
 }
 

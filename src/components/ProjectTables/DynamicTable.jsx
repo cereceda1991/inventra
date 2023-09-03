@@ -2,12 +2,12 @@ import { IconArrow, IconEdit, IconTrash } from '../../utils/CustomIcons';
 import { DynamicTablePropTypes } from '../../utils/propTypes';
 import './DynamicTable.css'
 
-const DynamicTable = ({ data, headers, keys, onEdit, onDelete, onViewDetails }) => {
+const DynamicTable = ({ data, headers, keys, onEdit, onDelete, onViewDetails,datatype }) => {
   return (
     <table className='dinamic__table'>
       <thead>
         <tr>
-          <th colSpan="2">Producto</th>
+          <th colSpan="2">{datatype}</th>
           {headers.slice(1).map((header, index) => (
             <th key={index}>{header}</th>
           ))}
@@ -18,9 +18,9 @@ const DynamicTable = ({ data, headers, keys, onEdit, onDelete, onViewDetails }) 
         {data.map((item, rowIndex) => (
           <tr key={rowIndex}>
             <td>
-              <img src={item['image_url']} alt={item['description']} />
+              <img src={item['image_url']} alt={item['entity']} />
             </td>
-            <td>{item['description']}</td>
+            <td>{item['entity']}</td>
             {keys.slice(1).map((key, colIndex) => (
               <td key={colIndex}>{item[key]}</td>
             ))}

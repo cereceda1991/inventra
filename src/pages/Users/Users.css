@@ -1,0 +1,9 @@
+.container_user-main{
+    padding: 1rem;
+}
+
+@media (min-width: 1200px) {
+    .container_user-main{
+        padding: 0px 44px;
+    }
+}

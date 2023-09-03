@@ -100,8 +100,9 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
         </select>
       </section>
       <section className='right-inputs'>
-        <div className='subtitle'>Stock</div>
         <div className='toggle-stock-controller'>
+          <h1>Stock</h1>
+          <div className='container__toggle-stock'>
           <label>Controlar Stock del Item</label>
           <label className='toggle-label'>
             <input
@@ -116,7 +117,8 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
               }}
             />
             <span className='toggle-switch'></span>
-          </label>
+            </label>
+            </div>
         </div>
         <div className='stock-inputs'>
           <input

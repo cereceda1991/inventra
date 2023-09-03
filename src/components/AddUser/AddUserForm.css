@@ -1,31 +1,32 @@
 .add-user-form {
     display: flex;
     flex-direction: column;
-    padding: 0px 44px;
     gap: 23px;
 }
 
-.button-group {
-    display: flex;
+.add-user-form form {
+    display: grid;
     gap: 20px;
 }
 
 .form-group {
-    max-width: 380px ;
+    display: grid;
     position: relative;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
     width: 100%;
 }
 
 .password-toggle {
     position: absolute;
-    right: 10px;
-    top: 50%;
-    background: none;
-    border: none;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 5px;
     cursor: pointer;
+    height: 100%;
     font-size: 24px;
 }
 
@@ -35,5 +36,24 @@
 
 .note {
     color: #2969E3;
-    margin: 20px;
+    border-radius: 8px;
+    padding: 1rem;
+    background: rgba(41, 105, 227, 0.10);
+}
+
+.note::before {
+    content: "*";
+    margin-right: 4px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .add-user-form form {
+        max-width: 500px;
+    }
 }

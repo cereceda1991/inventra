@@ -2,7 +2,7 @@ export const dataProducts = [
     {
         id: 1,
         code: '6591234',
-        description: 'Aceite Primor 500 ml',
+        entity: 'Aceite Primor 500 ml',
         image_url: 'https://i.ibb.co/hZmw98D/aceite.png',
         category: 'Aceites',
         price: 10.99,
@@ -11,7 +11,7 @@ export const dataProducts = [
     {
         id: 2,
         code: '6595678',
-        description: 'Papel H doble hoja Elite',
+        entity: 'Papel H doble hoja Elite',
         image_url: 'https://i.ibb.co/drXfcRn/gillete.png',
         category: 'Limpieza y Aseo',
         price: 12.98,
@@ -20,7 +20,7 @@ export const dataProducts = [
     {
         id: 3,
         code: '6593210',
-        description: 'Prestobarba Gillete',
+        entity: 'Prestobarba Gillete',
         image_url: 'https://i.ibb.co/G0JpPfP/arroz.png',
         category: 'Cuidado Personal',
         price: 15.45,
@@ -29,7 +29,7 @@ export const dataProducts = [
     {
         id: 4,
         code: '6592222',
-        description: 'Arroz Blanco 1 Kg',
+        entity: 'Arroz Blanco 1 Kg',
         image_url: 'https://i.ibb.co/jHXLQYk/jabon.png',
         category: 'Menestras',
         price: 20.10,
@@ -38,7 +38,7 @@ export const dataProducts = [
     {
         id: 5,
         code: '6599999',
-        description: 'Jabón de Lavandería',
+        entity: 'Jabón de Lavandería',
         image_url: 'https://i.ibb.co/J7NKx6Y/papel.png',
         category: 'Limpieza y Aseo',
         price: 25.30,
