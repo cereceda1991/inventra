@@ -28,6 +28,7 @@
     cursor: pointer;
     height: 100%;
     font-size: 24px;
+    z-index: 10;
 }
 
 .button-group button {

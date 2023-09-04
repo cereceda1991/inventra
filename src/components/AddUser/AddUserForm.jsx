@@ -1,67 +1,68 @@
 import { useState } from 'react'
-// Componentes y Utils
-import { AddUserFormPropTypes } from '../../utils/propTypes'
-import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
-// Iconos, Estilos y notificaciones
 import { BiLowVision, BiShow } from 'react-icons/bi'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './AddUserForm.css'
+import { registerUser } from '../../Redux/authActions'
+import { useDispatch } from 'react-redux'
+import { AddUserFormPropTypes } from '../../utils/propTypes'
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
 
 const AddUserForm = ({ roles, handleCancel, handleSave }) => {
-  const [userName, setUserName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [selectedRole, setSelectedRole] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    role: '',
+  })
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [errors, setErrors] = useState({})
 
-  const isDisabled = !userName || !email || !password || !confirmPassword || !selectedRole
-
-  const handleUserNameChange = (event) => {
-    setUserName(event.target.value)
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData({
+      ...formData,
+      [name]: value,
+    })
   }
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value)
+  const togglePasswordVisibility = (field) => {
+    if (field === 'password') {
+      setShowPassword(!showPassword)
+    } else if (field === 'confirmPassword') {
+      setShowConfirmPassword(!showConfirmPassword)
+    }
   }
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value)
-  }
+  const isDisabled = Object.values(formData).some((value) => value === '')
 
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value)
-  }
+  const dispatch = useDispatch()
 
-  const handleRoleChange = (event) => {
-    setSelectedRole(event.target.value)
-  }
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword)
-  }
-
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword)
-  }
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault()
-    if (password !== confirmPassword) {
-      toast.error(`Las contraseñas no coinciden`)
+  const handleFormSubmit = async (e) => {
+    e.preventDefault()
+    if (formData.password !== formData.confirmPassword) {
+      toast.error('Las contraseñas no coinciden')
       return
     }
-    handleSave({
-      userName,
-      email,
-      password,
-      role: selectedRole,
-    })
+    console.log('Valor de selectedRole que se envía:', formData.selectedRole)
 
-    toast.success(`Usuario creado con éxito`)
+    try {
+      const response = await dispatch(registerUser(formData))
+      console.log('Registro exitoso:', response)
+      toast.success('Usuario creado con éxito')
+    } catch (error) {
+      if (error.errors) {
+        setErrors(error.errors)
+      } else {
+        console.error('Error en el registro:', error)
+      }
+    }
   }
+
+  const showError = (field) =>
+    errors[field] && <div className='auth__error'>{errors[field].join(', ')}</div>
 
   return (
     <main className='add-user-form'>
@@ -69,51 +70,64 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
         <div className='form-group'>
           <input
             type='text'
-            value={userName}
-            onChange={handleUserNameChange}
+            name='name'
+            value={formData.name}
+            onChange={handleInputChange}
             placeholder='Nombre de Usuario'
-            autoComplete='username'
+            autoComplete='name'
+            className={errors.name ? 'input-error' : ''}
             required
           />
+          {showError('name')}
         </div>
         <div className='form-group'>
           <input
             type='email'
-            value={email}
-            onChange={handleEmailChange}
+            name='email'
+            value={formData.email}
+            onChange={handleInputChange}
             placeholder='Correo Electrónico'
             autoComplete='email'
+            className={errors.email ? 'input-error' : ''}
             required
           />
+          {showError('email')}
         </div>
         <div className='form-group'>
           <input
             type={showPassword ? 'text' : 'password'}
-            value={password}
-            onChange={handlePasswordChange}
+            name='password'
+            value={formData.password}
+            onChange={handleInputChange}
             placeholder='Contraseña'
             autoComplete='new-password'
+            className={errors.password ? 'input-error' : ''}
             required
           />
-          <p className='password-toggle' onClick={togglePasswordVisibility}>
+          {showError('password')}
+          <p className='password-toggle' onClick={() => togglePasswordVisibility('password')}>
             {showPassword ? <BiLowVision /> : <BiShow />}
           </p>
         </div>
         <div className='form-group'>
           <input
             type={showConfirmPassword ? 'text' : 'password'}
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
+            name='confirmPassword'
+            value={formData.confirmPassword}
+            onChange={handleInputChange}
             placeholder='Confirmar Contraseña'
             autoComplete='new-password'
             required
           />
-          <p className='password-toggle' onClick={toggleConfirmPasswordVisibility}>
+          <p
+            className='password-toggle'
+            onClick={() => togglePasswordVisibility('confirmPassword')}
+          >
             {showConfirmPassword ? <BiLowVision /> : <BiShow />}
           </p>
         </div>
         <div className='form-group'>
-          <select value={selectedRole} onChange={handleRoleChange}>
+          <select name='role' value={formData.role} onChange={handleInputChange}>
             <option value=''>Seleccione un rol</option>
             {roles.map((role, index) => (
               <option key={index} value={role}>
@@ -128,11 +142,7 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
         </p>
         <div className='button-group'>
           <ButtonGeneric buttonContent='Cancelar' onClick={handleCancel} />
-          <ButtonGeneric
-            buttonContent='Guardar'
-            onClick={handleFormSubmit}
-            isDisabled={isDisabled}
-          />
+          <ButtonGeneric type='submit' buttonContent='Guardar' isDisabled={isDisabled} />
         </div>
       </form>
     </main>
