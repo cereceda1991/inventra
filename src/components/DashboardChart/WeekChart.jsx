@@ -10,30 +10,30 @@ const WeekChart = () => {
       type: 'bar',
       data: {
         labels: labels,
-        datasets: [dataProductsAddedDaily]
+        datasets: [dataProductsAddedDaily],
       },
       options: {
         scales: {
           x: {
             beginAtZero: false,
             grid: {
-              display: false
-            }
+              display: false,
+            },
           },
           y: {
             beginAtZero: true,
             grid: {
-              display: false
-            }
-          }
+              display: false,
+            },
+          },
         },
         plugins: {
           legend: {
-            display: false
-          }
+            display: false,
+          },
         },
-        barThickness: 6
-      }
+        barThickness: 6,
+      },
     }
 
     const myChart = new Chart(chartRef.current, chartConfig)

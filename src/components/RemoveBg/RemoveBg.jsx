@@ -8,20 +8,20 @@ const RemoveBg = () => {
   const [file, setFile] = useState(null)
   const [imageResult, setImageResult] = useState(null)
   const [imagePreview, setImagePreview] = useState(null)
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(false)
 
   const apiKey = import.meta.env.VITE_API_KEY
 
   // Función para obtener el estado del modo oscuro desde el localStorage
   const getDarkModeFromLocalStorage = () => {
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(isDarkMode);
-  };
+    const isDarkMode = localStorage.getItem('darkMode') === 'true'
+    setDarkMode(isDarkMode)
+  }
 
   // Efecto secundario para cargar el estado del modo oscuro al montar el componente
   useEffect(() => {
-    getDarkModeFromLocalStorage();
-  }, []);
+    getDarkModeFromLocalStorage()
+  }, [])
 
   const handleChange = (event) => {
     const selectedFile = event.target.files[0]
@@ -44,13 +44,13 @@ const RemoveBg = () => {
 
       const headers = {
         'X-Api-Key': apiKey,
-        ...(formData.getHeaders ? formData.getHeaders() : null)
+        ...(formData.getHeaders ? formData.getHeaders() : null),
       }
 
       const response = await axios.post('https://api.remove.bg/v1.0/removebg', formData, {
         responseType: 'arraybuffer',
         headers,
-        encoding: null
+        encoding: null,
       })
 
       if (response.status !== 200) {

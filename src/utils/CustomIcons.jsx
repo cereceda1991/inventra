@@ -48,4 +48,3 @@ export const IcontrendingUpGreen = exportIconComponent(trendingUpGreenIcon)
 export const IcontrendingUpRed = exportIconComponent(trendingUpRedIcon)
 export const IconfileUploadB = exportIconComponent(fileUploadIconB)
 export const IconfileUploadW = exportIconComponent(fileUploadIconW)
-

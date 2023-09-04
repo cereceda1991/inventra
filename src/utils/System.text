@@ -1,0 +1,12 @@
+/* Si es por preferencias del usuario */
+
+/* @media (prefers-color-scheme: dark) {
+    body {
+        --background-color: #444654;
+        --text-color: #f7f7f8;
+        --main-color: #0008;
+        --color-focus: #f7f7f8;
+        --border-color: #cfcfcf;
+        --overlay-color: #0007;
+    }
+} */

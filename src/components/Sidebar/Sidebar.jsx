@@ -8,7 +8,7 @@ import {
   Iconhelp,
   Iconinventory,
   Iconlogout,
-  Iconusers
+  Iconusers,
 } from '../../utils/CustomIcons'
 import showDialog from '../../utils/showDialog'
 import logo from '../../assets/logo-blanco-inventra.webp'
@@ -27,7 +27,7 @@ const Sidebar = () => {
     const confirmed = await showDialog(
       'Cerrar Sesión',
       '¿Estás seguro de que deseas cerrar sesión?',
-      'question'
+      'question',
     )
 
     if (confirmed) {

@@ -32,7 +32,7 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
       itemCategory,
       itemStockMin,
       itemStockMax,
-      stockControlled
+      stockControlled,
     })
 
     const productCreatedSuccessfully = true // Cambia esto según tu lógica real.
@@ -48,7 +48,7 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
       itemCategory,
       itemStockMin,
       itemStockMax,
-      stockControlled
+      stockControlled,
     })
   }
 

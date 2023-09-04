@@ -31,6 +31,7 @@ function Profile() {
     setChangePassword(true)
     setEditProfile(false)
   }
+
   return (
     <main className='profile'>
       <section className='profile__left'>
@@ -44,7 +45,7 @@ function Profile() {
           <IoIosArrowForward />
         </section>
         <section className='profile-settings'>
-          <setion>
+          <section>
             <h2>Moneda</h2>
             <div>
               <select className='profile-select'>
@@ -62,7 +63,7 @@ function Profile() {
                 <span className='slider'></span>
               </label>
             </div>
-          </setion>
+          </section>
           <section>
             <h2>Pantalla</h2>
             <div className='profile-settings-toggle'>

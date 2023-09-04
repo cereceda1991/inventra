@@ -51,7 +51,7 @@ const DashboardChart = ({ chartType, tension, pointRadius, color }) => {
           },
         },
       },
-    };
+    }
 
     const myChart = new Chart(chartRef.current, chartConfig)
 

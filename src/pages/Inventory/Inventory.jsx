@@ -65,14 +65,14 @@ const Inventory = () => {
     actions: [
       { icon: <IconFilter />, label: 'Filtrar' },
       { icon: <IconExport />, label: 'Exportar' },
-      { icon: <IconCategory />, label: 'Category' }
+      { icon: <IconCategory />, label: 'Category' },
     ],
     buttons: [
       {
         label: '+ Agregar Producto',
-        onClick: handleAddProduct
-      }
-    ]
+        onClick: handleAddProduct,
+      },
+    ],
   }
 
   return (

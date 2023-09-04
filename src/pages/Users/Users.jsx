@@ -60,14 +60,14 @@ const Users = () => {
     sortBy: ['nombre', 'rol', 'correo'],
     actions: [
       { icon: <IconFilter className='user__options-icon' />, label: 'Filtrar' },
-      { icon: <IconExport className='user__options-icon' />, label: 'Exportar' }
+      { icon: <IconExport className='user__options-icon' />, label: 'Exportar' },
     ],
     buttons: [
       {
         label: `+ Agregar Usuario`,
-        onClick: handleAddUser
-      }
-    ]
+        onClick: handleAddUser,
+      },
+    ],
   }
 
   return (

@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
-
+import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -17,12 +17,15 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/inventory' element={<Inventory />} />
-        <Route path='/users' element={<Users />} />
-        <Route path='/setting' element={<Setting />} />
-        <Route path='/help' element={<Help />} />
-        <Route path='*' element={<Navigate to='/' replace />} />
+        {/* Rutas protegidas por token */}
+        <Route element={<ProtectedRoutes />}>
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/inventory' element={<Inventory />} />
+          <Route path='/users' element={<Users />} />
+          <Route path='/setting' element={<Setting />} />
+          <Route path='/help' element={<Help />} />
+          <Route path='*' element={<Navigate to='/' replace />} />
+        </Route>
       </Routes>
     </main>
   )

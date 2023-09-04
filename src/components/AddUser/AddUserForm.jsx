@@ -57,7 +57,7 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
       userName,
       email,
       password,
-      role: selectedRole
+      role: selectedRole,
     })
 
     toast.success(`Usuario creado con éxito`)
