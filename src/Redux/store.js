@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit'
-import darkModeReducer from './darkModeSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
+import authReducer from './authSlice';
 
 const store = configureStore({
   reducer: {
-    darkMode: darkModeReducer
-  }
-})
+    auth: authReducer,
+  },
+  middleware: [thunk], // Agrega thunk como middleware
+});
 
-export default store
+export default store;

@@ -8,19 +8,32 @@ import logo from '../../assets/logo-azul-inventra-042.webp'
 import { BiLowVision, BiShow } from 'react-icons/bi'
 import './Auth.css'
 
+import { registerUser } from '../../Redux/authActions'
+import { useDispatch } from 'react-redux'
+
 const Register = () => {
+
+  console.log('Componente Register cargado');
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
+  const dispatch = useDispatch();
+
   const isButtonDisabled = !name || !email || !password
 
-  const handleRegister = () => {
-    if (!isButtonDisabled) {
-      // Lógica de registro aquí
-    }
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const userData = {
+      name,
+      email,
+      password,
+    };
+    console.log('Datos enviados desde el formulario:', userData);
+    dispatch(registerUser(userData));
   }
+
 
   return (
     <main className='auth'>
@@ -39,7 +52,7 @@ const Register = () => {
           <p className='auth__paragraph'>
             Regístrate para conocer todas las ventajas que Inventra tiene para ti.
           </p>
-          <form>
+          <form onSubmit={handleRegister}>
             <input
               type='text'
               placeholder='Nombre'
@@ -69,11 +82,7 @@ const Register = () => {
                 {showPassword ? <BiLowVision /> : <BiShow />}
               </p>
             </div>
-            <ButtonGeneric
-              buttonContent='Registrarse'
-              onClick={handleRegister}
-              isDisabled={isButtonDisabled}
-            />
+            <ButtonGeneric type="submit" buttonContent='Registrarse' isDisabled={isButtonDisabled} />
           </form>
           <div className='auth__login-link'>
             ¿Ya tienes una cuenta? <Link to='/login'>Ingresa ahora</Link>
