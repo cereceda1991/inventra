@@ -11,10 +11,6 @@ import AddProductForm from '../../components/AddProduct/AddProductForm'
 import DynamicTable from '../../components/ProjectTables/DynamicTable'
 
 const Inventory = () => {
-  const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
-  const userName = 'Rocio del Solar'
-  const userRole = 'Administrador'
-
   const productCount = `10 Productos`
 
   const currentPage = 3
@@ -78,7 +74,7 @@ const Inventory = () => {
   return (
     <section className='container__dashboard'>
       <Sidebar />
-      <Navbar userImage={userImage} userName={userName} userRole={userRole} />
+      <Navbar />
       <section className='container__inventory-main'>
         {showAddProductForm ? (
           <AddProductForm handleSave={handleAddProduct} handleCancel={handleCancelAddProduct} />

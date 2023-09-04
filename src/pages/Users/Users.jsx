@@ -8,10 +8,6 @@ import './Users.css'
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions'
 import DynamicTable from '../../components/ProjectTables/DynamicTable'
 
-const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
-const userName = 'Rocio del Solar'
-const userRole = 'Administrador'
-
 const userCount = '10 Usuarios'
 
 const roles = ['Administrador', 'Inventariador', 'Supervisor', 'Operador']
@@ -73,7 +69,7 @@ const Users = () => {
   return (
     <section className='container__dashboard'>
       <Sidebar />
-      <Navbar userImage={userImage} userName={userName} userRole={userRole} />
+      <Navbar />
       <section className='container_user-main'>
         {showAddUserForm ? (
           <AddUserForm

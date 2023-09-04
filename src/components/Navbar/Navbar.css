@@ -65,6 +65,10 @@
     order: 1;
 }
 
+.navbar__user-info {
+    text-transform: capitalize;
+}
+
 .navbar__user-image {
     width: 40px;
     height: 40px;
@@ -77,7 +81,7 @@
         height: 78px;
         padding: 0px 44px;
         color: var(--text-color);
-        background-color: var(--background-color);        
+        background-color: var(--background-color);
         box-shadow: 1px 0px 4px 0px rgba(48, 48, 48, 0.15);
         z-index: 20;
     }

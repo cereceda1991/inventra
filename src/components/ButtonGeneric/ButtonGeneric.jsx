@@ -5,7 +5,8 @@ function ButtonGeneric({ buttonContent, isDisabled, onClick }) {
   return (
     <button
       className={`main__button ${isDisabled ? 'disabled' : ''}`}
-      disabled={isDisabled} onClick={onClick}
+      disabled={isDisabled}
+      onClick={onClick}
     >
       {buttonContent}
     </button>

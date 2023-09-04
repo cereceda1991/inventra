@@ -1,8 +1,19 @@
+import { useEffect, useState } from 'react'
 import { AiOutlineSearch, AiOutlineBell } from 'react-icons/ai'
 import './Navbar.css'
-import { NavbarPropTypes } from '../../utils/propTypes'
 
-const Navbar = ({ userImage, userName, userRole }) => {
+const Navbar = () => {
+  const [userData, setUserData] = useState({})
+
+  useEffect(() => {
+    // Carga los datos almacenados desde Local Storage cuando el componente se monta
+    const userResponseString = localStorage.getItem('userResponse')
+    if (userResponseString) {
+      const userResponse = JSON.parse(userResponseString)
+      setUserData(userResponse.data.user)
+    }
+  }, [])
+
   return (
     <nav className='container__navbar'>
       <section className='navbar__search'>
@@ -14,16 +25,14 @@ const Navbar = ({ userImage, userName, userRole }) => {
         <div className='navbar__notification-badge'></div>
       </section>
       <section className='navbar__user'>
-        <img className='navbar__user-image' src={userImage} alt='Usuario' />
+        <img className='navbar__user-image' src={userData.profile} alt='Usuario' />
         <div className='navbar__user-info'>
-          <p>{userName}</p>
-          <p>{userRole}</p>
+          <p>{userData.name}</p>
+          <p>{userData.role}</p>
         </div>
       </section>
     </nav>
   )
 }
-
-Navbar.propTypes = NavbarPropTypes
 
 export default Navbar

@@ -16,37 +16,37 @@ const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({})
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const isButtonDisabled = !name || !email || !password
 
   const handleRegister = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const userData = {
       name,
       email,
       password,
-    };
+    }
 
     try {
-      const response = await dispatch(registerUser(userData));
-      console.log('Registro exitoso:', response);
-      navigate('/dashboard');
+      const response = await dispatch(registerUser(userData))
+      console.log('Registro exitoso:', response)
+      navigate('/dashboard')
     } catch (error) {
       // Si hay un error, establece los errores en el estado local
       if (error.errors) {
-        setErrors(error.errors);
+        setErrors(error.errors)
       } else {
-        console.error('Error en el registro:', error);
+        console.error('Error en el registro:', error)
       }
     }
-  };
+  }
 
   // Define la clase CSS para resaltar los campos con error
-  const inputErrorClass = (field) => (errors && errors[field] ? 'input-error' : '');
+  const inputErrorClass = (field) => (errors && errors[field] ? 'input-error' : '')
 
   return (
     <main className='auth'>
@@ -75,9 +75,7 @@ const Register = () => {
               className={inputErrorClass('name')}
               required
             />
-            {errors.name && (
-              <div className='auth__error'>{errors.name.join(', ')}</div>
-            )}
+            {errors.name && <div className='auth__error'>{errors.name.join(', ')}</div>}
             <input
               type='email'
               placeholder='Correo electrónico'
@@ -87,9 +85,7 @@ const Register = () => {
               className={inputErrorClass('email')}
               required
             />
-            {errors.email && (
-              <div className='auth__error'>{errors.email.join(', ')}</div>
-            )}
+            {errors.email && <div className='auth__error'>{errors.email.join(', ')}</div>}
             <div className='auth__password'>
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -104,10 +100,12 @@ const Register = () => {
                 {showPassword ? <BiLowVision /> : <BiShow />}
               </p>
             </div>
-            {errors.password && (
-              <div className='auth__error'>{errors.password.join(', ')}</div>
-            )}
-            <ButtonGeneric type="submit" buttonContent='Registrarse' isDisabled={isButtonDisabled} />
+            {errors.password && <div className='auth__error'>{errors.password.join(', ')}</div>}
+            <ButtonGeneric
+              type='submit'
+              buttonContent='Registrarse'
+              isDisabled={isButtonDisabled}
+            />
           </form>
           <div className='auth__login-link'>
             ¿Ya tienes una cuenta? <Link to='/login'>Ingresa ahora</Link>

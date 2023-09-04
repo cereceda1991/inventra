@@ -1,4 +1,3 @@
-// authActions.js
 import { setUser } from './authSlice'
 import axios from 'axios'
 
@@ -18,6 +17,7 @@ const handleCommonErrors = (error) => {
 export const registerUser = (userData) => async (dispatch) => {
   try {
     const response = await axios.post(`${API_URL}/auth/register`, userData)
+
     dispatch(setUser(response.data.user))
     return response
   } catch (error) {
@@ -28,6 +28,10 @@ export const registerUser = (userData) => async (dispatch) => {
 export const loginUser = (credentials) => async (dispatch) => {
   try {
     const response = await axios.post(`${API_URL}/auth/login`, credentials)
+
+    // Almacena la respuesta en Local Storage
+    localStorage.setItem('userResponse', JSON.stringify(response.data))
+
     dispatch(setUser(response.data.credentials))
     return response
   } catch (error) {

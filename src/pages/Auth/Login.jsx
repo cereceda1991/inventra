@@ -13,34 +13,34 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null)
 
-  const isButtonDisabled = !email || !password;
+  const isButtonDisabled = !email || !password
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const credentials = {
       email,
       password,
-    };
+    }
 
     try {
-      const response = await dispatch(loginUser(credentials));
-      console.log('Inicio de sesión exitoso:', response);
-      navigate('/dashboard'); // Redirige si el inicio de sesión fue exitoso
+      const response = await dispatch(loginUser(credentials))
+      console.log('Inicio de sesión exitoso:', response)
+      navigate('/dashboard') // Redirige si el inicio de sesión fue exitoso
     } catch (error) {
       // Si hay un error, establece el mensaje de error en el estado local
-      console.error('Error en el inicio de sesión:', error.error);
-      setError(error.error);
+      console.error('Error en el inicio de sesión:', error.error)
+      setError(error.error)
     }
-  };
+  }
 
   // Define la clase CSS para resaltar los campos con error
-  const inputErrorClass = error ? 'input-error' : '';
+  const inputErrorClass = error ? 'input-error' : ''
 
   return (
     <main className='auth'>

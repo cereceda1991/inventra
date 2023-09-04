@@ -18,10 +18,6 @@ import { dataTension } from '../../API/dataTension'
 import './Dashboard.css'
 import { dataColor } from '../../API/dataColor'
 const Dashboard = () => {
-  const userImage = 'https://i.ibb.co/pbxRwqm/perfil.png'
-  const userName = 'Rocio del Solar'
-  const userRole = 'Administrador'
-
   const [selectedChartType, setSelectedChartType] = useState('line')
   const [selectedTensionType, setSelectedTensionType] = useState(0.4)
   const [selectedPointRadius, setSelectedPointRadius] = useState(2)
@@ -46,7 +42,7 @@ const Dashboard = () => {
   return (
     <section className='container__dashboard'>
       <Sidebar />
-      <Navbar userImage={userImage} userName={userName} userRole={userRole} />
+      <Navbar />
       <section className='container_chart-board'>
         <div className='chart_board-cards'>
           <CardDashboard icon={<BiSolidUser />} title='Usuarios' value={10} />
