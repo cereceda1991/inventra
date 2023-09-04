@@ -65,7 +65,6 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
 
   return (
     <main className='add-user-form'>
-      <h2>Agregar Usuario</h2>
       <form onSubmit={handleFormSubmit}>
         <div className='form-group'>
           <input

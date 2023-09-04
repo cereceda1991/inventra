@@ -1,11 +1,11 @@
 import { ButtonGenericPropTypes } from '../../utils/propTypes'
 import './ButtonGeneric.css'
 
-function ButtonGeneric({ buttonContent, isDisabled }) {
+function ButtonGeneric({ buttonContent, isDisabled, onClick }) {
   return (
     <button
       className={`main__button ${isDisabled ? 'disabled' : ''}`}
-      disabled={isDisabled}
+      disabled={isDisabled} onClick={onClick}
     >
       {buttonContent}
     </button>
