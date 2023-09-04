@@ -74,6 +74,7 @@
     cursor: pointer;
     height: 100%;
     font-size: 24px;
+    z-index: 10;
 }
 
 .auth__login-link,
@@ -94,6 +95,16 @@
 .auth__login-link a {
     color: var(--color-focus);
     text-decoration: none;
+}
+
+.auth__error {
+    text-align: end;
+    color: red;
+    font-size: 13px;
+}
+
+.input-error {
+    border: 1px solid red;
 }
 
 /* Media Query para dispositivos móviles */

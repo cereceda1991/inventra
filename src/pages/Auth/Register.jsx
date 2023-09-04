@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 // Componentes
 import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric'
 // Recursos
@@ -12,28 +12,41 @@ import { registerUser } from '../../Redux/authActions'
 import { useDispatch } from 'react-redux'
 
 const Register = () => {
-
-  console.log('Componente Register cargado');
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [errors, setErrors] = useState({});
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const isButtonDisabled = !name || !email || !password
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const userData = {
       name,
       email,
       password,
     };
-    console.log('Datos enviados desde el formulario:', userData);
-    dispatch(registerUser(userData));
-  }
 
+    try {
+      const response = await dispatch(registerUser(userData));
+      console.log('Registro exitoso:', response);
+      navigate('/dashboard');
+    } catch (error) {
+      // Si hay un error, establece los errores en el estado local
+      if (error.errors) {
+        setErrors(error.errors);
+      } else {
+        console.error('Error en el registro:', error);
+      }
+    }
+  };
+
+  // Define la clase CSS para resaltar los campos con error
+  const inputErrorClass = (field) => (errors && errors[field] ? 'input-error' : '');
 
   return (
     <main className='auth'>
@@ -59,16 +72,24 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               autoComplete='name'
+              className={inputErrorClass('name')}
               required
             />
+            {errors.name && (
+              <div className='auth__error'>{errors.name.join(', ')}</div>
+            )}
             <input
               type='email'
               placeholder='Correo electrónico'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete='email'
+              className={inputErrorClass('email')}
               required
             />
+            {errors.email && (
+              <div className='auth__error'>{errors.email.join(', ')}</div>
+            )}
             <div className='auth__password'>
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -76,12 +97,16 @@ const Register = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete='password'
+                className={inputErrorClass('password')}
                 required
               />
               <p className='auth__password-toggle' onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <BiLowVision /> : <BiShow />}
               </p>
             </div>
+            {errors.password && (
+              <div className='auth__error'>{errors.password.join(', ')}</div>
+            )}
             <ButtonGeneric type="submit" buttonContent='Registrarse' isDisabled={isButtonDisabled} />
           </form>
           <div className='auth__login-link'>
