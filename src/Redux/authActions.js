@@ -1,18 +1,8 @@
-import { setUser } from './authSlice'
 import axios from 'axios'
+import { handleCommonErrors } from '../utils/handleCommonErrors'
+import { setUser } from './authSlice'
 
 const API_URL = import.meta.env.VITE_API_URL
-
-// Función de utilidad para manejar errores comunes
-const handleCommonErrors = (error) => {
-  if (error.response) {
-    console.error(error.response.data)
-    throw error.response.data
-  } else {
-    console.error(error.message)
-    throw { error: 'Error de red' }
-  }
-}
 
 export const registerUser = (userData) => async (dispatch) => {
   try {
