@@ -36,10 +36,10 @@
 }
 
 .note {
-    color: var(--main-color);
+    color: var(--hover-color);
     border-radius: 8px;
     padding: 1rem;
-    background: rgba(41, 105, 227, 0.10);
+    background: var(--note-background);
 }
 
 .note::before {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { TiCameraOutline } from 'react-icons/ti'
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
@@ -8,7 +8,17 @@ import 'react-toastify/dist/ReactToastify.css'
 import './EditProfile.css'
 
 function EditProfile() {
-  const [profileImage, setProfileImage] = useState('https://i.ibb.co/Fmhvh7q/user.png')
+  const [userData, setUserData] = useState({})
+
+  useEffect(() => {
+    // Carga los datos almacenados desde Local Storage cuando el componente se monta
+    const userResponseString = localStorage.getItem('userResponse')
+    if (userResponseString) {
+      const userResponse = JSON.parse(userResponseString)
+      setUserData(userResponse.data.user)
+    }
+  }, [])
+
   const [selectedImage, setSelectedImage] = useState(null)
 
   const handleImageChange = (event) => {
@@ -36,7 +46,7 @@ function EditProfile() {
       <section className='edit-profile'>
         <header className='profile-image-container'>
           <label htmlFor='image-upload'>
-            <img src={selectedImage || profileImage} alt='user' />
+            <img src={selectedImage || userData.profile} alt='user' />
             <div className='camera-icon'>
               <TiCameraOutline />
             </div>
