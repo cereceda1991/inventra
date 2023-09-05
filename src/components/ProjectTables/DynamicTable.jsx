@@ -18,9 +18,9 @@ const DynamicTable = ({ data, headers, keys, onEdit, onDelete, onViewDetails, da
         {data.map((item, rowIndex) => (
           <tr key={rowIndex}>
             <td>
-              <img src={item['image_url']} alt={item['entity']} />
+              <img src={item['profile']} alt={item['profile']} />
             </td>
-            <td>{item['entity']}</td>
+            <td>{item['name']}</td>
             {keys.slice(1).map((key, colIndex) => (
               <td key={colIndex}>{item[key]}</td>
             ))}

@@ -1,18 +1,23 @@
-import { useEffect, useState } from 'react'
-import { dataUser } from '../../API/dataUser'
+import { useEffect, useState, useRef } from 'react'
 import AddUserForm from '../../components/AddUser/AddUserForm'
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import { IconFilter, IconExport } from '../../utils/CustomIcons'
-import './Users.css'
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions'
 import DynamicTable from '../../components/ProjectTables/DynamicTable'
 
-const userCount = '10 Usuarios'
+import { getUsers } from '../../Redux/userActions'
+import { useDispatch, useSelector } from 'react-redux'
 
-const roles = ['Administrador', 'Inventariador', 'Supervisor', 'Operador']
+import './Users.css'
+import { roles } from '../../API/dataUser'
 
 const Users = () => {
+  const dispatch = useDispatch()
+  const usersData = useSelector((state) => state.user.users.data)
+  const users = usersData ? usersData.users : []
+  const prevUsersDataRef = useRef(usersData)
+
   const [showAddUserForm, setShowAddUserForm] = useState(false)
   const [headers, setHeaders] = useState([])
   const [keys, setKeys] = useState([])
@@ -21,12 +26,24 @@ const Users = () => {
     // Determinar qué conjunto de encabezados y claves utilizar según el tamaño de la pantalla
     if (window.innerWidth < 600) {
       setHeaders(['Usuario', 'Rol'])
-      setKeys(['entity', 'role'])
+      setKeys(['name', 'role'])
     } else {
       setHeaders(['Usuario', 'Rol', 'Correo electrónico'])
-      setKeys(['entity', 'role', 'mail'])
+      setKeys(['name', 'role', 'email'])
     }
-  }, [])
+
+    // Obtener la lista de usuarios desde el backend al cargar el componente
+    dispatch(getUsers())
+  }, [dispatch])
+
+  useEffect(() => {
+    // Compara el estado anterior con el nuevo estado
+    if (prevUsersDataRef.current !== usersData) {
+      // Actualiza la referencia con el nuevo estado
+      prevUsersDataRef.current = usersData
+      // No es necesario realizar otra llamada a dispatch(getUsers()) aquí
+    }
+  }, [usersData])
 
   // Define las funciones para las acciones de editar, eliminar e ingresar
   const handleEdit = (item) => {
@@ -52,6 +69,13 @@ const Users = () => {
     setShowAddUserForm(false)
   }
 
+  const handleSaveUser = () => {
+    setShowAddUserForm(false)
+  }
+
+  const userCounter = usersData ? usersData.users.length : 0
+  let userCount = `${userCounter} Usuarios`
+
   const options = {
     sortBy: ['nombre', 'rol', 'correo'],
     actions: [
@@ -74,14 +98,14 @@ const Users = () => {
         {showAddUserForm ? (
           <AddUserForm
             roles={roles}
-            handleSave={handleAddUser}
+            handleSave={handleSaveUser}
             handleCancel={handleCancelAddUser}
           />
         ) : (
           <>
             <ProductOptions productCount={userCount} options={options} />
             <DynamicTable
-              data={dataUser}
+              data={users}
               datatype='Usuario'
               headers={headers}
               keys={keys}

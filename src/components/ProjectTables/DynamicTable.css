@@ -20,6 +20,7 @@ td {
 .dinamic__table img {
   width: 30px;
   height: 30px;
+  border-radius: 50%;
   display: block;
   margin: 0 auto;
 }
@@ -49,7 +50,7 @@ td {
   display: none;
 }
 
-.td_actions{
+.td_actions {
   text-align: center;
 }
 

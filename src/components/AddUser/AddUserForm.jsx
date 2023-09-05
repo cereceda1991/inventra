@@ -52,6 +52,7 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
       const response = await dispatch(registerUser(formData))
       console.log('Registro exitoso:', response)
       toast.success('Usuario creado con éxito')
+      handleSave()
     } catch (error) {
       if (error.errors) {
         setErrors(error.errors)
