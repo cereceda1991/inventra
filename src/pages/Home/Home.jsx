@@ -1,7 +1,7 @@
 import './Home.css'
 import portada from '../../assets/landing-inventra-1.webp'
 import logo from '../../assets/logo-azul-inventra-042.webp'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric'
 import { SelectOptionsGroupPropTypes } from '../../utils/propTypes'
 
@@ -22,6 +22,20 @@ const SelectOptionsGroup = ({ options }) => {
 SelectOptionsGroup.propTypes = SelectOptionsGroupPropTypes
 
 const Home = () => {
+  const userResponseString = localStorage.getItem('userResponse')
+
+  if (userResponseString) {
+    try {
+      const userResponse = JSON.parse(userResponseString)
+
+      if (userResponse.data && userResponse.data.user) {
+        return <Navigate to='/dashboard' />
+      }
+    } catch (error) {
+      // Maneja cualquier error al analizar JSON
+    }
+  }
+
   const solutionsOptions = ['Solución']
   const helpOptions = ['Ayuda']
   const title = 'Gestiona tu inventario de una manera más sencilla.'
