@@ -65,9 +65,11 @@ const Home = () => {
           <h4 className='home__title'>{title}</h4>
           <p className='home__description'>{description1}</p>
           <p className='home__description'>{description2}</p>
-          <Link to='/register'>
-            <ButtonGeneric className='button__home' buttonContent='Comenzar Ahora' />
-          </Link>
+          <div className='button__home'>
+            <Link to='/register'>
+              <ButtonGeneric buttonContent='Comenzar Ahora' />
+            </Link>
+          </div>
         </section>
       </section>
     </div>

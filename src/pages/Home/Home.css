@@ -81,4 +81,10 @@
   .home__header-options {
     gap: 20px;
   }
+
+  .button__home {
+    display: inline-block;
+    width: 328px;
+    margin: 0 auto;
+  }
 }
