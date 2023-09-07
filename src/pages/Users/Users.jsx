@@ -48,11 +48,6 @@ const Users = () => {
     console.log('Editar usuario:', item);
   };
 
-  const handleViewDetails = (item) => {
-    // Lógica para ingresar el usuario
-    console.log('Ingresar usuario:', item);
-  };
-
   const handleDelete = async (item) => {
     const confirmed = await showDialog(
       'Eliminar Usuario',
@@ -128,7 +123,6 @@ const Users = () => {
               keys={keys}
               onEdit={handleEdit}
               onDelete={handleDelete}
-              onViewDetails={handleViewDetails}
             />
           </>
         )}

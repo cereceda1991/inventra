@@ -1,16 +1,8 @@
-import { IconArrow, IconEdit, IconTrash } from '../../utils/CustomIcons';
+import { IconEdit, IconTrash } from '../../utils/CustomIcons';
 import { DynamicTablePropTypes } from '../../utils/propTypes';
 import './DynamicTable.css';
 
-const DynamicTable = ({
-  data,
-  headers,
-  keys,
-  onEdit,
-  onDelete,
-  onViewDetails,
-  datatype,
-}) => {
+const DynamicTable = ({ data, headers, keys, onEdit, onDelete, datatype }) => {
   return (
     <table className="dinamic__table">
       <thead>
@@ -34,12 +26,6 @@ const DynamicTable = ({
             ))}
 
             <td className="td_actions">
-              <button
-                className="table_icon-arrow"
-                onClick={() => onViewDetails(item)}
-              >
-                <IconArrow />
-              </button>
               <button className="table_icon-edit" onClick={() => onEdit(item)}>
                 <IconEdit />
               </button>
