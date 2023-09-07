@@ -4,8 +4,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { IconFilter, IconExport } from '../../utils/CustomIcons';
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions';
-import DynamicTable from '../../components/ProjectTables/DynamicTable';
-
 import { useDispatch, useSelector } from 'react-redux';
 
 import { deleteUser, getUsers } from '../../Redux/User/userActions';
@@ -14,6 +12,7 @@ import { setUsers } from '../../Redux/User/userSlice';
 import { roles } from '../../API/dataUser';
 import showDialog from '../../utils/showDialog';
 import './Users.css';
+import UserTable from '../../components/ProjectTables/UserTable';
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -116,7 +115,7 @@ const Users = () => {
         ) : (
           <>
             <ProductOptions productCount={userCount} options={options} />
-            <DynamicTable
+            <UserTable
               data={users}
               datatype="Usuario"
               headers={headers}

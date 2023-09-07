@@ -8,7 +8,7 @@ import { IconCategory, IconExport, IconFilter } from '../../utils/CustomIcons';
 
 import './Inventory.css';
 import AddProductForm from '../../components/AddProduct/AddProductForm';
-import DynamicTable from '../../components/ProjectTables/DynamicTable';
+import ProductTable from '../../components/ProjectTables/ProductTable';
 
 const Inventory = () => {
   const productCount = `10 Productos`;
@@ -87,7 +87,7 @@ const Inventory = () => {
               productCount={productCount}
               options={optionsTableInventory}
             />
-            <DynamicTable
+            <ProductTable
               data={dataProducts}
               datatype="Producto"
               headers={headers}

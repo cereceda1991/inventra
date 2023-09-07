@@ -9,8 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import store from './Redux/store.js';
 
 const toastOptions = {
-  position: 'top-right',
-  autoClose: 5000,
+  position: 'top-center',
+  autoClose: 3000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,

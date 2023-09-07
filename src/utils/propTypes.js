@@ -95,5 +95,4 @@ export const DynamicTablePropTypes = {
   keys: PropTypes.arrayOf(PropTypes.string).isRequired,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
-  onViewDetails: PropTypes.func.isRequired,
 };
