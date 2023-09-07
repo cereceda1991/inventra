@@ -1,5 +1,5 @@
-import { ButtonGenericPropTypes } from '../../utils/propTypes'
-import './ButtonGeneric.css'
+import { ButtonGenericPropTypes } from '../../utils/propTypes';
+import './ButtonGeneric.css';
 
 function ButtonGeneric({ buttonContent, isDisabled, onClick }) {
   return (
@@ -10,9 +10,9 @@ function ButtonGeneric({ buttonContent, isDisabled, onClick }) {
     >
       {buttonContent}
     </button>
-  )
+  );
 }
 
-ButtonGeneric.propTypes = ButtonGenericPropTypes
+ButtonGeneric.propTypes = ButtonGenericPropTypes;
 
-export default ButtonGeneric
+export default ButtonGeneric;

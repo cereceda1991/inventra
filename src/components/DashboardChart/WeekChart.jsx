@@ -1,9 +1,9 @@
-import { useRef, useEffect } from 'react'
-import Chart from 'chart.js/auto'
-import { dataProductsAddedDaily, labels } from '../../API/dataWeek'
+import { useRef, useEffect } from 'react';
+import Chart from 'chart.js/auto';
+import { dataProductsAddedDaily, labels } from '../../API/dataWeek';
 
 const WeekChart = () => {
-  const chartRef = useRef(null)
+  const chartRef = useRef(null);
 
   useEffect(() => {
     const chartConfig = {
@@ -34,21 +34,21 @@ const WeekChart = () => {
         },
         barThickness: 6,
       },
-    }
+    };
 
-    const myChart = new Chart(chartRef.current, chartConfig)
+    const myChart = new Chart(chartRef.current, chartConfig);
 
     return () => {
-      myChart.destroy()
-    }
-  }, [])
+      myChart.destroy();
+    };
+  }, []);
 
   return (
     <>
       <h1>Semana anterior</h1>
       <canvas ref={chartRef}></canvas>
     </>
-  )
-}
+  );
+};
 
-export default WeekChart
+export default WeekChart;

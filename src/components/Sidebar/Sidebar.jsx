@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 // Iconos, Utilidades,Imagenes y Estilos
-import { FaBars } from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa';
 import {
   Iconconfig,
   Icondashboard,
@@ -9,74 +9,75 @@ import {
   Iconinventory,
   Iconlogout,
   Iconusers,
-} from '../../utils/CustomIcons'
-import showDialog from '../../utils/showDialog'
-import logo from '../../assets/logo-blanco-inventra.webp'
-import './Sidebar.css'
+} from '../../utils/CustomIcons';
+import showDialog from '../../utils/showDialog';
+import logo from '../../assets/logo-blanco-inventra.webp';
+import './Sidebar.css';
 
 const Sidebar = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleToggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen)
-  }
+    setSidebarOpen(!sidebarOpen);
+  };
 
   const handleLogout = async () => {
     const confirmed = await showDialog(
       'Cerrar Sesión',
       '¿Estás seguro de que deseas cerrar sesión?',
       'question',
-    )
+      '#3a78f2',
+    );
 
     if (confirmed) {
       // Elimina el token del localStorage
-      localStorage.removeItem('userResponse')
+      localStorage.removeItem('userResponse');
 
       // Redirige al usuario a la página de inicio
-      navigate('/')
+      navigate('/');
     }
-  }
+  };
 
   return (
     <>
-      <button className='sidebar__toggle' onClick={handleToggleSidebar}>
+      <button className="sidebar__toggle" onClick={handleToggleSidebar}>
         <FaBars />
       </button>
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <Link to='/'>
-          <div className='sidebar__logo'>
-            <img src={logo} alt='Logo' />
+        <Link to="/">
+          <div className="sidebar__logo">
+            <img src={logo} alt="Logo" />
           </div>
         </Link>
-        <Link to='/dashboard' className='sidebar__link'>
-          <Icondashboard className='sidebar__icon' />
+        <Link to="/dashboard" className="sidebar__link">
+          <Icondashboard className="sidebar__icon" />
           Dashboard
         </Link>
-        <Link to='/inventory' className='sidebar__link'>
-          <Iconinventory className='sidebar__icon' />
+        <Link to="/inventory" className="sidebar__link">
+          <Iconinventory className="sidebar__icon" />
           Inventario
         </Link>
-        <Link to='/users' className='sidebar__link'>
-          <Iconusers className='sidebar__icon' />
+        <Link to="/users" className="sidebar__link">
+          <Iconusers className="sidebar__icon" />
           Usuarios
         </Link>
-        <Link to='/setting' className='sidebar__link'>
-          <Iconconfig className='sidebar__icon' />
+        <Link to="/setting" className="sidebar__link">
+          <Iconconfig className="sidebar__icon" />
           Configuración
         </Link>
-        <Link to='/help' className='sidebar__link'>
-          <Iconhelp className='sidebar__icon' />
+        <Link to="/help" className="sidebar__link">
+          <Iconhelp className="sidebar__icon" />
           Ayuda
         </Link>
-        <div className='sidebar__link' onClick={handleLogout}>
-          <Iconlogout className='sidebar__icon' />
+        <div className="sidebar__link" onClick={handleLogout}>
+          <Iconlogout className="sidebar__icon" />
           Salir
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

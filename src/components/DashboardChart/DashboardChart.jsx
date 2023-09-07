@@ -1,10 +1,10 @@
-import { useRef, useEffect } from 'react'
-import Chart from 'chart.js/auto'
-import { dataMovementsMonth, labels } from '../../API/dataMovements'
-import { DashboardChartPropTypes } from '../../utils/propTypes'
+import { useRef, useEffect } from 'react';
+import Chart from 'chart.js/auto';
+import { dataMovementsMonth, labels } from '../../API/dataMovements';
+import { DashboardChartPropTypes } from '../../utils/propTypes';
 
 const DashboardChart = ({ chartType, tension, pointRadius, color }) => {
-  const chartRef = useRef(null)
+  const chartRef = useRef(null);
 
   useEffect(() => {
     const chartConfig = {
@@ -51,18 +51,18 @@ const DashboardChart = ({ chartType, tension, pointRadius, color }) => {
           },
         },
       },
-    }
+    };
 
-    const myChart = new Chart(chartRef.current, chartConfig)
+    const myChart = new Chart(chartRef.current, chartConfig);
 
     return () => {
-      myChart.destroy()
-    }
-  }, [chartType, tension, pointRadius, color])
+      myChart.destroy();
+    };
+  }, [chartType, tension, pointRadius, color]);
 
-  return <canvas ref={chartRef}></canvas>
-}
+  return <canvas ref={chartRef}></canvas>;
+};
 
-DashboardChart.propTypes = DashboardChartPropTypes
+DashboardChart.propTypes = DashboardChartPropTypes;
 
-export default DashboardChart
+export default DashboardChart;
