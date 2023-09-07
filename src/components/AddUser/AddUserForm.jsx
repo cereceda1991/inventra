@@ -19,13 +19,14 @@ const AddUserForm = ({ roles, handleHide }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
-    });
+    }));
   };
 
   const togglePasswordVisibility = (field) => {
@@ -38,15 +39,12 @@ const AddUserForm = ({ roles, handleHide }) => {
 
   const isDisabled = Object.values(formData).some((value) => value === '');
 
-  const dispatch = useDispatch();
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       toast.error('Las contraseñas no coinciden');
       return;
     }
-    console.log('Valor de selectedRole que se envía:', formData.selectedRole);
 
     try {
       const response = await dispatch(registerUser(formData));
@@ -70,68 +68,51 @@ const AddUserForm = ({ roles, handleHide }) => {
   return (
     <main className="add-user-form">
       <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            placeholder="Nombre de Usuario"
-            autoComplete="name"
-            className={errors.name ? 'input-error' : ''}
-            required
-          />
-          {showError('name')}
-        </div>
-        <div className="form-group">
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="Correo Electrónico"
-            autoComplete="email"
-            className={errors.email ? 'input-error' : ''}
-            required
-          />
-          {showError('email')}
-        </div>
-        <div className="form-group">
-          <input
-            type={showPassword ? 'text' : 'password'}
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            placeholder="Contraseña"
-            autoComplete="new-password"
-            className={errors.password ? 'input-error' : ''}
-            required
-          />
-          {showError('password')}
-          <p
-            className="password-toggle"
-            onClick={() => togglePasswordVisibility('password')}
-          >
-            {showPassword ? <BiLowVision /> : <BiShow />}
-          </p>
-        </div>
-        <div className="form-group">
-          <input
-            type={showConfirmPassword ? 'text' : 'password'}
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleInputChange}
-            placeholder="Confirmar Contraseña"
-            autoComplete="new-password"
-            required
-          />
-          <p
-            className="password-toggle"
-            onClick={() => togglePasswordVisibility('confirmPassword')}
-          >
-            {showConfirmPassword ? <BiLowVision /> : <BiShow />}
-          </p>
-        </div>
+        {['name', 'email', 'password', 'confirmPassword'].map((field) => (
+          <div className="form-group" key={field}>
+            <input
+              type={
+                field === 'password' || field === 'confirmPassword'
+                  ? showPassword
+                    ? 'text'
+                    : 'password'
+                  : 'text'
+              }
+              name={field}
+              value={formData[field]}
+              onChange={handleInputChange}
+              placeholder={
+                field === 'name'
+                  ? 'Nombre de Usuario'
+                  : field === 'email'
+                    ? 'Correo Electrónico'
+                    : field === 'password'
+                      ? 'Contraseña'
+                      : 'Confirmar Contraseña'
+              }
+              autoComplete={
+                field === 'email'
+                  ? 'email'
+                  : field === 'password'
+                    ? 'new-password'
+                    : field === 'confirmPassword'
+                      ? 'new-password'
+                      : 'name'
+              }
+              className={errors[field] ? 'input-error' : ''}
+              required={field !== 'confirmPassword'}
+            />
+            {field === 'password' && (
+              <p
+                className="password-toggle"
+                onClick={() => togglePasswordVisibility('password')}
+              >
+                {showPassword ? <BiLowVision /> : <BiShow />}
+              </p>
+            )}
+            {showError(field)}
+          </div>
+        ))}
         <div className="form-group">
           <select
             name="role"

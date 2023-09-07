@@ -59,8 +59,7 @@ export const SelectOptionsGroupPropTypes = {
 
 export const AddUserFormPropTypes = {
   roles: PropTypes.arrayOf(PropTypes.string).isRequired,
-  handleCancel: PropTypes.func.isRequired,
-  handleSave: PropTypes.func.isRequired
+  handleHide: PropTypes.func.isRequired
 }
 
 export const CardDashboardPropTypes = {
@@ -91,10 +90,10 @@ export const AddProductFormPropTypes = {
 }
 
 export const DynamicTablePropTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    headers: PropTypes.arrayOf(PropTypes.string).isRequired,
-    keys: PropTypes.arrayOf(PropTypes.string).isRequired,
-    onEdit: PropTypes.func.isRequired,
-    onDelete: PropTypes.func.isRequired,
-    onViewDetails: PropTypes.func.isRequired,
-  };
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  headers: PropTypes.arrayOf(PropTypes.string).isRequired,
+  keys: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onViewDetails: PropTypes.func.isRequired,
+};
