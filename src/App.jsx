@@ -9,8 +9,27 @@ import Home from './pages/Home/Home';
 import Inventory from './pages/Inventory/Inventory';
 import Setting from './pages/Setting/Setting';
 import Users from './pages/Users/Users';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleDarkMode } from './Redux/DarkMode/darkModeSlice';
 
-function App() {
+const App = () => {
+  const isDarkMode = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Obtener el valor de localStorage al cargar la aplicación
+    const storedDarkMode = localStorage.getItem('darkmode') === 'true';
+
+    // Aplicar la clase CSS según el valor actual de localStorage
+    document.body.classList.toggle('darkmode', storedDarkMode);
+
+    // Actualizar el estado de Redux si es necesario
+    if (isDarkMode !== storedDarkMode) {
+      dispatch(toggleDarkMode());
+    }
+  }, [dispatch, isDarkMode]);
+
   return (
     <main>
       <Routes>
@@ -29,6 +48,6 @@ function App() {
       </Routes>
     </main>
   );
-}
+};
 
 export default App;

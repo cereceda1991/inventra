@@ -3,7 +3,6 @@ import { DynamicTablePropTypes } from '../../utils/propTypes';
 import './UserTable.css';
 
 const ProductTable = ({ data, headers, keys, onEdit, onDelete, datatype }) => {
-
   return (
     <div>
       <table className="dinamic__table">
@@ -28,7 +27,10 @@ const ProductTable = ({ data, headers, keys, onEdit, onDelete, datatype }) => {
               ))}
 
               <td className="td_actions">
-                <button className="table_icon-edit" onClick={() => onEdit(item)}>
+                <button
+                  className="table_icon-edit"
+                  onClick={() => onEdit(item)}
+                >
                   <IconEdit />
                 </button>
                 <button

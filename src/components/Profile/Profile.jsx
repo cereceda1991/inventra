@@ -1,25 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ChangePassword from './ChangePassword';
 import EditProfile from './EditProfile';
 import { currencyOptions } from '../../API/currencyOptions';
 import { IoIosArrowForward } from 'react-icons/io';
 
 import './Profile.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleDarkMode } from '../../Redux/DarkMode/darkModeSlice';
+
 function Profile() {
   const [editProfile, setEditProfile] = useState(true);
   const [changePassword, setChangePassword] = useState(false);
-  const [isDark, setIsDark] = useState(() => {
-    const storedDarkMode = localStorage.getItem('darkMode');
-    return storedDarkMode === 'true';
-  });
 
-  useEffect(() => {
-    localStorage.setItem('darkMode', isDark.toString());
-    document.body.classList.toggle('darkmode', isDark);
-  }, [isDark]);
+  const isDarkMode = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch();
 
   const handleDarkModeToggle = () => {
-    setIsDark(!isDark);
+    dispatch(toggleDarkMode());
   };
 
   const handleEditProfileClick = () => {
@@ -74,7 +71,7 @@ function Profile() {
               <label className="toggle">
                 <input
                   type="checkbox"
-                  checked={isDark}
+                  defaultChecked={isDarkMode}
                   onChange={handleDarkModeToggle}
                 />
                 <span className="slider"></span>

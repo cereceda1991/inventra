@@ -15,5 +15,5 @@ export const dataColor = [
   'purple',
   'brown',
   'navy',
-  'turquoise'
+  'turquoise',
 ];
