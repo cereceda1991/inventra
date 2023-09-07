@@ -8,13 +8,12 @@ import DynamicTable from '../../components/ProjectTables/DynamicTable';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteUser } from '../../Redux/User/userActions';
+import { deleteUser, getUsers } from '../../Redux/User/userActions';
 import { setUsers } from '../../Redux/User/userSlice';
 
-import './Users.css';
 import { roles } from '../../API/dataUser';
-import { getUsers } from '../../Redux/User/userActions';
 import showDialog from '../../utils/showDialog';
+import './Users.css';
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -22,6 +21,7 @@ const Users = () => {
   const users = usersData ? usersData.users : [];
 
   const [showAddUserForm, setShowAddUserForm] = useState(false);
+
   const [headers, setHeaders] = useState([]);
   const [keys, setKeys] = useState([]);
 
@@ -41,6 +41,7 @@ const Users = () => {
 
   // Define las funciones para las acciones de editar, eliminar e ingresar
   const handleEdit = (item) => {
+    displayUserForm();
     // Lógica para editar el usuario
     console.log('Editar usuario:', item);
   };
@@ -72,17 +73,13 @@ const Users = () => {
     }
   };
 
-  // Lógica para los modals
+  // Lógica para los mostrar/ocultar formulario de usuarios
 
-  const handleAddUser = () => {
+  const displayUserForm = () => {
     setShowAddUserForm(true);
   };
 
-  const handleCancelAddUser = () => {
-    setShowAddUserForm(false);
-  };
-
-  const handleSaveUser = () => {
+  const hideUserAddForm = () => {
     setShowAddUserForm(false);
   };
 
@@ -101,7 +98,7 @@ const Users = () => {
     buttons: [
       {
         label: `+ Agregar Usuario`,
-        onClick: handleAddUser,
+        onClick: displayUserForm,
       },
     ],
   };
@@ -112,11 +109,7 @@ const Users = () => {
       <Navbar />
       <section className="container_user-main">
         {showAddUserForm ? (
-          <AddUserForm
-            roles={roles}
-            handleSave={handleSaveUser}
-            handleCancel={handleCancelAddUser}
-          />
+          <AddUserForm roles={roles} handleHide={hideUserAddForm} />
         ) : (
           <>
             <ProductOptions productCount={userCount} options={options} />

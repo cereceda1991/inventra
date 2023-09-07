@@ -8,7 +8,7 @@ import { AddUserFormPropTypes } from '../../utils/propTypes';
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
 import { registerUser } from '../../Redux/Auth/authActions';
 
-const AddUserForm = ({ roles, handleCancel, handleSave }) => {
+const AddUserForm = ({ roles, handleHide }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,7 +52,7 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
       const response = await dispatch(registerUser(formData));
       console.log('Registro exitoso:', response);
       toast.success('Usuario creado con éxito');
-      handleSave();
+      handleHide();
     } catch (error) {
       if (error.errors) {
         setErrors(error.errors);
@@ -151,7 +151,7 @@ const AddUserForm = ({ roles, handleCancel, handleSave }) => {
           de creación y modificación en el sistema.
         </p>
         <div className="button-group">
-          <ButtonGeneric buttonContent="Cancelar" onClick={handleCancel} />
+          <ButtonGeneric buttonContent="Cancelar" onClick={handleHide} />
           <ButtonGeneric
             type="submit"
             buttonContent="Guardar"
