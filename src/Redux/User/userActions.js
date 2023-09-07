@@ -30,6 +30,7 @@ export const updateUser = (userId, userData) => async (dispatch) => {
   try {
     const response = await axios.put(`${API_URL}/users/${userId}`, userData)
     dispatch(setSelectedUser(response.data))
+    dispatch(getUsers())
     console.log('Respuesta exitosa al actualizar usuario:', response.data)
     return response
   } catch (error) {

@@ -21,6 +21,7 @@ const Users = () => {
   const users = usersData ? usersData.users : [];
 
   const [showAddUserForm, setShowAddUserForm] = useState(false);
+  const [editedUser, setEditedUser] = useState(null);
 
   const [headers, setHeaders] = useState([]);
   const [keys, setKeys] = useState([]);
@@ -41,6 +42,7 @@ const Users = () => {
 
   // Define las funciones para las acciones de editar, eliminar e ingresar
   const handleEdit = (item) => {
+    setEditedUser(item);
     displayUserForm();
     // Lógica para editar el usuario
     console.log('Editar usuario:', item);
@@ -81,6 +83,7 @@ const Users = () => {
 
   const hideUserAddForm = () => {
     setShowAddUserForm(false);
+    setEditedUser(null);
   };
 
   const userCounter = usersData ? usersData.users.length : 0;
@@ -109,7 +112,12 @@ const Users = () => {
       <Navbar />
       <section className="container_user-main">
         {showAddUserForm ? (
-          <AddUserForm roles={roles} handleHide={hideUserAddForm} />
+          <AddUserForm
+            roles={roles}
+            handleHide={hideUserAddForm}
+            initialUserData={editedUser}
+            isEditing={editedUser !== null}
+          />
         ) : (
           <>
             <ProductOptions productCount={userCount} options={options} />

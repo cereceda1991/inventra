@@ -7,15 +7,29 @@ import { useDispatch } from 'react-redux';
 import { AddUserFormPropTypes } from '../../utils/propTypes';
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
 import { registerUser } from '../../Redux/Auth/authActions';
+import { updateUser } from '../../Redux/User/userActions';
 
-const AddUserForm = ({ roles, handleHide }) => {
-  const [formData, setFormData] = useState({
+const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
+  const initialData = {
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
     role: '',
-  });
+  };
+
+  if (
+    initialUserData &&
+    initialUserData.name &&
+    initialUserData.email &&
+    initialUserData.role
+  ) {
+    initialData.name = initialUserData.name;
+    initialData.email = initialUserData.email;
+    initialData.role = initialUserData.role;
+  }
+
+  const [formData, setFormData] = useState(initialData);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
@@ -47,15 +61,25 @@ const AddUserForm = ({ roles, handleHide }) => {
     }
 
     try {
-      const response = await dispatch(registerUser(formData));
-      console.log('Registro exitoso:', response);
-      toast.success('Usuario creado con éxito');
+      if (isEditing) {
+        // Llama a updateUser si estás editando un usuario existente
+        const response = await dispatch(
+          updateUser(initialUserData._id, formData),
+        );
+        console.log('Actualización exitosa del usuario:', response);
+        toast.success('Usuario actualizado con éxito');
+      } else {
+        // Llama a registerUser si estás creando un usuario nuevo
+        const response = await dispatch(registerUser(formData));
+        console.log('Registro exitoso del usuario:', response);
+        toast.success('Usuario creado con éxito');
+      }
       handleHide();
     } catch (error) {
       if (error.errors) {
         setErrors(error.errors);
       } else {
-        console.error('Error en el registro:', error);
+        console.error('Error en la operación:', error);
       }
     }
   };
@@ -76,6 +100,8 @@ const AddUserForm = ({ roles, handleHide }) => {
                   ? showPassword
                     ? 'text'
                     : 'password'
+                  : field === 'email'
+                  ? 'email'
                   : 'text'
               }
               name={field}
@@ -85,19 +111,19 @@ const AddUserForm = ({ roles, handleHide }) => {
                 field === 'name'
                   ? 'Nombre de Usuario'
                   : field === 'email'
-                    ? 'Correo Electrónico'
-                    : field === 'password'
-                      ? 'Contraseña'
-                      : 'Confirmar Contraseña'
+                  ? 'Correo Electrónico'
+                  : field === 'password'
+                  ? 'Contraseña'
+                  : 'Confirmar Contraseña'
               }
               autoComplete={
                 field === 'email'
                   ? 'email'
                   : field === 'password'
-                    ? 'new-password'
-                    : field === 'confirmPassword'
-                      ? 'new-password'
-                      : 'name'
+                  ? 'new-password'
+                  : field === 'confirmPassword'
+                  ? 'new-password'
+                  : 'name'
               }
               className={errors[field] ? 'input-error' : ''}
               required={field !== 'confirmPassword'}
@@ -113,6 +139,7 @@ const AddUserForm = ({ roles, handleHide }) => {
             {showError(field)}
           </div>
         ))}
+
         <div className="form-group">
           <select
             name="role"
@@ -135,7 +162,7 @@ const AddUserForm = ({ roles, handleHide }) => {
           <ButtonGeneric buttonContent="Cancelar" onClick={handleHide} />
           <ButtonGeneric
             type="submit"
-            buttonContent="Guardar"
+            buttonContent={isEditing ? 'Actualizar' : 'Guardar'}
             isDisabled={isDisabled}
           />
         </div>
