@@ -6,11 +6,11 @@ import { IconFilter, IconExport } from '../../utils/CustomIcons'
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions'
 import DynamicTable from '../../components/ProjectTables/DynamicTable'
 
-import { getUsers } from '../../Redux/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './Users.css'
 import { roles } from '../../API/dataUser'
+import { getUsers } from '../../Redux/User/userActions'
 
 const Users = () => {
   const dispatch = useDispatch()

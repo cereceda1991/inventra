@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { handleCommonErrors } from '../utils/handleCommonErrors'
+import { handleCommonErrors } from '../../utils/handleCommonErrors'
 import { setSelectedUser, setUsers } from './userSlice'
 
 const API_URL = import.meta.env.VITE_API_URL

@@ -3,10 +3,11 @@ import { BiLowVision, BiShow } from 'react-icons/bi'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './AddUserForm.css'
-import { registerUser } from '../../Redux/authActions'
+// import { registerUser } from '../../Redux/authActions'
 import { useDispatch } from 'react-redux'
 import { AddUserFormPropTypes } from '../../utils/propTypes'
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric'
+import { registerUser } from '../../Redux/Auth/authActions'
 
 const AddUserForm = ({ roles, handleCancel, handleSave }) => {
   const [formData, setFormData] = useState({

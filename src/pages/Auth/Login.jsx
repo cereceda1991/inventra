@@ -7,7 +7,7 @@ import { BiLowVision, BiShow } from 'react-icons/bi'
 import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric'
 
 import { useDispatch } from 'react-redux'
-import { loginUser } from '../../Redux/authActions'
+import { loginUser } from '../../Redux/Auth/authActions'
 
 const Login = () => {
   const [email, setEmail] = useState('')

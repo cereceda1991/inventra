@@ -8,8 +8,8 @@ import logo from '../../assets/logo-azul-inventra-042.webp'
 import { BiLowVision, BiShow } from 'react-icons/bi'
 import './Auth.css'
 
-import { registerUser } from '../../Redux/authActions'
 import { useDispatch } from 'react-redux'
+import { registerUser } from '../../Redux/Auth/authActions'
 
 const Register = () => {
   const [name, setName] = useState('')
