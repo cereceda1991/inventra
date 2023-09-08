@@ -1,13 +1,21 @@
-import { useState } from 'react';
+// Importaciones de estilos y hojas de estilo:
+
+import './AddUserForm.css';
+import 'react-toastify/dist/ReactToastify.css';
+// Importaciones de componentes y librerías externas:
+
+import { AddUserFormPropTypes } from '../../utils/propTypes';
 import { BiLowVision, BiShow } from 'react-icons/bi';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './AddUserForm.css';
-import { useDispatch } from 'react-redux';
-import { AddUserFormPropTypes } from '../../utils/propTypes';
-import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
+import { useState } from 'react';
+// Importaciones relacionadas con Redux y acciones:
+
 import { registerUser } from '../../Redux/Auth/authActions';
-import { updateUser } from '../../Redux/User/userActions';
+import { getUsers, updateUser } from '../../Redux/User/userActions';
+import { useDispatch } from 'react-redux';
+// Importación de un componente personalizado:
+
+import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
 
 const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
   const initialData = {
@@ -73,6 +81,7 @@ const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
         const response = await dispatch(registerUser(formData));
         console.log('Registro exitoso del usuario:', response);
         toast.success('Usuario creado con éxito');
+        dispatch(getUsers(response.data));
       }
       handleHide();
     } catch (error) {
@@ -101,8 +110,8 @@ const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
                     ? 'text'
                     : 'password'
                   : field === 'email'
-                  ? 'email'
-                  : 'text'
+                    ? 'email'
+                    : 'text'
               }
               name={field}
               value={formData[field]}
@@ -111,19 +120,19 @@ const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
                 field === 'name'
                   ? 'Nombre de Usuario'
                   : field === 'email'
-                  ? 'Correo Electrónico'
-                  : field === 'password'
-                  ? 'Contraseña'
-                  : 'Confirmar Contraseña'
+                    ? 'Correo Electrónico'
+                    : field === 'password'
+                      ? 'Contraseña'
+                      : 'Confirmar Contraseña'
               }
               autoComplete={
                 field === 'email'
                   ? 'email'
                   : field === 'password'
-                  ? 'new-password'
-                  : field === 'confirmPassword'
-                  ? 'new-password'
-                  : 'name'
+                    ? 'new-password'
+                    : field === 'confirmPassword'
+                      ? 'new-password'
+                      : 'name'
               }
               className={errors[field] ? 'input-error' : ''}
               required={field !== 'confirmPassword'}

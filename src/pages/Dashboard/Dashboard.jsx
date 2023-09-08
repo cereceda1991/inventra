@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
   BiSolidBellRing,
@@ -29,11 +29,25 @@ import { dataTension } from '../../API/dataTension';
 
 import './Dashboard.css';
 import { dataColor } from '../../API/dataColor';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../Redux/User/userActions';
 const Dashboard = () => {
   const [selectedChartType, setSelectedChartType] = useState('line');
   const [selectedTensionType, setSelectedTensionType] = useState(0.4);
   const [selectedPointRadius, setSelectedPointRadius] = useState(2);
   const [selectedColor, setSelectedColor] = useState('');
+
+  const dispatch = useDispatch();
+  const usersData = useSelector((state) => state.user.users.data);
+  const users = usersData ? usersData.users : [];
+
+  useEffect(() => {
+    // Llama a la acción para obtener la lista de usuarios cuando el componente se monta
+    dispatch(getUsers());
+  }, [dispatch]);
+
+  // Calcula la cantidad de usuarios
+  const userCount = users.length;
 
   const handleChartTypeChange = (event) => {
     setSelectedChartType(event.target.value);
@@ -57,7 +71,11 @@ const Dashboard = () => {
       <Navbar />
       <section className="container_chart-board">
         <div className="chart_board-cards">
-          <CardDashboard icon={<BiSolidUser />} title="Usuarios" value={10} />
+          <CardDashboard
+            icon={<BiSolidUser />}
+            title="Usuarios"
+            value={userCount}
+          />
           <CardDashboard
             icon={<BiSolidCalendarCheck />}
             title="Items"
