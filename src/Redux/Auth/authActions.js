@@ -21,6 +21,7 @@ export const loginUser = (credentials) => async (dispatch) => {
 
     // Almacena la respuesta en Local Storage
     localStorage.setItem('userResponse', JSON.stringify(response.data));
+    localStorage.setItem('authToken', response.data.data.token);
     dispatch(setUser(response.data.credentials));
     return response;
   } catch (error) {

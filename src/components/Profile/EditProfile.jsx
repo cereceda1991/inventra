@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
-
 import { TiCameraOutline } from 'react-icons/ti';
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
-
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './EditProfile.css';
+import { uploadImage } from '../../Redux/Images/imageActions';
+import { useDispatch } from 'react-redux';
 
 function EditProfile() {
   const [userData, setUserData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // Carga los datos almacenados desde Local Storage cuando el componente se monta
@@ -21,11 +23,23 @@ function EditProfile() {
 
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleImageChange = (event) => {
+  const handleImageChange = async (event) => {
     const imageFile = event.target.files[0];
     if (imageFile) {
-      const imageUrl = URL.createObjectURL(imageFile);
-      setSelectedImage(imageUrl);
+      const formData = new FormData();
+      formData.append('image', imageFile);
+
+      try {
+        setIsLoading(true); // Activa el estado de carga
+
+        const imageUrl = await dispatch(uploadImage(formData));
+        setSelectedImage(imageUrl);
+        console.log(imageUrl);
+      } catch (error) {
+        console.error('Error al cargar imagen:', error);
+      } finally {
+        setIsLoading(false); // Desactiva el estado de carga cuando la operación se completa (ya sea con éxito o con error)
+      }
     }
   };
 
@@ -46,6 +60,9 @@ function EditProfile() {
       <section className="edit-profile">
         <header className="profile-image-container">
           <label htmlFor="image-upload">
+            {isLoading && (
+              <span className="loading loading-spinner"></span>
+            )}
             <img src={selectedImage || userData.profile} alt="user" />
             <div className="camera-icon">
               <TiCameraOutline />

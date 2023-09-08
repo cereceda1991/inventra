@@ -16,11 +16,11 @@
     justify-content: space-around;
 }
 
-.edit-profile-form{
-display: flex;
-width: 100%;
-flex-direction: column;
-gap: 20px;
+.edit-profile-form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .edit-profile input {
@@ -47,7 +47,6 @@ gap: 20px;
     height: 200px;
     border-radius: 50%;
     cursor: pointer;
-    border: solid 1px #ccc;
 }
 
 .camera-icon {
@@ -69,4 +68,29 @@ gap: 20px;
 
 .profile-image-container:hover .camera-icon {
     opacity: 1;
+    backdrop-filter: blur(2px);
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    border-bottom: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
