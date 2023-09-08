@@ -64,10 +64,10 @@
     text-decoration: none;
     transition: background-color 0.3s;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 .sidebar__link:hover {
-    border-radius: 8px;
     background: #003ebb;
 }
 
