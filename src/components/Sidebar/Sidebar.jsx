@@ -34,7 +34,7 @@ const Sidebar = () => {
     if (confirmed) {
       // Elimina el token del localStorage
       localStorage.removeItem('userResponse');
-
+      localStorage.removeItem('authToken');
       // Redirige al usuario a la página de inicio
       navigate('/');
     }

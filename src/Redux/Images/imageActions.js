@@ -11,7 +11,9 @@ export const uploadImage = (formData) => async (dispatch) => {
     const authToken = localStorage.getItem('authToken');
 
     if (!authToken) {
-      throw new Error('Token de autenticación no encontrado en el localStorage');
+      throw new Error(
+        'Token de autenticación no encontrado en el localStorage',
+      );
     }
 
     const response = await axios.post(`${API_URL}/images`, formData, {

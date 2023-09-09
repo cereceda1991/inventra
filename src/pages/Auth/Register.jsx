@@ -34,7 +34,7 @@ const Register = () => {
     try {
       const response = await dispatch(registerUser(userData));
       console.log('Registro exitoso:', response);
-      navigate('/dashboard');
+      navigate('/login');
     } catch (error) {
       // Si hay un error, establece los errores en el estado local
       if (error.errors) {
