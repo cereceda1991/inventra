@@ -1,11 +1,11 @@
 import { IconEdit, IconTrash } from '../../utils/CustomIcons';
 import { DynamicTablePropTypes } from '../../utils/propTypes';
-import './UserTable.css';
+import './ProductTable.css';
 
 const ProductTable = ({ data, headers, keys, onEdit, onDelete, datatype }) => {
   return (
     <div>
-      <table className="dinamic__table">
+      <table className="product_table">
         <thead>
           <tr>
             <th colSpan="2">{datatype}</th>
@@ -19,9 +19,9 @@ const ProductTable = ({ data, headers, keys, onEdit, onDelete, datatype }) => {
           {data.map((item, rowIndex) => (
             <tr key={rowIndex}>
               <td>
-                <img src={item['profile']} alt={item['profile']} />
+                <img src={item['image_url']} alt={item['image_url']} />
               </td>
-              <td>{item['name']}</td>
+              <td>{item['description']}</td>
               {keys.slice(1).map((key, colIndex) => (
                 <td key={colIndex}>{item[key]}</td>
               ))}

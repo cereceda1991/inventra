@@ -1,56 +1,115 @@
 import { useState } from 'react';
-// Componentes
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
 import RemoveBg from '../RemoveBg/RemoveBg';
-// Api y Utils
 import { categoryOptions } from '../../API/categoryOptions';
 import { AddProductFormPropTypes } from '../../utils/propTypes';
-// Notificaciones y estilos
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './AddProductForm.css';
-const AddProductForm = ({ handleCancel, handleSave }) => {
-  const [itemCode, setItemCode] = useState('');
-  const [itemName, setItemName] = useState('');
-  const [itemPrice, setItemPrice] = useState('');
-  const [itemStock, setItemStock] = useState('');
-  const [itemCategory, setItemCategory] = useState('');
+import { useDispatch } from 'react-redux';
+import {
+  registerProduct,
+  updateProduct,
+} from '../../Redux/Product/productActions';
+import { unitOptions } from '../../API/unitOptions';
+import { useSelector } from 'react-redux';
+
+const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
+  const initialData = {
+    SKU: '',
+    description: '',
+    category: '',
+    stock: '',
+    unit: '',
+    image_url: '',
+    price: '',
+    stock_min: '',
+    stock_max: '',
+  };
+
+  if (
+    initialProductData &&
+    initialProductData.SKU &&
+    initialProductData.description &&
+    initialProductData.category &&
+    initialProductData.stock &&
+    initialProductData.unit &&
+    initialProductData.image_url &&
+    initialProductData.price &&
+    initialProductData.stock_min &&
+    initialProductData.stock_max
+  ) {
+    initialData.SKU = initialProductData.SKU;
+    initialData.description = initialProductData.description;
+    initialData.category = initialProductData.category;
+    initialData.stock = initialProductData.stock;
+    initialData.unit = initialProductData.unit;
+    initialData.image_url = initialProductData.image_url;
+    initialData.price = initialProductData.price;
+    initialData.stock_min = initialProductData.stock_min;
+    initialData.stock_max = initialProductData.stock_max;
+  }
+
+  const [formData, setFormData] = useState(initialData);
+  const [stockControlled, setStockControlled] = useState(false);
   const [itemStockMin, setItemStockMin] = useState('');
   const [itemStockMax, setItemStockMax] = useState('');
-  const [stockControlled, setStockControlled] = useState(false);
+  const [formErrors, setFormErrors] = useState({
+    SKU: '',
+    description: '',
+    category: '',
+    stock: '',
+    unit: '',
+    image_url: '',
+    price: '',
+    stock_min: '',
+    stock_max: '',
+  });
 
-  const isDisabled =
-    !itemCode || !itemName || !itemPrice || !itemStock || !itemCategory;
+  const dispatch = useDispatch();
 
-  const handleFormSubmit = (event) => {
+  const uploadedImageUrl = useSelector(
+    (state) => state.image.uploadedImage?.data[0]?.urlImg,
+  );
+
+  console.log(uploadedImageUrl);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // Mostrar los datos que estás enviando desde el formulario
-    console.log({
-      itemCode,
-      itemName,
-      itemPrice,
-      itemStock,
-      itemCategory,
-      itemStockMin,
-      itemStockMax,
-      stockControlled,
-    });
 
-    const productCreatedSuccessfully = true; // Cambia esto según tu lógica real.
+    // Asigna la URL de la imagen cargada al formulario
+    formData.image_url = uploadedImageUrl;
 
-    if (productCreatedSuccessfully) {
-      toast.success('Producto creado exitosamente');
+    try {
+      if (isEditing) {
+        const response = await dispatch(
+          updateProduct(initialProductData._id, formData),
+        );
+        console.log('Actualización exitosa del producto:', response);
+
+        toast.success('Producto actualizado con éxito');
+      } else {
+        const response = await dispatch(registerProduct(formData));
+        console.log('Registro exitoso del producto:', response);
+
+        toast.success('Producto creado con éxito');
+      }
+      handleHide();
+    } catch (error) {
+      if (error.errors) {
+        setFormErrors(error.errors);
+      } else {
+        console.error('Error en la operación:', error);
+      }
     }
-    handleSave({
-      itemCode,
-      itemName,
-      itemPrice,
-      itemStock,
-      itemCategory,
-      itemStockMin,
-      itemStockMax,
-      stockControlled,
-    });
   };
 
   return (
@@ -61,54 +120,70 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
       <section className="center-inputs">
         <input
           type="text"
-          value={itemCode}
-          onChange={(e) => setItemCode(e.target.value)}
-          placeholder="Código del Item"
-          autoComplete="itemcode"
+          name="SKU"
+          value={formData.SKU}
+          onChange={handleInputChange}
+          placeholder="Código del Producto"
           required
         />
         <input
           type="text"
-          value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
-          placeholder="Nombre del Item"
-          autoComplete="itemname"
+          name="description"
+          value={formData.description}
+          onChange={handleInputChange}
+          placeholder="Nombre del Producto"
           required
         />
         <input
           type="number"
-          value={itemPrice}
-          onChange={(e) => setItemPrice(e.target.value)}
-          placeholder="Precio del Item"
-          autoComplete="itemprice"
+          name="price"
+          value={formData.price}
+          onChange={handleInputChange}
+          placeholder="Precio del Producto"
           required
         />
         <input
           type="number"
-          value={itemStock}
-          onChange={(e) => setItemStock(e.target.value)}
-          placeholder="Stock del Item"
-          autoComplete="itemstock"
+          name="stock"
+          value={formData.stock}
+          onChange={handleInputChange}
+          placeholder="Stock del Producto"
           required
         />
         <label>Información Adicional</label>
         <select
-          value={itemCategory}
-          onChange={(e) => setItemCategory(e.target.value)}
+          name="category"
+          value={formData.category}
+          onChange={handleInputChange}
           required
         >
+          <option value="">Seleccione una categoría</option>
           {categoryOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.description}
             </option>
           ))}
         </select>
+        <select
+          name="unit"
+          value={formData.unit}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Seleccione unidad de medida</option>
+          {unitOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.description}
+            </option>
+          ))}
+        </select>
       </section>
+
       <section className="right-inputs">
         <div className="toggle-stock-controller">
           <h1>Stock</h1>
           <div className="container__toggle-stock">
-            <label>Controlar Stock del Item</label>
+            <label>Controlar Stock del Producto</label>
             <label className="toggle-label">
               <input
                 type="checkbox"
@@ -142,8 +217,12 @@ const AddProductForm = ({ handleCancel, handleSave }) => {
           />
         </div>
         <div className="button-group-products">
-          <ButtonGeneric buttonContent="Cancelar" onClick={handleCancel} />
-          <ButtonGeneric buttonContent="Guardar" isDisabled={isDisabled} />
+          <ButtonGeneric buttonContent="Cancelar" onClick={handleHide} />
+          <ButtonGeneric
+            type="submit"
+            buttonContent={isEditing ? 'Actualizar' : 'Guardar'}
+            isDisabled={Object.values(formErrors).some((value) => value !== '')}
+          />
         </div>
       </section>
     </form>

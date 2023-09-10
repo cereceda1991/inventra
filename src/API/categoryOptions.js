@@ -1,5 +1,4 @@
 export const categoryOptions = [
-  { value: '', description: 'Seleccione una categoría' },
   { value: 'limpieza', description: 'Limpieza' },
   { value: 'cuidado_personal', description: 'Cuidado Personal' },
   { value: 'bebidas', description: 'Bebidas' },

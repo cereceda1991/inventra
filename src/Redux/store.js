@@ -4,6 +4,7 @@ import authReducer from './Auth/authSlice';
 import userReducer from './User/userSlice';
 import darkModeReducer from './DarkMode/darkModeSlice';
 import imageReducer from './Images/imageSlice';
+import productReducer from './Product/productSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     user: userReducer,
     darkMode: darkModeReducer,
     image: imageReducer,
+    product: productReducer,
   },
   middleware: [thunk],
 });

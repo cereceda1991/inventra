@@ -3,12 +3,15 @@ import axios from 'axios';
 import { IconfileUploadB, IconfileUploadW } from '../../utils/CustomIcons';
 import camera from '../../assets/products/camera.svg';
 import './RemoveBg.css';
+import { useDispatch } from 'react-redux';
+import { uploadImage } from '../../Redux/Images/imageActions';
 
 const RemoveBg = () => {
   const [file, setFile] = useState(null);
   const [imageResult, setImageResult] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
+  const dispatch = useDispatch();
 
   const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -47,25 +50,34 @@ const RemoveBg = () => {
         ...(formData.getHeaders ? formData.getHeaders() : null),
       };
 
-      const response = await axios.post(
-        'https://api.remove.bg/v1.0/removebg',
-        formData,
-        {
+      // Llamar a ambas APIs al mismo tiempo
+      const [responseRemoveBg, responseUpload] = await Promise.all([
+        axios.post('https://api.remove.bg/v1.0/removebg', formData, {
           responseType: 'arraybuffer',
           headers,
           encoding: null,
-        },
-      );
+        }),
+        dispatch(uploadImage(formData)), // Llama a la segunda API con Redux Toolkit
+      ]);
 
-      if (response.status !== 200) {
-        console.error('Error:', response.status, response.statusText);
+      if (responseRemoveBg.status !== 200) {
+        console.error(
+          'Error en Remove.bg:',
+          responseRemoveBg.status,
+          responseRemoveBg.statusText,
+        );
         return;
       }
 
-      const fileBlob = new Blob([response.data], { type: 'image/png' });
+      const fileBlob = new Blob([responseRemoveBg.data], { type: 'image/png' });
       const fileUrl = URL.createObjectURL(fileBlob);
       setImageResult(fileUrl);
       setImagePreview(null);
+      // Mostrar la respuesta de Remove.bg en el log
+      console.log('Respuesta de Remove.bg:', responseRemoveBg);
+
+      // La respuesta de la segunda API (uploadImage) está en responseUpload
+      console.log('Respuesta de la segunda API (uploadImage):', responseUpload);
     } catch (error) {
       console.error('Request failed:', error);
     }
@@ -76,7 +88,8 @@ const RemoveBg = () => {
       <section>
         <input
           type="file"
-          accept="image/*"
+          accept=".png, .jpeg, .jpg"
+          name="image"
           onChange={handleChange}
           id="fileInput"
           style={{ display: 'none' }}

@@ -85,8 +85,7 @@ export const CardDashboardBottomPropTypes = {
 };
 
 export const AddProductFormPropTypes = {
-  handleCancel: PropTypes.func.isRequired,
-  handleSave: PropTypes.func.isRequired,
+  handleHide: PropTypes.func.isRequired,
 };
 
 export const DynamicTablePropTypes = {

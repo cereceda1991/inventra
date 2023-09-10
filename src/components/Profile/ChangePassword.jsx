@@ -95,7 +95,6 @@ function ChangePassword() {
   // Define la clase CSS para resaltar los campos con error
   const inputErrorClass = errors.password ? 'input-error' : '';
 
-
   return (
     <main className="container__change-password">
       <h2>Cambiar Contraseña</h2>
@@ -145,8 +144,14 @@ function ChangePassword() {
               />
             )}
           </div>
-          {errors.password && <div className="changePassword__error">{errors.password}</div>}
-          <ButtonGeneric type='submit' buttonContent="Guardar" isDisabled={isDisabled} />
+          {errors.password && (
+            <div className="changePassword__error">{errors.password}</div>
+          )}
+          <ButtonGeneric
+            type="submit"
+            buttonContent="Guardar"
+            isDisabled={isDisabled}
+          />
         </form>
       </section>
     </main>

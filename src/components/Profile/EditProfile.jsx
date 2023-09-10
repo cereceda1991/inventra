@@ -33,8 +33,7 @@ function EditProfile() {
     const imageFile = event.target.files[0];
     if (imageFile) {
       const formData = new FormData();
-      formData.append('image', imageFile);
-
+      formData.append('image_file', imageFile);
       try {
         setIsLoading(true); // Activa el estado de carga
 
