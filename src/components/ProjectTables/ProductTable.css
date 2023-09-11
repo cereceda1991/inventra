@@ -7,14 +7,15 @@
 .product_table th,
 td {
     border-bottom: 1px solid var(--border-color);
-    text-align: left;
     padding: 5px;
     font-size: 12px;
+    text-align: center;
+    font-weight: 400;
 }
 
-.product_table th {
-    font-weight: 400;
+.product_table td {
     text-align: center;
+    text-transform: capitalize;
 }
 
 .product_table img {
@@ -42,7 +43,7 @@ td {
 }
 
 .td_actions {
-    text-align: center;
+    text-align: left;
 }
 
 @media (min-width: 768px) {
