@@ -72,8 +72,6 @@ const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
     (state) => state.image.uploadedImage?.data[0]?.urlImg,
   );
 
-  console.log(uploadedImageUrl);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -92,6 +90,7 @@ const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
       if (isEditing) {
         const response = await dispatch(
           updateProduct(initialProductData._id, formData),
+          console.log(initialProductData._id),
         );
         console.log('Actualización exitosa del producto:', response);
 
@@ -99,7 +98,6 @@ const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
       } else {
         const response = await dispatch(registerProduct(formData));
         console.log('Registro exitoso del producto:', response);
-
         toast.success('Producto creado con éxito');
       }
       handleHide();

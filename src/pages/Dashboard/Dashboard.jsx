@@ -31,6 +31,7 @@ import './Dashboard.css';
 import { dataColor } from '../../API/dataColor';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../Redux/User/userActions';
+import { Link } from 'react-router-dom';
 const Dashboard = () => {
   const [selectedChartType, setSelectedChartType] = useState('line');
   const [selectedTensionType, setSelectedTensionType] = useState(0.4);
@@ -41,6 +42,9 @@ const Dashboard = () => {
   const usersData = useSelector((state) => state.user.users.data);
   const users = usersData ? usersData.users : [];
 
+  const productsData = useSelector((state) => state.product.products.data);
+  const products = productsData ? productsData.products : [];
+
   useEffect(() => {
     // Llama a la acción para obtener la lista de usuarios cuando el componente se monta
     dispatch(getUsers());
@@ -48,6 +52,7 @@ const Dashboard = () => {
 
   // Calcula la cantidad de usuarios
   const userCount = users.length;
+  const ProductCount = products.length;
 
   const handleChartTypeChange = (event) => {
     setSelectedChartType(event.target.value);
@@ -71,16 +76,20 @@ const Dashboard = () => {
       <Navbar />
       <section className="container_chart-board">
         <div className="chart_board-cards">
-          <CardDashboard
-            icon={<BiSolidUser />}
-            title="Usuarios"
-            value={userCount}
-          />
-          <CardDashboard
-            icon={<BiSolidCalendarCheck />}
-            title="Items"
-            value={50}
-          />
+          <Link to={'/users'}>
+            <CardDashboard
+              icon={<BiSolidUser />}
+              title="Usuarios"
+              value={userCount}
+            />
+          </Link>
+          <Link to={'/inventory'}>
+            <CardDashboard
+              icon={<BiSolidCalendarCheck />}
+              title="Items"
+              value={ProductCount}
+            />
+          </Link>
           <CardDashboard
             icon={<BiSolidBellRing />}
             title="Notificaciones"

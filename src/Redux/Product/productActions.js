@@ -7,8 +7,8 @@ const API_URL = import.meta.env.VITE_API_URL;
 export const registerProduct = (productData) => async (dispatch) => {
   try {
     const response = await axios.post(`${API_URL}/products`, productData);
-
-    dispatch(setProducts(response.data));
+    dispatch(setSelectedProduct(response.data));
+    dispatch(getProducts());
     return response;
   } catch (error) {
     handleCommonErrors(error);
