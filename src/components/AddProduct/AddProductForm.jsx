@@ -15,62 +15,35 @@ import { unitOptions } from '../../API/unitOptions';
 import { useSelector } from 'react-redux';
 
 const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
+
   const initialData = {
     SKU: '',
     description: '',
     category: '',
     stock: '',
     unit: '',
-    image_url: '',
     price: '',
-    stock_min: '',
-    stock_max: '',
   };
 
-  if (
-    initialProductData &&
-    initialProductData.SKU &&
-    initialProductData.description &&
-    initialProductData.category &&
-    initialProductData.stock &&
-    initialProductData.unit &&
-    initialProductData.image_url &&
-    initialProductData.price &&
-    initialProductData.stock_min &&
-    initialProductData.stock_max
-  ) {
-    initialData.SKU = initialProductData.SKU;
-    initialData.description = initialProductData.description;
-    initialData.category = initialProductData.category;
-    initialData.stock = initialProductData.stock;
-    initialData.unit = initialProductData.unit;
-    initialData.image_url = initialProductData.image_url;
-    initialData.price = initialProductData.price;
-    initialData.stock_min = initialProductData.stock_min;
-    initialData.stock_max = initialProductData.stock_max;
+  // Verifica si estás en el modo de edición y, si es así, copia los datos existentes
+  if (initialProductData) {
+    Object.assign(initialData, initialProductData);
   }
 
   const [formData, setFormData] = useState(initialData);
   const [stockControlled, setStockControlled] = useState(false);
   const [itemStockMin, setItemStockMin] = useState('');
   const [itemStockMax, setItemStockMax] = useState('');
-  const [formErrors, setFormErrors] = useState({
-    SKU: '',
-    description: '',
-    category: '',
-    stock: '',
-    unit: '',
-    image_url: '',
-    price: '',
-    stock_min: '',
-    stock_max: '',
-  });
+
+  console.log(formData);
 
   const dispatch = useDispatch();
 
   const uploadedImageUrl = useSelector(
     (state) => state.image.uploadedImage?.data[0]?.urlImg,
   );
+
+  console.log(uploadedImageUrl);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -81,34 +54,35 @@ const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
     // Asigna la URL de la imagen cargada al formulario
+    event.preventDefault();
     formData.image_url = uploadedImageUrl;
-
     try {
       if (isEditing) {
+
         const response = await dispatch(
           updateProduct(initialProductData._id, formData),
-          console.log(initialProductData._id),
         );
         console.log('Actualización exitosa del producto:', response);
 
         toast.success('Producto actualizado con éxito');
       } else {
+        console.log(formData);
         const response = await dispatch(registerProduct(formData));
+
         console.log('Registro exitoso del producto:', response);
         toast.success('Producto creado con éxito');
       }
       handleHide();
     } catch (error) {
-      if (error.errors) {
-        setFormErrors(error.errors);
-      } else {
-        console.error('Error en la operación:', error);
-      }
+      console.error('Error en la operación:', error);
     }
+
   };
+
+
+  const isDisabled = Object.values(formData).some((value) => value === '');
+
 
   return (
     <form className="add-product-form" onSubmit={handleFormSubmit}>
@@ -219,7 +193,7 @@ const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
           <ButtonGeneric
             type="submit"
             buttonContent={isEditing ? 'Actualizar' : 'Guardar'}
-            isDisabled={Object.values(formErrors).some((value) => value !== '')}
+            isDisabled={isDisabled}
           />
         </div>
       </section>

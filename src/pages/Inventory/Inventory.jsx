@@ -80,7 +80,9 @@ const Inventory = () => {
   };
 
   const hideProductForm = () => {
-    setShowAddProductForm(false); // Hide the form when cancel is clicked
+    // Hide the form when cancel is clicked
+    setShowAddProductForm(false);
+    setEditedProduct(null);
   };
 
   const productCounter = productsData ? productsData.products.length : 0;
@@ -109,7 +111,7 @@ const Inventory = () => {
         {showAddProductForm ? (
           <AddProductForm
             handleHide={hideProductForm}
-            initialUserData={editedProduct}
+            initialProductData={editedProduct}
             isEditing={editedProduct !== null}
           />
         ) : (
