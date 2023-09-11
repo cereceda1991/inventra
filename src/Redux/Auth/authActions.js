@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { handleCommonErrors } from '../../utils/handleCommonErrors';
 import { setUser } from './authSlice';
+import { getUsers } from '../User/userActions';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -9,6 +10,8 @@ export const registerUser = (userData) => async (dispatch) => {
     const response = await axios.post(`${API_URL}/auth/register`, userData);
 
     dispatch(setUser(response.data.user));
+    //por optimizar
+    dispatch(getUsers(response.data));
     return response;
   } catch (error) {
     handleCommonErrors(error);

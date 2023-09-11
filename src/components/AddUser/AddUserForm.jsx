@@ -11,7 +11,7 @@ import { useState } from 'react';
 // Importaciones relacionadas con Redux y acciones:
 
 import { registerUser } from '../../Redux/Auth/authActions';
-import { getUsers, updateUser } from '../../Redux/User/userActions';
+import { updateUser } from '../../Redux/User/userActions';
 import { useDispatch } from 'react-redux';
 // Importación de un componente personalizado:
 
@@ -81,7 +81,6 @@ const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
         const response = await dispatch(registerUser(formData));
         console.log('Registro exitoso del usuario:', response);
         toast.success('Usuario creado con éxito');
-        dispatch(getUsers(response.data));
       }
       handleHide();
     } catch (error) {
@@ -110,8 +109,8 @@ const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
                     ? 'text'
                     : 'password'
                   : field === 'email'
-                  ? 'email'
-                  : 'text'
+                    ? 'email'
+                    : 'text'
               }
               name={field}
               value={formData[field]}
@@ -120,19 +119,19 @@ const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
                 field === 'name'
                   ? 'Nombre de Usuario'
                   : field === 'email'
-                  ? 'Correo Electrónico'
-                  : field === 'password'
-                  ? 'Contraseña'
-                  : 'Confirmar Contraseña'
+                    ? 'Correo Electrónico'
+                    : field === 'password'
+                      ? 'Contraseña'
+                      : 'Confirmar Contraseña'
               }
               autoComplete={
                 field === 'email'
                   ? 'email'
                   : field === 'password'
-                  ? 'new-password'
-                  : field === 'confirmPassword'
-                  ? 'new-password'
-                  : 'name'
+                    ? 'new-password'
+                    : field === 'confirmPassword'
+                      ? 'new-password'
+                      : 'name'
               }
               className={errors[field] ? 'input-error' : ''}
               required={field !== 'confirmPassword'}
