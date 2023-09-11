@@ -9,14 +9,18 @@ td {
     border-bottom: 1px solid var(--border-color);
     padding: 5px;
     font-size: 12px;
-    text-align: center;
+    text-align: left;
     font-weight: 400;
 }
 
 .product_table td {
-    text-align: center;
     text-transform: capitalize;
 }
+
+.product_table th:first-child {
+    text-align: center;
+}
+
 
 .product_table img {
     width: 30px;
@@ -40,10 +44,6 @@ td {
 
 .table_icon-trash:hover {
     background-color: rgb(223, 111, 121, 0.5);
-}
-
-.td_actions {
-    text-align: left;
 }
 
 @media (min-width: 768px) {
