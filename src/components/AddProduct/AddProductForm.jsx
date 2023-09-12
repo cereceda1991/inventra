@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
-import RemoveBg from '../RemoveBg/RemoveBg';
 import { categoryOptions } from '../../API/categoryOptions';
 import { AddProductFormPropTypes } from '../../utils/propTypes';
 import { toast } from 'react-toastify';
@@ -13,6 +12,7 @@ import {
 } from '../../Redux/Product/productActions';
 import { unitOptions } from '../../API/unitOptions';
 import { useSelector } from 'react-redux';
+import UploadProduct from '../UploadProduct/UploadProduct';
 
 const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
   const initialData = {
@@ -82,7 +82,7 @@ const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
   return (
     <form className="add-product-form" onSubmit={handleFormSubmit}>
       <section className="left-inputs">
-        <RemoveBg />
+        <UploadProduct />
       </section>
       <section className="center-inputs">
         <input
