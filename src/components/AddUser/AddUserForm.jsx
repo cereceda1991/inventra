@@ -109,8 +109,8 @@ const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
                     ? 'text'
                     : 'password'
                   : field === 'email'
-                    ? 'email'
-                    : 'text'
+                  ? 'email'
+                  : 'text'
               }
               name={field}
               value={formData[field]}
@@ -119,19 +119,19 @@ const AddUserForm = ({ roles, handleHide, initialUserData, isEditing }) => {
                 field === 'name'
                   ? 'Nombre de Usuario'
                   : field === 'email'
-                    ? 'Correo Electrónico'
-                    : field === 'password'
-                      ? 'Contraseña'
-                      : 'Confirmar Contraseña'
+                  ? 'Correo Electrónico'
+                  : field === 'password'
+                  ? 'Contraseña'
+                  : 'Confirmar Contraseña'
               }
               autoComplete={
                 field === 'email'
                   ? 'email'
                   : field === 'password'
-                    ? 'new-password'
-                    : field === 'confirmPassword'
-                      ? 'new-password'
-                      : 'name'
+                  ? 'new-password'
+                  : field === 'confirmPassword'
+                  ? 'new-password'
+                  : 'name'
               }
               className={errors[field] ? 'input-error' : ''}
               required={field !== 'confirmPassword'}

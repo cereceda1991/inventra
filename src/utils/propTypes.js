@@ -95,3 +95,7 @@ export const DynamicTablePropTypes = {
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
+
+export const ExportButtonPropTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

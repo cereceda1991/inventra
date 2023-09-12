@@ -6,4 +6,8 @@ export const currencyOptions = [
   'Libra Esterlina (GBP)',
   'Dólar Canadiense (CAD)',
   'Dólar Australiano (AUD)',
+  'Peso Argentino (ARS)',
+  'Peso Mexicano (MXN)',
+  'Peso Uruguayo (UYU)',
+  'Bolívar Venezolano (VES)',
 ];

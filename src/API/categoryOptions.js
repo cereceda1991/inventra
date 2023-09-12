@@ -3,6 +3,8 @@ export const categoryOptions = [
   { value: 'cuidado_personal', description: 'Cuidado Personal' },
   { value: 'galletas_y_golosinas', description: 'Galletas y golosinas' },
   { value: 'bebidas', description: 'Bebidas' },
+  { value: 'abarrotes', description: 'Abarrotes' },
+  { value: 'cereales', description: 'cereales' },
   { value: 'snacks', description: 'Snacks' },
   { value: 'frutas_verduras', description: 'Frutas y Verduras' },
   { value: 'carnes', description: 'Carnes y Pescados' },

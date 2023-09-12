@@ -15,7 +15,6 @@ const RemoveBg = () => {
 
   const apiKey = import.meta.env.VITE_API_KEY;
 
-
   // Función para obtener el estado del modo oscuro desde el localStorage
   const getDarkModeFromLocalStorage = () => {
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
@@ -105,8 +104,9 @@ const RemoveBg = () => {
           )}
         </label>
         <button
-          className={`upload-image-text ${!imagePreview && !imageResult ? 'inactive-button' : ''
-            }`}
+          className={`upload-image-text ${
+            !imagePreview && !imageResult ? 'inactive-button' : ''
+          }`}
           type="button"
           onClick={handleSubmit}
           disabled={!imagePreview && !imageResult}

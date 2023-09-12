@@ -5,6 +5,7 @@ import userReducer from './User/userSlice';
 import darkModeReducer from './DarkMode/darkModeSlice';
 import imageReducer from './Images/imageSlice';
 import productReducer from './Product/productSlice';
+import exportReducer from './ExportExcel/exportSlice';
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
     darkMode: darkModeReducer,
     image: imageReducer,
     product: productReducer,
+    export: exportReducer,
   },
   middleware: [thunk],
 });

@@ -1,0 +1,7 @@
+.button_export {
+    font-size: 30px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border: none;
+    cursor: pointer;
+}

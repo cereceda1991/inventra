@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { IconFilter, IconExport, IconCategory } from '../../utils/CustomIcons';
+import { IconFilter, IconCategory } from '../../utils/CustomIcons';
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,6 +12,7 @@ import showDialog from '../../utils/showDialog';
 import './Inventory.css';
 import ProductTable from '../../components/ProjectTables/ProductTable';
 import AddProductForm from '../../components/AddProduct/AddProductForm';
+import ExportButton from '../../components/ExportButton/ExportButton';
 
 const Inventory = () => {
   const dispatch = useDispatch();
@@ -92,7 +93,7 @@ const Inventory = () => {
     sortBy: ['producto', 'codigo', 'categoria', 'stock', 'unidad', 'precio'],
     actions: [
       { icon: <IconFilter />, label: 'Filtrar' },
-      { icon: <IconExport />, label: 'Exportar' },
+      { icon: <ExportButton data={products} />, label: 'Exportar' },
       { icon: <IconCategory />, label: 'Category' },
     ],
     buttons: [

@@ -17,8 +17,9 @@ export const unitOptions = [
   { value: 'yd', description: 'Yarda' },
   { value: 'pc', description: 'Pieza' },
   { value: 'doz', description: 'Docena' },
-  { value: 'ea', description: 'Cada uno' },
   { value: 'pk', description: 'Paquete' },
   { value: 'btl', description: 'Botella' },
   { value: 'can', description: 'Lata' },
+  { value: 'caja', description: 'Caja' }, // Nueva opción: Caja
+  { value: 'c/u', description: 'Cada uno' },
 ];

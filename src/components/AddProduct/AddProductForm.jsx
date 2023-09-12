@@ -15,7 +15,6 @@ import { unitOptions } from '../../API/unitOptions';
 import { useSelector } from 'react-redux';
 
 const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
-
   const initialData = {
     SKU: '',
     description: '',
@@ -59,7 +58,6 @@ const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
     formData.image_url = uploadedImageUrl;
     try {
       if (isEditing) {
-
         const response = await dispatch(
           updateProduct(initialProductData._id, formData),
         );
@@ -77,12 +75,9 @@ const AddProductForm = ({ handleHide, initialProductData, isEditing }) => {
     } catch (error) {
       console.error('Error en la operación:', error);
     }
-
   };
 
-
   const isDisabled = Object.values(formData).some((value) => value === '');
-
 
   return (
     <form className="add-product-form" onSubmit={handleFormSubmit}>
