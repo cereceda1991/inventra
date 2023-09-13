@@ -9,7 +9,7 @@ import { PiExportBold } from 'react-icons/pi';
 import './ExportButton.css';
 import { ExportButtonPropTypes } from '../../utils/propTypes';
 
-const ExportButton = ({ data }) => {
+const ExportButton = ({ data, entity }) => {
   const dispatch = useDispatch();
   const exporting = useSelector((state) => state.export.exporting);
 
@@ -19,7 +19,7 @@ const ExportButton = ({ data }) => {
 
     try {
       // Realiza la lógica de exportación aquí, usando tu función exportToExcel
-      const fileName = 'products.xlsx';
+      const fileName = `${entity}.xlsx`;
       await exportToExcel(data, fileName);
 
       // Finaliza la exportación después de que se complete

@@ -1,6 +1,6 @@
 .button_export {
     font-size: 30px;
-    color: var(--text-color);
+    color: var(--icon-color);
     background-color: var(--background-color);
     border: none;
     cursor: pointer;

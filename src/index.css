@@ -7,9 +7,10 @@
 }
 
 :root {
-    --background-color: #f4f7ff;
+    --background-color: #f2f6fe;
     --text-color: #303030;
     --main-color: #3a78f2;
+    --icon-color: #3a78f2;
     --color-focus: #3a78f2;
     --border-color: #ccc;
     --overlay-color: rgba(41, 105, 227, 0.6);
@@ -21,6 +22,7 @@ body.darkmode {
     --background-color: #444654;
     --text-color: #f7f7f8;
     --main-color: #0008;
+    --icon-color: #cfcfcf;
     --color-focus: #f7f7f8;
     --border-color: #cfcfcf;
     --overlay-color: #0007;

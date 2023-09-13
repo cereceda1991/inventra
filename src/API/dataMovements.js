@@ -13,7 +13,7 @@ export const generateLabels = (month) => {
 };
 
 // Exportamos los datos
-export const labels = generateLabels('Julio');
+export const labels = generateLabels('Agosto');
 
 export const dataMovementsMonth = {
   label: 'Mes Actual',

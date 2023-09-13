@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import AddUserForm from '../../components/AddUser/AddUserForm';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { IconFilter, IconExport } from '../../utils/CustomIcons';
 import ProductOptions from '../../components/ProductsOptions/ProductsOptions';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,6 +12,8 @@ import { roles } from '../../API/dataUser';
 import showDialog from '../../utils/showDialog';
 import './Users.css';
 import UserTable from '../../components/ProjectTables/UserTable';
+import ExportButton from '../../components/ExportButton/ExportButton';
+import FilterButton from '../../components/FilterButton/FilterButton';
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -86,9 +87,9 @@ const Users = () => {
   const options = {
     sortBy: ['nombre', 'rol', 'correo'],
     actions: [
-      { icon: <IconFilter className="user__options-icon" />, label: 'Filtrar' },
+      { icon: <FilterButton />, label: 'Filtrar' },
       {
-        icon: <IconExport className="user__options-icon" />,
+        icon: <ExportButton data={users} entity='Usuarios' />,
         label: 'Exportar',
       },
     ],
