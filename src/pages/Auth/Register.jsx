@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric';
 // Recursos
 import personal from '../../assets/personal_inventra.webp';
-import logo from '../../assets/logo-azul-inventra-042.webp';
+import logo from '../../assets/logo-azul.webp';
 import { BiLowVision, BiShow } from 'react-icons/bi';
 import './Auth.css';
 
@@ -64,7 +64,7 @@ const Register = () => {
           </div>
           <h1 className="auth__title">Te damos la bienvenida</h1>
           <p className="auth__paragraph">
-            Regístrate para conocer todas las ventajas que Inventra tiene para
+            Regístrate para conocer todas las ventajas que StockFlow tiene para
             ti.
           </p>
           <form onSubmit={handleRegister}>
