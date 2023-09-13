@@ -1,18 +1,32 @@
 import './ProductsOptions.css';
 import { ProductOptionsPropTypes } from '../../utils/propTypes';
 import ButtonGeneric from '../ButtonGeneric/ButtonGeneric';
+import { setSort } from '../../Redux/Product/filterProductSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductOptions = ({ productCount, options }) => {
+
+  const dispatch = useDispatch();
+  const sortBy = useSelector((state) => state.filterProduct.sortBy);
+  console.log(sortBy);
+
+  // Función para manejar el cambio en el select de ordenamiento
+  const handleSortChange = (event) => {
+    const selectedValue = event.target.value;
+    // Despacha la acción para actualizar el criterio de ordenamiento
+    dispatch(setSort({ column: selectedValue, order: 'asc' }));
+  };
+
   return (
     <main className="product-options">
       <section className="product-options__counter">{productCount}</section>
       <section className="product-options__actions">
         <div className="product-options__dropdown">
-          <select>
+          <select onChange={handleSortChange} value={sortBy}>
             <option value="">Ordenar por</option>
             {options.sortBy.map((option, index) => (
-              <option key={index} value={`opcion${index + 1}`}>
-                {option}
+              <option key={index} value={option.value}>
+                {option.description}
               </option>
             ))}
           </select>

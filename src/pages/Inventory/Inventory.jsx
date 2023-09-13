@@ -90,7 +90,14 @@ const Inventory = () => {
   let productCount = `${productCounter} Productos`;
 
   const optionsTableInventory = {
-    sortBy: ['producto', 'codigo', 'categoria', 'stock', 'unidad', 'precio'],
+    sortBy: [
+      { value: 'description', description: 'Nombre del Producto' },
+      { value: 'SKU', description: 'Código' },
+      { value: 'category', description: 'Categoría' },
+      { value: 'stock', description: 'Stock' },
+      { value: 'unit', description: 'Unidad' },
+      { value: 'price', description: 'Precio' },
+    ],
     actions: [
       { icon: <IconFilter />, label: 'Filtrar' },
       { icon: <ExportButton data={products} />, label: 'Exportar' },
