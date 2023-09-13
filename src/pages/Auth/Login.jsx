@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Auth.css';
 import { Link, useNavigate } from 'react-router-dom';
 import personal from '../../assets/personal_inventra.webp';
-import logo from '../../assets/logo-azul.webp';
+import logo from '../../assets/logo-azul-inventra-042.webp';
 import { BiLowVision, BiShow } from 'react-icons/bi';
 import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric';
 
@@ -50,11 +50,11 @@ const Login = () => {
       </section>
       <section className="auth__right">
         <div className="auth__content">
-          <Link to="/">
-            <div className="auth__logo">
+          <div className="auth__logo">
+            <Link to="/">
               <img src={logo} alt="Logo" />
-            </div>
-          </Link>
+            </Link>
+          </div>
           <h1 className="auth__title">¡Hola de nuevo!</h1>
           <p className="auth__paragraph">
             Inicia sesión para continuar gestionando tu inventario y hacer

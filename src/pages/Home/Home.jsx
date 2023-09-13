@@ -1,6 +1,6 @@
 import './Home.css';
-import portada from '../../assets/landing-StockFlow-1.webp';
-import logo from '../../assets/logo-azul.webp';
+import portada from '../../assets/landing-inventra-1.webp';
+import logo from '../../assets/logo-azul-inventra-042.webp';
 import { Link, Navigate } from 'react-router-dom';
 import ButtonGeneric from '../../components/ButtonGeneric/ButtonGeneric';
 import { SelectOptionsGroupPropTypes } from '../../utils/propTypes';
@@ -40,9 +40,9 @@ const Home = () => {
   const helpOptions = ['Ayuda'];
   const title = 'Gestiona tu inventario de una manera más sencilla.';
   const description1 =
-    'Ten el control de tu inventario a través de las diferentes funcionalidades que StockFlow tiene para ti y haz crecer tu negocio.';
+    'Ten el control de tu inventario a través de las diferentes funcionalidades que Inventra tiene para ti y haz crecer tu negocio.';
   const description2 =
-    'Úsalo desde cualquier dispositivo y desde cualquier lugar, StockFlow siempre estará ahí para ti.';
+    'Úsalo desde cualquier dispositivo y desde cualquier lugar, Inventra siempre estará ahí para ti.';
 
   return (
     <div className="home">
